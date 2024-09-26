@@ -247,35 +247,28 @@ footer {
     align-items: flex-start;
 }
 
-.content-container ul {
-    margin-left: 20px;
-}
-
-.images {
+.content-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.images img {
-    margin-right: 10px;
+.item {
+    flex: 1 1 100%;
+    margin: 10px;
 }
 
-.images img:last-child {
-    margin-right: 0;
-}
-/* تنسيقات للشاشات الكبيرة */
-body {
-    font-size: 16px;
-}
-
-/* تنسيقات للشاشات الصغيرة */
-@media (max-width: 600px) {
-    body {
-        font-size: 14px;
+@media (min-width: 600px) {
+    .item {
+        flex: 1 1 48%;
     }
-    .container {
-        padding: 10px;
-    }
+}
+.element {
+    margin-bottom: 20px;
 }
 
 
