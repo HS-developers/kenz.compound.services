@@ -263,6 +263,20 @@ footer {
 .images img:last-child {
     margin-right: 0;
 }
+/* تنسيقات للشاشات الكبيرة */
+body {
+    font-size: 16px;
+}
+
+/* تنسيقات للشاشات الصغيرة */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        padding: 10px;
+    }
+}
 
 
 
