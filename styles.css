@@ -232,7 +232,7 @@ footer {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
-    width: 100%;
+    width: 60%;
     font-size: 16px; /* تكبير حجم الخط */
     font-weight: bold; /* جعل الخط عريض */
     text-align: center; /* محاذاة النص في المنتصف */
