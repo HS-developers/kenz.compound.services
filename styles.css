@@ -275,6 +275,14 @@ img {
     .item {
         flex: 1 1 48%;
     }
+@media (max-width: 600px) {
+    .logo {
+        max-width: 80px; /* حجم أصغر للشاشات الصغيرة */
+    }
+    .header {
+        text-align: center; /* توسيط اللوجو والنص */
+    }
+}
 
 
 
