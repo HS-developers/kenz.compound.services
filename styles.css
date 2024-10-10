@@ -249,16 +249,31 @@ footer {
 
 .content-container {
     display: flex;
-    flex-direction: row-reverse;
-    align-items: flex-start;
+    justify-content: space-between; /* لضمان أن تكون العناصر بعيدة عن بعضها */
+    align-items: flex-start; /* محاذاة العناصر في البداية */
 }
-.container {
+
+.buttons {
+    flex: 1; /* تأكد من أن الأزرار تأخذ المساحة المتاحة */
+    list-style-type: none;
+    padding: 0;
     display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
+    flex-direction: column;
+    gap: 10px; /* لضمان وجود فاصل بين الأزرار */
 }
+
+.images {
+    flex: 1; /* تأكد من أن الصور تأخذ المساحة المتاحة */
+    display: flex; /* استخدام flex لتنسيق الصور بجوار بعضها */
+    gap: 10px; /* فاصل بين الصور */
+}
+
+.images img {
+    width: 100%; /* تأكد من أن الصور تأخذ العرض الكامل للعنصر الأب */
+    height: auto; /* للحفاظ على نسبة العرض إلى الارتفاع */
+    object-fit: cover; /* لضمان أن الصور تغطي المساحة بالكامل */
+}
+
 
 .item {
     flex: 1 1 100%;
@@ -266,10 +281,6 @@ footer {
     box-sizing: border-box;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
 
 @media (min-width: 600px) {
     .item {
