@@ -259,7 +259,7 @@ footer {
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 20px; /* لضمان وجود فاصل بين الأزرار */
+    gap: 12px; /* لضمان وجود فاصل بين الأزرار */
 }
 
 .images {
