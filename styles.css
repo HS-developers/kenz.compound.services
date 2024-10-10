@@ -232,7 +232,7 @@ footer {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
-    width: 60%;
+    width: 30%;
     font-size: 16px; /* تكبير حجم الخط */
     font-weight: bold; /* جعل الخط عريض */
     text-align: center; /* محاذاة النص في المنتصف */
@@ -241,22 +241,32 @@ footer {
 #services button:hover {
     background-color: #45a049;
 }
-
-
 .content-container {
     display: flex;
-    justify-content: space-between; /* يبعد العناصر عن بعضها */
-    align-items: flex-start; /* محاذاة العناصر في البداية */
-    margin: 20px 0; /* إضافة بعض الهوامش */
+    justify-content: flex-start; /* يجعل الصور على اليسار */
+    align-items: flex-start;
 }
 
 .buttons {
-    flex: 1; /* الأزرار تأخذ مساحة مناسبة */
+    order: 1; /* ترتيب الأزرار */
+    flex: 1;
+    margin-left: 20px; /* تعديل المسافة حسب الحاجة */
     list-style-type: none;
     padding: 0;
     display: flex;
-    flex-direction: column; /* ترتيب الأزرار عمودياً */
-    gap: 10px; /* فاصل بين الأزرار */
+    flex-direction: column;
+    gap: 10px; /* لضمان وجود فاصل بين الأزرار */
+}
+
+.buttons li {
+    flex: 1;
+}
+
+.buttons button {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .images {
@@ -278,28 +288,36 @@ footer {
     height: auto; /* للحفاظ على نسبة العرض إلى الارتفاع */
     object-fit: cover; /* لضمان أن الصور تغطي المساحة بالكامل */
 }
-
-
-
-.item {
-    flex: 1 1 100%;
-    margin: 10px;
-    box-sizing: border-box;
+.info {
+    display: flex; /* تأكد من استخدام display: flex */
+    flex-direction: column; /* ترتيب العناصر عموديًا */
+    direction: rtl; /* لضمان أن النص والعلامة المميزة يظهران بشكل صحيح */
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-
-@media (min-width: 600px) {
-    .item {
-        flex: 1 1 48%;
-    }
-@media (max-width: 600px) {
-    .logo {
-        max-width: 80px; /* حجم أصغر للشاشات الصغيرة */
-    }
-    .header {
-        text-align: center; /* توسيط اللوجو والنص */
-    }
+.info ul {
+    list-style-type: none;
+    padding: 0;
 }
+
+.info ul li {
+    display: block; /* عرض كل عنصر على سطر منفصل */
+    margin-bottom: 10px; /* إضافة مسافة بين العناصر */
+    position: relative; /* لضمان أن العلامة المميزة تظهر بجوار النص */
+    padding-right: 20px; /* إضافة مسافة لظهور العلامة المميزة */
+}
+
+.info ul li::before {
+    content: "★"; /* يمكنك تغيير هذا الرمز إلى أي رمز آخر تفضله */
+    position: absolute;
+    right: 0; /* لضمان أن العلامة المميزة تظهر على يمين النص */
+    color: #4CAF50; /* لون العلامة المميزة */
+}
+
 
 
 
