@@ -241,38 +241,38 @@ footer {
 #services button:hover {
     background-color: #45a049;
 }
-.content-container {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: flex-start;
-}
+
 
 .content-container {
     display: flex;
-    justify-content: space-between; /* لضمان أن تكون العناصر بعيدة عن بعضها */
+    justify-content: space-between; /* يبعد العناصر عن بعضها */
     align-items: flex-start; /* محاذاة العناصر في البداية */
+    margin: 20px 0; /* إضافة بعض الهوامش */
 }
 
 .buttons {
-    flex: 1; /* تأكد من أن الأزرار تأخذ المساحة المتاحة */
+    flex: 1; /* الأزرار تأخذ مساحة مناسبة */
     list-style-type: none;
     padding: 0;
     display: flex;
-    flex-direction: column;
-    gap: 10px; /* لضمان وجود فاصل بين الأزرار */
+    flex-direction: column; /* ترتيب الأزرار عمودياً */
+    gap: 10px; /* فاصل بين الأزرار */
 }
 
 .images {
     flex: 1; /* تأكد من أن الصور تأخذ المساحة المتاحة */
-    display: flex; /* استخدام flex لتنسيق الصور بجوار بعضها */
+    display: flex; /* استخدام flex لعرض الصور بجوار بعضها */
     gap: 10px; /* فاصل بين الصور */
 }
 
 .images img {
-    width: 10%; /* تأكد من أن الصور تأخذ العرض الكامل للعنصر الأب */
+    width: 100%; /* تأكد من أن الصور تأخذ العرض الكامل للعنصر الأب */
+    max-width: 300px; /* تحديد عرض أقصى للصورة */
     height: auto; /* للحفاظ على نسبة العرض إلى الارتفاع */
     object-fit: cover; /* لضمان أن الصور تغطي المساحة بالكامل */
+    border-radius: 8px; /* إضافة حواف مستديرة للصورة */
 }
+
 
 
 .item {
