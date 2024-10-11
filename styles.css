@@ -272,6 +272,7 @@ footer {
 .images {
     order: 0; /* ترتيب الصور */
     display: flex;
+    flex-direction: column; /* لجعل الصور تظهر عموديًا */
     gap: 10px; /* يمكنك تعديل القيمة حسب الفاصل الذي تريده */
     flex: 1;
     margin-right: auto; /* يجعل الصور على يسار الأزرار */
