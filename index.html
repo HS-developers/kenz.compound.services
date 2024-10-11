@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -129,7 +130,7 @@
     <header>
         <img src="kenz.jpg" width="150" height="140" class="top-left" alt="Kenz Logo"/>
         <h1>مرحبا بكم في موقعنا الاول لخدمات كمبوند كنز</h1>
-        <p>تجدون قوائم متجددة دائما بجميع الخدمات المتاحة حول الكمبوند</p>
+        <p>تجدون قوائم متجددة دائما بجميع الخدمات المتاحة حول الكمبوند </p>
     </header>
     <nav>
         <ul>
@@ -160,9 +161,15 @@
         }
     </script>
     <section id="services">
-        <h2>المحتوي</h2>
-        <div class="content-container">
-            <ul class="buttons">
+        <h2>المحتوى</h2>
+        <div class="content-container" style="display: flex;">
+            <div class="images" style="flex: 1; display: flex; flex-wrap: wrap; gap: 10px;">
+                <img src="lake.jpg" class="image" alt="lake" style="flex: 1 1 calc(50% - 10px); height: 100%; object-fit: cover;">
+                <img src="gate 2.jpg" class="image" alt="gate" style="flex: 1 1 calc(50% - 10px); height: 100%; object-fit: cover;">
+                <img src="Inside.jpg" class="image" alt="Inside" style="flex: 1 1 calc(50% - 10px); height: 100%; object-fit: cover;">
+                <img src="Bar.jpg" class="image" alt="Bar" style="flex: 1 1 calc(50% - 10px); height: 100%; object-fit: cover;">
+            </div>
+            <ul class="buttons" style="flex: 1; list-style: none; padding: 0; display: flex; flex-direction: column; height: fit-content;">
                 <li><button onclick="toggleInfo('clinics')">عيادات و معامل</button></li>
                 <li><button onclick="toggleInfo('pharmacies')">صيدليات</button></li>
                 <li><button onclick="toggleInfo('supermarket')">سوبر ماركت</button></li>
@@ -171,10 +178,6 @@
                 <li><button onclick="toggleInfo('meat')">دواجن و لحوم</button></li>
                 <li><button onclick="toggleInfo('other_services')">متنوعات</button></li>
             </ul>
-            <div class="images">
-                <img src="lake.jpg" class="image" alt="lake">
-                <img src="gate 2.jpg" class="image" alt="gate">
-            </div>
         </div>
         <div id="clinics" class="info" style="display:none;">
             <ul>
