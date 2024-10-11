@@ -20,9 +20,9 @@ p {
 }
 
 .top-left {
-    position: absolute;
-    top: 0;
-    left: 0;
+    .top-left {
+    position: relative;
+    top: 20px; /* يمكنك تعديل القيمة حسب الحاجة */
 }
 
 .inline-elements {
