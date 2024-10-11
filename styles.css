@@ -243,14 +243,13 @@ footer {
 }
 .content-container {
     display: flex;
-    justify-content: flex-start; /* يجعل الصور على اليسار */
-    align-items: flex-start;
+    justify-content: space-between; /* لضمان توزيع المساحة بالتساوي */
+    align-items: stretch; /* لجعل الأزرار والصور بنفس الارتفاع */
 }
 
 .buttons {
-    order: 1; /* ترتيب الأزرار */
-    flex: 1;
-    margin-left: 20px; /* تعديل المسافة حسب الحاجة */
+    flex: 0 0 40%; /* تخصيص 40% من العرض للأزرار */
+    margin-left: -500px; /* تعديل المسافة حسب الحاجة */
     list-style-type: none;
     padding: 0;
     display: flex;
@@ -264,30 +263,26 @@ footer {
 
 .buttons button {
     width: 100%;
-    height: 100%;
+    height: 100%; /* جعل الأزرار تأخذ الارتفاع الكامل */
     padding: 10px;
     box-sizing: border-box;
 }
 
 .images {
-    order: 0; /* ترتيب الصور */
-    display: flex;
-    flex-direction: column; /* لجعل الصور تظهر عموديًا */
-    gap: 10px; /* يمكنك تعديل القيمة حسب الفاصل الذي تريده */
-    flex: 1;
-    margin-right: auto; /* يجعل الصور على يسار الأزرار */
+    display: flex; /* استخدام Flexbox */
+    flex-wrap: wrap; /* السماح باللف على عدة أسطر */
+    gap: 10px; /* الفجوة بين الصور */
+    justify-content: flex-start; /* محاذاة الصور على اليسار */
+    flex: 0 0 40%; /* تخصيص 40% من العرض للصور لتكون متوازية مع الأزرار */
 }
 
-.images .image {
-    width: 100%;
-    height: auto; /* للحفاظ على نسبة العرض إلى الارتفاع */
+.image {
+    width: calc(50% - 5px); /* عرض كل صورة 50% ناقص الفجوة */
+    height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+    max-height: 350px; /* ضبط الحد الأقصى للارتفاع */
+    object-fit: cover; /* التأكد من ملاءمة الصورة داخل الإطار */
 }
 
-.images img {
-    width: 100%; /* تأكد من أن الصور تأخذ العرض الكامل للعنصر الأب */
-    height: auto; /* للحفاظ على نسبة العرض إلى الارتفاع */
-    object-fit: cover; /* لضمان أن الصور تغطي المساحة بالكامل */
-}
 .info {
     display: flex; /* تأكد من استخدام display: flex */
     flex-direction: column; /* ترتيب العناصر عموديًا */
@@ -317,7 +312,6 @@ footer {
     right: 0; /* لضمان أن العلامة المميزة تظهر على يمين النص */
     color: #4CAF50; /* لون العلامة المميزة */
 }
-
 
 
 
