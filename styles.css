@@ -69,35 +69,33 @@ main {
 }
 
 .buttons {
-    position: absolute; /* تجعل الأزرار فوق الصور */
-    top: 10px; /* ضبط المسافة من الأعلى */
-    right: 10px; /* ضبط المسافة من اليمين */
-    width: auto; /* عرض الأزرار تلقائي */
-    background-color: transparent; /* خلفية شفافة للأزرار */
-    padding: 5px; /* تقليل الحواف للأزرار */
-    border-radius: 5px; /* زوايا دائرية */
-    display: flex; /* جعل الأزرار تظهر بشكل أفقي */
-    flex-direction: row; /* عرض الأزرار أفقيًا */
-    gap: 5px; /* تقليل المسافة بين الأزرار */
-    z-index: 10; /* ضمان بقاء الأزرار فوق العناصر الأخرى */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    order: 1; /* تأكيد ترتيب الأزرار */
+    z-index: 10; /* لضمان ظهور الأزرار فوق الصور */
 }
 
 .buttons button {
-    background-color: rgba(255, 255, 255, 0.8); /* خلفية شفافة بلون أبيض للأزرار */
-    color: #4CAF50; /* لون النص */
-    padding: 8px 12px; /* تقليل حجم الأزرار */
-    font-size: 14px; /* تقليل حجم النص داخل الأزرار */
-    border: 2px solid #4CAF50; /* إضافة حدود بلون النص */
-    border-radius: 4px; /* زوايا دائرية */
-    cursor: pointer; /* تغيير شكل المؤشر عند المرور فوق الزر */
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
     transition: background-color 0.3s, transform 0.3s; /* إضافة تأثير الانتقال */
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Cairo', sans-serif; /* إضافة هذه الخاصية لضمان استخدام نفس الخط */
 }
 
 .buttons button:hover {
-    background-color: rgba(76, 175, 80, 0.8); /* خلفية شفافة مع تأثير عند التمرير */
+    background-color: #45a049;
     transform: scale(1.05); /* تكبير الزر عند التمرير */
 }
-
 
 .images {
     flex: 1;
@@ -159,27 +157,41 @@ main {
     .content-container {
         flex-direction: column; /* تغيير الاتجاه إلى عمودي */
     }
+    
     .buttons {
-        position: absolute; /* تجعل الأزرار فوق الصور */
-        top: 5px; /* ضبط المسافة من الأعلى */
-        right: 10px; /* ضبط المسافة من اليمين */
-        width: auto; /* عرض الأزرار تلقائي */
-        background-color: rgba(255, 255, 255, 0.2); /* خلفية شفافة للأزرار */
-        padding: 5px; /* تقليل الحواف للأزرار */
-        border-radius: 5px; /* زوايا دائرية */
-        display: flex; /* جعل الأزرار تظهر بشكل أفقي */
-        flex-direction: row; /* عرض الأزرار أفقيًا */
-        gap: 15px; /* تقليل المسافة بين الأزرار */
-        z-index: 10; /* ضمان بقاء الأزرار فوق العناصر الأخرى */
-    }
-    .buttons button {
-        padding: 1px; /* تقليل حجم الأزرار */
-        font-size: 6px; /* تقليل حجم النص داخل الأزرار */
-    }
+    position: absolute; /* تجعل الأزرار فوق الصور */
+    top: 10px; /* ضبط المسافة من الأعلى */
+    right: 10px; /* ضبط المسافة من اليمين */
+    width: auto; /* عرض الأزرار تلقائي */
+    background-color: transparent; /* خلفية شفافة للأزرار */
+    padding: 5px; /* تقليل الحواف للأزرار */
+    border-radius: 5px; /* زوايا دائرية */
+    display: flex; /* جعل الأزرار تظهر بشكل أفقي */
+    flex-direction: row; /* عرض الأزرار أفقيًا */
+    gap: 5px; /* تقليل المسافة بين الأزرار */
+    z-index: 10; /* ضمان بقاء الأزرار فوق العناصر الأخرى */
+}
+
+.buttons button {
+    background-color: rgba(255, 255, 255, 0.8); /* خلفية شفافة بلون أبيض للأزرار */
+    color: #4CAF50; /* لون النص */
+    padding: 8px 12px; /* تقليل حجم الأزرار */
+    font-size: 14px; /* تقليل حجم النص داخل الأزرار */
+    border: 2px solid #4CAF50; /* إضافة حدود بلون النص */
+    border-radius: 4px; /* زوايا دائرية */
+    cursor: pointer; /* تغيير شكل المؤشر عند المرور فوق الزر */
+    transition: background-color 0.3s, transform 0.3s; /* إضافة تأثير الانتقال */
+}
+
+.buttons button:hover {
+    background-color: rgba(76, 175, 80, 0.8); /* خلفية شفافة مع تأثير عند التمرير */
+    transform: scale(1.05); /* تكبير الزر عند التمرير */
+}
+
     .images {
         margin-top: 60px; /* لإعطاء مساحة للأزرار */
     }
     .info {
-        margin-top: 80px; /* رفع مساحة المعلومات لعدم التداخل مع الأزرار */
+        margin-top: 100px; /* رفع مساحة المعلومات لعدم التداخل مع الأزرار */
     }
 }
