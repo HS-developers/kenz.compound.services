@@ -149,19 +149,4 @@ main {
     color: #45a049; /* تغيير لون النص عند التمرير */
 }
 
-@media screen and (max-width: 768px) {
-    .content-container {
-        flex-direction: column;
-    }
-    .images {
-        flex-direction: column;
-    }
-    .image {
-        width: 50%;
-        height: auto;
-    }
-    .buttons {
-        margin-top: 20px;
-    }
-}
 
