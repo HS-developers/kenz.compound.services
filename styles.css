@@ -174,8 +174,8 @@ main {
     }
 
     .buttons button {
-        background-color: rgba(255, 255, 255, 0.8); /* خلفية شفافة بلون أبيض للأزرار */
-        color: #4CAF50; /* لون النص */
+        background-color: rgba(94, 212, 131, 0.0); /* خلفية شفافة بلون أبيض للأزرار */
+        color: #e9f3ea; /* لون النص */
         padding: 8px 12px; /* تقليل حجم الأزرار */
         font-size: 14px; /* تقليل حجم النص داخل الأزرار */
         border: 2px solid #4CAF50; /* إضافة حدود بلون النص */
@@ -185,7 +185,7 @@ main {
     }
 
     .buttons button:hover {
-        background-color: rgba(76, 175, 80, 0.8); /* خلفية شفافة مع تأثير عند التمرير */
+        background-color: rgba(94, 212, 131, 0.0); /* خلفية شفافة مع تأثير عند التمرير */
         transform: scale(1.05); /* تكبير الزر عند التمرير */
     }
 
