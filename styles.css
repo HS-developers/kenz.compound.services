@@ -69,33 +69,35 @@ main {
 }
 
 .buttons {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    order: 1; /* تأكيد ترتيب الأزرار */
-    z-index: 10; /* لضمان ظهور الأزرار فوق الصور */
+    position: absolute; /* تجعل الأزرار فوق الصور */
+    top: 10px; /* ضبط المسافة من الأعلى */
+    right: 10px; /* ضبط المسافة من اليمين */
+    width: auto; /* عرض الأزرار تلقائي */
+    background-color: transparent; /* خلفية شفافة للأزرار */
+    padding: 5px; /* تقليل الحواف للأزرار */
+    border-radius: 5px; /* زوايا دائرية */
+    display: flex; /* جعل الأزرار تظهر بشكل أفقي */
+    flex-direction: row; /* عرض الأزرار أفقيًا */
+    gap: 5px; /* تقليل المسافة بين الأزرار */
+    z-index: 10; /* ضمان بقاء الأزرار فوق العناصر الأخرى */
 }
 
 .buttons button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.8); /* خلفية شفافة بلون أبيض للأزرار */
+    color: #4CAF50; /* لون النص */
+    padding: 8px 12px; /* تقليل حجم الأزرار */
+    font-size: 14px; /* تقليل حجم النص داخل الأزرار */
+    border: 2px solid #4CAF50; /* إضافة حدود بلون النص */
+    border-radius: 4px; /* زوايا دائرية */
+    cursor: pointer; /* تغيير شكل المؤشر عند المرور فوق الزر */
     transition: background-color 0.3s, transform 0.3s; /* إضافة تأثير الانتقال */
-    width: 100%;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    font-family: 'Cairo', sans-serif; /* إضافة هذه الخاصية لضمان استخدام نفس الخط */
 }
 
 .buttons button:hover {
-    background-color: #45a049;
+    background-color: rgba(76, 175, 80, 0.8); /* خلفية شفافة مع تأثير عند التمرير */
     transform: scale(1.05); /* تكبير الزر عند التمرير */
 }
+
 
 .images {
     flex: 1;
