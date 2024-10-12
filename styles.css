@@ -161,10 +161,13 @@ main {
         position: absolute; /* تجعل الأزرار فوق الصور */
         top: 10px; /* ضبط المسافة من الأعلى */
         right: 10px; /* ضبط المسافة من اليمين */
-        width: calc(100% - 20px); /* عرض الأزرار */
+        width: auto; /* عرض الأزرار تلقائي */
         background-color: rgba(255, 255, 255, 0.8); /* خلفية شفافة للأزرار */
         padding: 10px; /* padding للأزرار */
         border-radius: 5px; /* زوايا دائرية */
+        display: flex; /* جعل الأزرار تظهر بشكل أفقي */
+        flex-direction: row; /* عرض الأزرار أفقيًا */
+        gap: 10px; /* إضافة مسافة بين الأزرار */
     }
     .images {
         margin-top: 60px; /* لإعطاء مساحة للأزرار */
