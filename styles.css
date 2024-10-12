@@ -157,7 +157,7 @@ main {
         flex-direction: column;
     }
     .image {
-        width: 100%;
+        width: 50%;
         height: auto;
     }
     .buttons {
