@@ -157,41 +157,47 @@ main {
     .content-container {
         flex-direction: column; /* تغيير الاتجاه إلى عمودي */
     }
-    
+
     .buttons {
-    position: absolute; /* تجعل الأزرار فوق الصور */
-    top: 10px; /* ضبط المسافة من الأعلى */
-    right: 10px; /* ضبط المسافة من اليمين */
-    width: auto; /* عرض الأزرار تلقائي */
-    background-color: transparent; /* خلفية شفافة للأزرار */
-    padding: 5px; /* تقليل الحواف للأزرار */
-    border-radius: 5px; /* زوايا دائرية */
-    display: flex; /* جعل الأزرار تظهر بشكل أفقي */
-    flex-direction: row; /* عرض الأزرار أفقيًا */
-    gap: 5px; /* تقليل المسافة بين الأزرار */
-    z-index: 10; /* ضمان بقاء الأزرار فوق العناصر الأخرى */
-}
+        position: absolute; /* تجعل الأزرار فوق الصور */
+        top: 10px; /* ضبط المسافة من الأعلى */
+        left: 10px; /* ضبط المسافة من اليسار */
+        right: 10px; /* ضبط المسافة من اليمين */
+        width: calc(100% - 20px); /* عرض الأزرار تلقائي مع مساحة من الجانبين */
+        background-color: transparent; /* خلفية شفافة للأزرار */
+        padding: 5px; /* تقليل الحواف للأزرار */
+        border-radius: 5px; /* زوايا دائرية */
+        display: flex; /* جعل الأزرار تظهر بشكل أفقي */
+        flex-direction: row; /* عرض الأزرار أفقيًا */
+        gap: 5px; /* تقليل المسافة بين الأزرار */
+        z-index: 10; /* ضمان بقاء الأزرار فوق العناصر الأخرى */
+    }
 
-.buttons button {
-    background-color: rgba(255, 255, 255, 0.8); /* خلفية شفافة بلون أبيض للأزرار */
-    color: #4CAF50; /* لون النص */
-    padding: 8px 12px; /* تقليل حجم الأزرار */
-    font-size: 14px; /* تقليل حجم النص داخل الأزرار */
-    border: 2px solid #4CAF50; /* إضافة حدود بلون النص */
-    border-radius: 4px; /* زوايا دائرية */
-    cursor: pointer; /* تغيير شكل المؤشر عند المرور فوق الزر */
-    transition: background-color 0.3s, transform 0.3s; /* إضافة تأثير الانتقال */
-}
+    .buttons button {
+        background-color: rgba(255, 255, 255, 0.8); /* خلفية شفافة بلون أبيض للأزرار */
+        color: #4CAF50; /* لون النص */
+        padding: 8px 12px; /* تقليل حجم الأزرار */
+        font-size: 14px; /* تقليل حجم النص داخل الأزرار */
+        border: 2px solid #4CAF50; /* إضافة حدود بلون النص */
+        border-radius: 4px; /* زوايا دائرية */
+        cursor: pointer; /* تغيير شكل المؤشر عند المرور فوق الزر */
+        transition: background-color 0.3s, transform 0.3s; /* إضافة تأثير الانتقال */
+    }
 
-.buttons button:hover {
-    background-color: rgba(76, 175, 80, 0.8); /* خلفية شفافة مع تأثير عند التمرير */
-    transform: scale(1.05); /* تكبير الزر عند التمرير */
-}
+    .buttons button:hover {
+        background-color: rgba(76, 175, 80, 0.8); /* خلفية شفافة مع تأثير عند التمرير */
+        transform: scale(1.05); /* تكبير الزر عند التمرير */
+    }
 
     .images {
         margin-top: 60px; /* لإعطاء مساحة للأزرار */
+        position: relative; /* لجعل الأزرار تتداخل بشكل صحيح */
+        z-index: 1; /* لضمان عدم تغطية الأزرار للصور */
     }
+
     .info {
-        margin-top: 115px; /* رفع مساحة المعلومات لعدم التداخل مع الأزرار */
+        margin-top: 80px; /* رفع مساحة المعلومات لعدم التداخل مع الأزرار */
+        z-index: 0; /* التأكد من أن المعلومات تحت الأزرار */
     }
 }
+
