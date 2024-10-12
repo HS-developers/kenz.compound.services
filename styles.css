@@ -78,8 +78,8 @@ main {
 }
 
 .buttons button {
-    background-color: #4CAF50;
-    color: white;
+    background-color: rgba(255, 255, 255, 0.5); /* خلفية شفافة */
+    color: #000; /* لون النص */
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
@@ -93,7 +93,7 @@ main {
 }
 
 .buttons button:hover {
-    background-color: #45a049;
+    background-color: rgba(255, 255, 255, 0.7); /* تغيير درجة الشفافية عند التمرير */
     transform: scale(1.05); /* تكبير الزر عند التمرير */
 }
 
