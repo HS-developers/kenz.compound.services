@@ -64,6 +64,7 @@ main {
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 20px;
+    position: relative; /* للسماح للأزرار بالتحرك فوق الصور */
     direction: rtl; /* إضافة هذه الخاصية لضمان أن الأزرار تظهر على اليمين */
 }
 
@@ -73,6 +74,7 @@ main {
     flex-direction: column;
     gap: 10px;
     order: 1; /* تأكيد ترتيب الأزرار */
+    z-index: 10; /* لضمان ظهور الأزرار فوق الصور */
 }
 
 .buttons button {
@@ -101,6 +103,7 @@ main {
     flex-wrap: wrap;
     gap: 10px;
     order: 2; /* تأكيد ترتيب الصور */
+    margin-top: 20px; /* لإعطاء مساحة للأزرار */
 }
 
 .image {
@@ -149,4 +152,21 @@ main {
     color: #45a049; /* تغيير لون النص عند التمرير */
 }
 
-
+/* إعدادات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column; /* تغيير الاتجاه إلى عمودي */
+    }
+    .buttons {
+        position: absolute; /* تجعل الأزرار فوق الصور */
+        top: 10px; /* ضبط المسافة من الأعلى */
+        right: 10px; /* ضبط المسافة من اليمين */
+        width: calc(100% - 20px); /* عرض الأزرار */
+        background-color: rgba(255, 255, 255, 0.8); /* خلفية شفافة للأزرار */
+        padding: 10px; /* padding للأزرار */
+        border-radius: 5px; /* زوايا دائرية */
+    }
+    .images {
+        margin-top: 60px; /* لإعطاء مساحة للأزرار */
+    }
+}
