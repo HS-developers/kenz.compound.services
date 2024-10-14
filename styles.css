@@ -69,7 +69,7 @@ main {
 }
 
 .buttons {
-    flex: 1;
+    flex: 0 0 30%; /* تأخذ 30% من العرض */
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -98,7 +98,7 @@ main {
 }
 
 .images {
-    flex: 1;
+    flex: 0 0 70%; /* تأخذ 70% من العرض */
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -107,9 +107,9 @@ main {
 }
 
 .image {
-    width: calc(50% - 5px);
+    width: calc(50% - 5px); /* عرض كل صورة يأخذ نصف المساحة المتاحة */
     height: auto;
-    max-height: 350px;
+    max-height: 388px;
     object-fit: cover;
 }
 
@@ -200,4 +200,3 @@ main {
         z-index: 0; /* التأكد من أن المعلومات تحت الأزرار */
     }
 }
-
