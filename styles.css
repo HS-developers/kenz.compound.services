@@ -189,7 +189,7 @@ main {
     }
 
     .buttons button:hover {
-        background-color: rgba(173, 216, 230, 0.9) !important; /* خلفية شفافة أكثر عند التمرير */
+        background-color: rgba(5, 36, 46, 0.9) !important; /* خلفية شفافة أكثر عند التمرير */
         transform: scale(1.05); /* تكبير الزر عند التمرير */
     }
 
