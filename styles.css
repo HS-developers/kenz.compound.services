@@ -50,7 +50,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #4CAF50; /* تغيير لون الخلفية عند التمرير */
+    background-color: #1a6f77; /* تغيير لون الخلفية عند التمرير */
     transform: scale(1.1); /* تكبير العنصر عند التمرير */
 }
 
