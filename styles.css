@@ -179,7 +179,7 @@ main {
 
     .buttons button {
         background-color: rgba(173, 216, 230, 0.2) !important; /* خلفية شفافة بلون أزرق هادئ */
-        color: #FFFF00 !important; /* لون النص أصفر */
+        color: #23da32 !important; /* لون النص أخضر */
         padding: 6.4px 9.6px; /* تقليل حجم الأزرار بنسبة 20% */
         font-size: 11.2px; /* تقليل حجم النص داخل الأزرار بنسبة 20% */
         border: 1.6px solid #4CAF50; /* تقليل حجم الحدود بنسبة 20% */
