@@ -159,6 +159,10 @@ main {
         margin-top: 0; /* إزالة أي فراغ علوي */
     }
 
+    .services h2 {
+            color: #4CAF50;
+        }
+    
     .images {
         margin-top: 20px; /* تقليل المسافة العلوية لإعطاء مساحة للأزرار */
         position: relative; /* لجعل الأزرار تتداخل بشكل صحيح */
