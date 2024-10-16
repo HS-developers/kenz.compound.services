@@ -183,7 +183,7 @@ main {
     }
 
     .buttons button {
-        background-color: rgba(173, 216, 230, 0.1) !important; /* خلفية شفافة بلون أزرق هادئ */
+        
         color: #f8fc05 !important; /* لون النص أصفر */
         padding: 0.20px 1px; /* تقليل حجم الأزرار */
         font-size: 10px; /* تقليل حجم النص داخل الأزرار */
