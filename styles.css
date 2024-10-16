@@ -174,16 +174,16 @@ main {
         border-radius: 5px; /* زوايا دائرية */
         display: flex; /* جعل الأزرار تظهر بشكل أفقي */
         flex-direction: row; /* عرض الأزرار أفقيًا */
-        gap: 0.2px; /* تقليل المسافة بين الأزرار */
+        gap: 0.1px; /* تقليل المسافة بين الأزرار */
         z-index: 10; /* ضمان بقاء الأزرار فوق العناصر الأخرى */
     }
 
     .buttons button {
         background-color: rgba(173, 216, 230, 0.3) !important; /* خلفية شفافة بلون أزرق هادئ */
         color: #05f819 !important; /* لون النص أخضر */
-        padding: 0.30px 1px; /* تقليل حجم الأزرار */
-        font-size: 9px; /* تقليل حجم النص داخل الأزرار */
-        border: 0.5px solid #4CAF50; /* تقليل حجم الحدود */
+        padding: 0.20px 1px; /* تقليل حجم الأزرار */
+        font-size: 10px; /* تقليل حجم النص داخل الأزرار */
+        border: 0.3px solid #4CAF50; /* تقليل حجم الحدود */
         border-radius: 3px; /* زوايا دائرية */
         cursor: pointer; /* تغيير شكل المؤشر عند المرور فوق الزر */
         transition: background-color 0.3s, transform 0.3s; /* إضافة تأثير الانتقال */
