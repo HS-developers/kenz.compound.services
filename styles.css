@@ -160,7 +160,7 @@ main {
     }
 
     .services h2 {
-            color: #4CAF50;
+            color: #f8fc05;
         }
     
     .images {
@@ -184,7 +184,7 @@ main {
 
     .buttons button {
         background-color: rgba(173, 216, 230, 0.3) !important; /* خلفية شفافة بلون أزرق هادئ */
-        color: #05f819 !important; /* لون النص أخضر */
+        color: #f8fc05 !important; /* لون النص أصفر */
         padding: 0.20px 1px; /* تقليل حجم الأزرار */
         font-size: 10px; /* تقليل حجم النص داخل الأزرار */
         border: 0.3px solid #4CAF50; /* تقليل حجم الحدود */
