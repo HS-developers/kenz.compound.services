@@ -159,9 +159,9 @@ main {
         margin-top: 0; /* إزالة أي فراغ علوي */
     }
 
-    .services h2 {
-            color: #f8fc05;
-        }
+    #services h2 {
+        color: #f8fc05 !important;
+    }
     
     .images {
         margin-top: 20px; /* تقليل المسافة العلوية لإعطاء مساحة للأزرار */
