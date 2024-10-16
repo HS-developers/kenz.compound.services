@@ -62,9 +62,21 @@
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
+            animation: pulse 1.5s infinite;
         }
         nav ul li a:hover {
             background-color: #111;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
         main {
             padding: 20px;
