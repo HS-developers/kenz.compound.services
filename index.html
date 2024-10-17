@@ -16,13 +16,14 @@
             padding: 0;
         }
         header {
-            background-color: #333;
+            background: linear-gradient(135deg, #b4b9bd, #386074); /* تدرج لوني */
             color: white;
             padding: 20px;
             text-align: right;
         }
         h1 {
             animation: fadeInDown 2s ease-in-out;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* ظل للنص */
         }
         p {
             animation: fadeInUp 2s ease-in-out;
@@ -153,7 +154,7 @@
         .small-button {
             font-size: 0.8em;
             margin-left: 10px;
-            background-color: rgb(157, 197, 250);
+            background-color: rgb(6, 14, 23);
             color: white;
             border: none;
             border-radius: 4px;
@@ -162,7 +163,7 @@
             transition: background-color 0.3s;
         }
         .small-button:hover {
-            background-color: rgb(157, 197, 250);
+            background-color: rgb(6, 14, 23);
         }
     </style>
     <script>
@@ -177,8 +178,10 @@
     </script>
 </head>
 <body>
+    
     <header>
-        <h1>مرحبا بكم في موقعنا الاول لخدمات كمبوند كنز</h1>
+        <!-- إضافة الأيقونة بجانب العنوان -->
+        <h1>مرحبـــــا بكـــــم في موقعنـــا الاول للخدمـــات 🌟كمبونـــد كنـــز🌟</h1>
         <p>تجدون قوائم متجددة دائما بجميع الخدمات المتاحة حول الكمبوند 
             <button id="playButton" class="small-button">تشغيل الموسيقى</button>
         </p>
@@ -329,7 +332,7 @@
     </section>
     <link rel="stylesheet" href="styles.css">
     <footer dir="rtl" style="display: flex; justify-content: right; align-items: center; padding: 0; line-height: 1; text-align: right; background-color: #f8f9fa; color: rgb(82, 154, 248); font-size: 0.6em; height: 35px;">
-    <p style="background-color: #e9ecef; padding: 5px;">جميع الحقوق محفوظة © 2024 <span style="text-decoration: underline;">H&S Co. For Programming</span></p>
+    <p style="background-color: #e9ecef; padding: 5px;">جميع الحقوق محفوظة © 2024 <span style="text-decoration: underline;">H&S For Programming</span></p>
 </footer>
 <!-- ملف الصوت -->
 <audio id="backgroundAudio">
