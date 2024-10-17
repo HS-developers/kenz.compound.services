@@ -339,15 +339,9 @@
     <source src="good.mp3" type="audio/ogg">
     متصفحك لا يدعم تشغيل الملفات الصوتية.
 </audio>
-
-<div class="buttons">
-    <button id="playButton">تشغيل الموسيقى</button>
-</div>
-
 <script>
-    var audio = document.getElementById('backgroundAudio');
-
     document.getElementById('playButton').addEventListener('click', function() {
+        var audio = document.getElementById('backgroundAudio');
         audio.play();
     });
 </script>
