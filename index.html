@@ -339,10 +339,16 @@
     <source src="good.mp3" type="audio/ogg">
     متصفحك لا يدعم تشغيل الملفات الصوتية.
 </audio>
+<button id="playButton">تشغيل الموسيقى</button>
+<button id="stopButton">إيقاف الموسيقى</button>
 <script>
+    var audio = document.getElementById('backgroundAudio');
     document.getElementById('playButton').addEventListener('click', function() {
-        var audio = document.getElementById('backgroundAudio');
         audio.play();
+    });
+    document.getElementById('stopButton').addEventListener('click', function() {
+        audio.pause();
+        audio.currentTime = 0; // لإعادة الصوت إلى البداية عند الإيقاف
     });
 </script>
 </body>
