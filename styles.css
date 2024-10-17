@@ -27,7 +27,7 @@ header {
 header h1 {
     font-size: 32px;
     color: #f8f52f; /* لون العنوان */
-    animation: slideIn 1s ease-in-out; /* تطبيق الحركة على العنوان */
+    animation: slideIn 3s ease-in-out; /* تطبيق الحركة على العنوان */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* ظل للنص */
 }
 
