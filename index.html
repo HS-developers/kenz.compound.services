@@ -8,6 +8,8 @@
     <title>Kenz Compound Services</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <title>تشغيل وإيقاف الموسيقى</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Cairo', sans-serif;
@@ -181,9 +183,10 @@
     
     <header>
         <!-- إضافة الأيقونة بجانب العنوان -->
-        <h1>مرحبـا بكـم في موقعنـا الاول لخدمـات 🌟كمبونـد كنــز🌟</h1>
+        <h1>مرحبا بكـم في موقعنا الاول لخدمات 🌟كمبوند كنز🌟</h1>
         <p> قوائم متجددة دائما بجميع الخدمات المتاحة حول الكمبوند 
-            <button id="playButton" class="small-button">تشغيل الموسيقى</button>
+            <button id="playButton"><i class="fas fa-play"></i></button>
+            <button id="stopButton"><i class="fas fa-stop"></i></button>
         </p>
     </header>
    
@@ -339,8 +342,7 @@
     <source src="good.mp3" type="audio/ogg">
     متصفحك لا يدعم تشغيل الملفات الصوتية.
 </audio>
-<button id="playButton">تشغيل الموسيقى</button>
-<button id="stopButton">إيقاف الموسيقى</button>
+
 <script>
     var audio = document.getElementById('backgroundAudio');
     document.getElementById('playButton').addEventListener('click', function() {
@@ -351,5 +353,7 @@
         audio.currentTime = 0; // لإعادة الصوت إلى البداية عند الإيقاف
     });
 </script>
+
+
 </body>
 </html>
