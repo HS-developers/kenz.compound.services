@@ -150,6 +150,20 @@
             display: block; /* عرض كل عنصر على سطر منفصل */
             margin-bottom: 10px; /* إضافة مسافة بين العناصر */
         }
+        .small-button {
+            font-size: 0.8em;
+            margin-left: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .small-button:hover {
+            background-color: #45a049;
+        }
     </style>
     <script>
     function toggleInfo(id) {
@@ -165,8 +179,11 @@
 <body>
     <header>
         <h1>مرحبا بكم في موقعنا الاول لخدمات كمبوند كنز</h1>
-        <p>تجدون قوائم متجددة دائما بجميع الخدمات المتاحة حول الكمبوند </p>
+        <p>تجدون قوائم متجددة دائما بجميع الخدمات المتاحة حول الكمبوند 
+            <button id="playButton" class="small-button">تشغيل الموسيقى</button>
+        </p>
     </header>
+   
     <nav>
         <ul>
             <li><a href="https://firstgroup-egypt.com/kenz-compound/" target="_blank">معلومات عن الكمبوند</a></li>
