@@ -342,7 +342,6 @@
 
 <div class="buttons">
     <button id="playButton">تشغيل الموسيقى</button>
-    <button id="stopButton">إيقاف الموسيقى</button> <!-- زر إيقاف الموسيقى -->
 </div>
 
 <script>
@@ -351,12 +350,6 @@
     document.getElementById('playButton').addEventListener('click', function() {
         audio.play();
     });
-
-    document.getElementById('stopButton').addEventListener('click', function() {
-        audio.pause(); // إيقاف الموسيقى
-        audio.currentTime = 0; // إعادة الموسيقى للبداية
-    });
 </script>
-
 </body>
 </html>
