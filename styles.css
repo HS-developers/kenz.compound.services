@@ -197,8 +197,7 @@ main {
     }
 
     .buttons button {
-        /* إزالة الخلفية */
-        background-color: transparent !important; /* جعل الخلفية شفافة تمامًا */
+        background-color: rgba(18, 4, 79, 0.3) !important; /* خلفية شفافة أكثر عند التمرير */
         color: #f8fc05 !important; /* لون النص أصفر */
         padding: 0.20px 1px; /* تقليل حجم الأزرار */
         font-size: 10px; /* تقليل حجم النص داخل الأزرار */
