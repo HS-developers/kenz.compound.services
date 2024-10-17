@@ -182,8 +182,9 @@
     <header>
         <!-- إضافة الأيقونة بجانب العنوان -->
         <h1>مرحبـــــا بكـــــم في موقعنـــا الاول للخدمـــات 🌟كمبونـــد كنـــز🌟</h1>
-        <p>تجدون قوائم متجددة دائما بجميع الخدمات المتاحة حول الكمبوند 
+        <p> قوائم متجددة دائما بجميع الخدمات المتاحة حول الكمبوند 
             <button id="playButton" class="small-button">تشغيل الموسيقى</button>
+            <button id="stopButton" class="small-button">إيقاف الموسيقى</button>
         </p>
     </header>
    
@@ -339,11 +340,24 @@
     <source src="good.mp3" type="audio/ogg">
     متصفحك لا يدعم تشغيل الملفات الصوتية.
 </audio>
+
+<div class="buttons">
+    <button id="playButton">تشغيل الموسيقى</button>
+    <button id="stopButton">إيقاف الموسيقى</button> <!-- زر إيقاف الموسيقى -->
+</div>
+
 <script>
+    var audio = document.getElementById('backgroundAudio');
+
     document.getElementById('playButton').addEventListener('click', function() {
-        var audio = document.getElementById('backgroundAudio');
         audio.play();
     });
+
+    document.getElementById('stopButton').addEventListener('click', function() {
+        audio.pause(); // إيقاف الموسيقى
+        audio.currentTime = 0; // إعادة الموسيقى للبداية
+    });
 </script>
+
 </body>
 </html>
