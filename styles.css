@@ -197,10 +197,10 @@ main {
     }
 
     .buttons button {
-        background-color: rgba(18, 4, 79, 0.3) !important; /* خلفية شفافة أكثر عند التمرير */
+        background-color: rgba(5, 36, 46, 0.7) !important; /* خلفية شفافة أكثر عند التمرير */
         color: #f8fc05 !important; /* لون النص أصفر */
         padding: 0.20px 1px; /* تقليل حجم الأزرار */
-        font-size: 10px; /* تقليل حجم النص داخل الأزرار */
+        font-size: 8.5px; /* تقليل حجم النص داخل الأزرار */
         border: 0.3px solid #4CAF50; /* تقليل حجم الحدود */
         border-radius: 3px; /* زوايا دائرية */
         cursor: pointer; /* تغيير شكل المؤشر عند المرور فوق الزر */
@@ -208,7 +208,7 @@ main {
     }
 
     .buttons button:hover {
-        background-color: rgba(5, 36, 46, 0.9) !important; /* خلفية شفافة أكثر عند التمرير */
+        background-color: rgba(22, 23, 24, 0.9) !important; /* خلفية شفافة أكثر عند التمرير */
         transform: scale(1.05); /* تكبير الزر عند التمرير */
     }
 
