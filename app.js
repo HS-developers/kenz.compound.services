@@ -4,14 +4,14 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCvRIeZ6k6H876dtug6oRip09X1AX4RWCs",
-  authDomain: "kenz-project.firebaseapp.com",
-  databaseURL: "https://kenz-project-default-rtdb.firebaseio.com",
-  projectId: "kenz-project",
-  storageBucket: "kenz-project.firebasestorage.app",
-  messagingSenderId: "224735676437",
-  appId: "1:224735676437:web:9f29c4d74b56080b0aa61c",
-  measurementId: "G-2FSGW01R4T"
+    apiKey: "AIzaSyCvRIeZ6k6H876dtug6oRip09X1AX4RWCs",
+    authDomain: "kenz-project.firebaseapp.com",
+    databaseURL: "https://kenz-project-default-rtdb.firebaseio.com", // Ensure this URL is correct
+    projectId: "kenz-project",
+    storageBucket: "kenz-project.appspot.com",
+    messagingSenderId: "224735676437",
+    appId: "1:224735676437:web:9f29c4d74b56080b0aa61c",
+    measurementId: "G-2FSGW01R4T"
 };
 
 // Initialize Firebase
