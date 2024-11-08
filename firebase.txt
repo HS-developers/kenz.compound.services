@@ -1,0 +1,24 @@
+Kenz-project
+------------
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCvRIeZ6k6H876dtug6oRip09X1AX4RWCs",
+    authDomain: "kenz-project.firebaseapp.com",
+    databaseURL: "https://kenz-project-default-rtdb.firebaseio.com", // Ensure this URL is correct
+    projectId: "kenz-project",
+    storageBucket: "kenz-project.appspot.com",
+    messagingSenderId: "224735676437",
+    appId: "1:224735676437:web:9f29c4d74b56080b0aa61c",
+    measurementId: "G-2FSGW01R4T"
+};
+
+
+
+اخر خطوة دايما بتنساها بعد عمل نيو بروجيكت هي انك تدخل علي القوائم علي الشمال من داخل المشروع وتختار
+Build>>>then...Realtime Database
+ولما تفتح الصفحة اختار من الاختيارين اللي هيظهروا انها تكون عامه مش برايفت وبعدين اعمل ريفرش للموقع كله علشان لنا يفتح تاني تاخد الجزء بتاع 
+APIKEY الصحيح
+
+
+
+
