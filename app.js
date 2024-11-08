@@ -6,7 +6,7 @@ import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/fir
 const firebaseConfig = {
     apiKey: "AIzaSyCnRLUzLraNE-AR94ZlRGIAFOKks74ZtyQ",
     authDomain: "kenz--project.firebaseapp.com",
-    databaseURL: "https://kenz--project-default-rtdb.firebaseio.com", // Ensure this URL is correct
+    databaseURL: "https://kenz--project-default-rtdb.firebaseio.com",
     projectId: "kenz--project",
     storageBucket: "kenz--project.appspot.com",
     messagingSenderId: "435317870255",
