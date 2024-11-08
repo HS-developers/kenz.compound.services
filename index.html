@@ -20,6 +20,7 @@
         }
     }
     </script>
+    <script type="module" src="app.js"></script>
 </head>
 <body>
     <header>
@@ -75,152 +76,929 @@
         </div>
         <div id="clinics" class="info" style="display:none;">
             <ul>
-                <li>د. ابتسام عبد العظيم - نساء وتوليد - مول كمبوند باراديس شارع المنتزة - ت: <a href="tel:01022227118">01022227118</a></li>
-                <li>د. احمد هشام منير - عيون ورمد - مول رويال فالي بعد كمبوند الحي الايطالي - ت: <a href="tel:01061657077">01061657077</a></li>
-                <li>د. اسامة طعيمة - استشاري اسنان - الدور الثاني 415 شارع الجيش بوابة مينا ح. الاهرام  - ت: <a href="tel:01019919800">01019919800</a> / <a href="tel:01155111692">01155111692</a></li>
-                <li>د. عمرو عبد الحافظ - باطني - ميدان بداية - ت: <a href="tel:01116561520">01116561520</a></li>
-                <li>د. سمير الضوي - باطني - مول رويال فالي بجوار كمبوند الحي الايطالي - ت: <a href="tel:01115766571">01115766571</a></li>
-                <li>د. علي داوود - استشاري اطفال - مول رويال فالي بجوار كمبوند الحي الايطالي - ت: <a href="tel:01559818109">01559818109</a></li>
-                <li>د. مجدي محمود غلاب - استشاري اطفال - المول الطبي الدور الثاني كمبوند باراديس  - ت: <a href="tel:01063084068">01063084068</a></li>
-                <li>د. سماح سيد سالم - اخصائي اطفال - كايا مول الدور الثاني عيادة رقم6 (تحت التشغيل) كمبوند كنز  - ت: <a href="tel:01156146177">01156146177</a></li>
-                <li>مستشفي الواحة - 29ص بوابة حورس حدائق الاهرام - ت: <a href="tel:0233797091">0233797091</a> / <a href="tel:0233797092">0233797092</a> / <a href="tel:01062436212">01062436212</a></li>
-                <li>مستشفي 6 اكتوبر العسكري بمدينة الفردوس ت: <a href="tel:0238878164">0238878164</a></li>
-                <li>مستشفي دريم لاند - طريق الواحات ت: <a href="tel:0238580437">0238580437</a></li>
-                <li>عيادات يوتوبيا التخصصية - كمبوند يوتوبيا المول الداخلي الدور الثاني ت: <a href="tel:01229383356">01229383356</a> / <a href="tel:01028791195">01028791195</a></li>
-                <li>مركز وعيادات كلينيكا الطبي - مول الدولية شارع المنتزة ت: <a href="tel:01050117225">01050117225</a></li>
-                <li>مركز وعيادات كلينيكا الطبي - فرع مساكن دهشور ت: <a href="tel:01011295506">01011295506</a></li>
-                <li>عيادات وايز - المنتزة ت: <a href="tel:01019614063">01019614063</a></li>
-                <li>معامل البرج - مول جولف كورنر - ت: <a href="tel:01140966679">01140966679</a></li>
-                <li>معامل الفا - مول جولف كورنر - ت: <a href="tel:01284092049">01284092049</a></li>
-                <li>معامل المختبر - مول رويال فالي بجوار كمبوند الحي الايطالي - ت: <a href="tel:01050680499">01050680499</a></li>
-                <li>مركز الطاهرة للأشعة  - البوابة الثالثة ح.الاهرام - ت: <a href="tel:0233807828">0233807828</a></li>
-                <li>الوحدة الصحية - مساكن دهشور خلف مول البنفسج1 - ت: <a href="tel:0000">0000</a></li>
-                <li>الوحدة الصحية - المنطقة الثانية من طريق الحي الايطالي بجوار مسجد البيت المعمور - ت: <a href="tel:0000">0000</a></li>
-                <li>الوحدة الصحية - المرحلة الخامسة ابني بيتك من امتداد شارع زويل  - ت: <a href="tel:0000">0000</a></li>
+                <li>د. ابتسام عبد العظيم - نساء وتوليد - مول كمبوند باراديس شارع المنتزة - ت: <a href="tel:01022227118">01022227118</a>
+                    <div class="like-dislike">
+                        <i id="like-400" class="fas fa-thumbs-up" onclick="updateCount('like', 400)"></i> 
+                        <span id="like-count-400" class="like-count">0</span>
+                        <i id="dislike-400" class="fas fa-thumbs-down" onclick="updateCount('dislike', 400)"></i> 
+                        <span id="dislike-count-400" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>د. احمد هشام منير - عيون ورمد - مول رويال فالي بعد كمبوند الحي الايطالي - ت: <a href="tel:01061657077">01061657077</a>
+                    <div class="like-dislike">
+                        <i id="like-401" class="fas fa-thumbs-up" onclick="updateCount('like', 401)"></i> 
+                        <span id="like-count-401" class="like-count">0</span>
+                        <i id="dislike-401" class="fas fa-thumbs-down" onclick="updateCount('dislike', 401)"></i> 
+                        <span id="dislike-count-401" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>د. اسامة طعيمة - استشاري اسنان - الدور الثاني 415 شارع الجيش بوابة مينا ح. الاهرام  - ت: <a href="tel:01019919800">01019919800</a> / <a href="tel:01155111692">01155111692</a>
+                    <div class="like-dislike">
+                        <i id="like-402" class="fas fa-thumbs-up" onclick="updateCount('like', 402)"></i> 
+                        <span id="like-count-402" class="like-count">0</span>
+                        <i id="dislike-402" class="fas fa-thumbs-down" onclick="updateCount('dislike', 402)"></i> 
+                        <span id="dislike-count-402" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>د. عمرو عبد الحافظ - باطني - ميدان بداية - ت: <a href="tel:01116561520">01116561520</a>
+                    <div class="like-dislike">
+                        <i id="like-403" class="fas fa-thumbs-up" onclick="updateCount('like', 403)"></i> 
+                        <span id="like-count-403" class="like-count">0</span>
+                        <i id="dislike-403" class="fas fa-thumbs-down" onclick="updateCount('dislike', 403)"></i> 
+                        <span id="dislike-count-403" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>د. سمير الضوي - باطني - مول رويال فالي بجوار كمبوند الحي الايطالي - ت: <a href="tel:01115766571">01115766571</a>
+                    <div class="like-dislike">
+                        <i id="like-404" class="fas fa-thumbs-up" onclick="updateCount('like', 404)"></i> 
+                        <span id="like-count-404" class="like-count">0</span>
+                        <i id="dislike-404" class="fas fa-thumbs-down" onclick="updateCount('dislike', 404)"></i> 
+                        <span id="dislike-count-404" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>د. علي داوود - استشاري اطفال - مول رويال فالي بجوار كمبوند الحي الايطالي - ت: <a href="tel:01559818109">01559818109</a>
+                    <div class="like-dislike">
+                        <i id="like-405" class="fas fa-thumbs-up" onclick="updateCount('like', 405)"></i> 
+                        <span id="like-count-405" class="like-count">0</span>
+                        <i id="dislike-405" class="fas fa-thumbs-down" onclick="updateCount('dislike', 405)"></i> 
+                        <span id="dislike-count-405" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>د. مجدي محمود غلاب - استشاري اطفال - المول الطبي الدور الثاني كمبوند باراديس  - ت: <a href="tel:01063084068">01063084068</a>
+                    <div class="like-dislike">
+                        <i id="like-406" class="fas fa-thumbs-up" onclick="updateCount('like', 406)"></i> 
+                        <span id="like-count-406" class="like-count">0</span>
+                        <i id="dislike-406" class="fas fa-thumbs-down" onclick="updateCount('dislike', 406)"></i> 
+                        <span id="dislike-count-406" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>د. سماح سيد سالم - اخصائي اطفال - كايا مول الدور الثاني عيادة رقم6 (تحت التشغيل) كمبوند كنز  - ت: <a href="tel:01156146177">01156146177</a>
+                    <div class="like-dislike">
+                        <i id="like-407" class="fas fa-thumbs-up" onclick="updateCount('like', 407)"></i> 
+                        <span id="like-count-407" class="like-count">0</span>
+                        <i id="dislike-407" class="fas fa-thumbs-down" onclick="updateCount('dislike', 407)"></i> 
+                        <span id="dislike-count-407" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>مستشفي الواحة - 29ص بوابة حورس حدائق الاهرام - ت: <a href="tel:0233797091">0233797091</a> / <a href="tel:0233797092">0233797092</a> / <a href="tel:01062436212">01062436212</a>
+                    <div class="like-dislike">
+                        <i id="like-408" class="fas fa-thumbs-up" onclick="updateCount('like', 408)"></i> 
+                        <span id="like-count-408" class="like-count">0</span>
+                        <i id="dislike-408" class="fas fa-thumbs-down" onclick="updateCount('dislike', 408)"></i> 
+                        <span id="dislike-count-408" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>مستشفي 6 اكتوبر العسكري بمدينة الفردوس ت: <a href="tel:0238878164">0238878164</a>
+                    <div class="like-dislike">
+                        <i id="like-409" class="fas fa-thumbs-up" onclick="updateCount('like', 409)"></i> 
+                        <span id="like-count-409" class="like-count">0</span>
+                        <i id="dislike-409" class="fas fa-thumbs-down" onclick="updateCount('dislike', 409)"></i> 
+                        <span id="dislike-count-409" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>مستشفي دريم لاند - طريق الواحات ت: <a href="tel:0238580437">0238580437</a>
+                    <div class="like-dislike">
+                        <i id="like-410" class="fas fa-thumbs-up" onclick="updateCount('like', 410)"></i> 
+                        <span id="like-count-410" class="like-count">0</span>
+                        <i id="dislike-410" class="fas fa-thumbs-down" onclick="updateCount('dislike', 410)"></i> 
+                        <span id="dislike-count-410" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>عيادات يوتوبيا التخصصية - كمبوند يوتوبيا المول الداخلي الدور الثاني ت: <a href="tel:01229383356">01229383356</a> / <a href="tel:01028791195">01028791195</a>
+                    <div class="like-dislike">
+                        <i id="like-411" class="fas fa-thumbs-up" onclick="updateCount('like', 411)"></i> 
+                        <span id="like-count-411" class="like-count">0</span>
+                        <i id="dislike-411" class="fas fa-thumbs-down" onclick="updateCount('dislike', 411)"></i> 
+                        <span id="dislike-count-411" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>مركز وعيادات كلينيكا الطبي - مول الدولية شارع المنتزة ت: <a href="tel:01050117225">01050117225</a>
+                    <div class="like-dislike">
+                        <i id="like-412" class="fas fa-thumbs-up" onclick="updateCount('like', 412)"></i> 
+                        <span id="like-count-412" class="like-count">0</span>
+                        <i id="dislike-412" class="fas fa-thumbs-down" onclick="updateCount('dislike', 412)"></i> 
+                        <span id="dislike-count-412" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>مركز وعيادات كلينيكا الطبي - فرع مساكن دهشور ت: <a href="tel:01011295506">01011295506</a>
+                    <div class="like-dislike">
+                        <i id="like-413" class="fas fa-thumbs-up" onclick="updateCount('like', 413)"></i> 
+                        <span id="like-count-413" class="like-count">0</span>
+                        <i id="dislike-413" class="fas fa-thumbs-down" onclick="updateCount('dislike', 413)"></i> 
+                        <span id="dislike-count-413" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>عيادات وايز - المنتزة ت: <a href="tel:01019614063">01019614063</a>
+                    <div class="like-dislike">
+                        <i id="like-414" class="fas fa-thumbs-up" onclick="updateCount('like', 414)"></i> 
+                        <span id="like-count-414" class="like-count">0</span>
+                        <i id="dislike-414" class="fas fa-thumbs-down" onclick="updateCount('dislike', 414)"></i> 
+                        <span id="dislike-count-414" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>معامل البرج - مول جولف كورنر - ت: <a href="tel:01140966679">01140966679</a>
+                    <div class="like-dislike">
+                        <i id="like-415" class="fas fa-thumbs-up" onclick="updateCount('like', 415)"></i> 
+                        <span id="like-count-415" class="like-count">0</span>
+                        <i id="dislike-415" class="fas fa-thumbs-down" onclick="updateCount('dislike', 415)"></i> 
+                        <span id="dislike-count-415" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>معامل الفا - مول جولف كورنر - ت: <a href="tel:01284092049">01284092049</a>
+                    <div class="like-dislike">
+                        <i id="like-416" class="fas fa-thumbs-up" onclick="updateCount('like', 416)"></i> 
+                        <span id="like-count-416" class="like-count">0</span>
+                        <i id="dislike-416" class="fas fa-thumbs-down" onclick="updateCount('dislike', 416)"></i> 
+                        <span id="dislike-count-416" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>معامل المختبر - مول رويال فالي بجوار كمبوند الحي الايطالي - ت: <a href="tel:01050680499">01050680499</a>
+                    <div class="like-dislike">
+                        <i id="like-417" class="fas fa-thumbs-up" onclick="updateCount('like', 417)"></i> 
+                        <span id="like-count-417" class="like-count">0</span>
+                        <i id="dislike-417" class="fas fa-thumbs-down" onclick="updateCount('dislike', 417)"></i> 
+                        <span id="dislike-count-417" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>مركز الطاهرة للأشعة  - البوابة الثالثة ح.الاهرام - ت: <a href="tel:0233807828">0233807828</a>
+                    <div class="like-dislike">
+                        <i id="like-418" class="fas fa-thumbs-up" onclick="updateCount('like', 418)"></i> 
+                        <span id="like-count-418" class="like-count">0</span>
+                        <i id="dislike-418" class="fas fa-thumbs-down" onclick="updateCount('dislike', 418)"></i> 
+                        <span id="dislike-count-418" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>الوحدة الصحية - مساكن دهشور خلف مول البنفسج1 - ت: <a href="tel:0000">0000</a>
+                    <div class="like-dislike">
+                        <i id="like-419" class="fas fa-thumbs-up" onclick="updateCount('like', 419)"></i> 
+                        <span id="like-count-419" class="like-count">0</span>
+                        <i id="dislike-419" class="fas fa-thumbs-down" onclick="updateCount('dislike', 419)"></i> 
+                        <span id="dislike-count-419" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>الوحدة الصحية - المنطقة الثانية من طريق الحي الايطالي بجوار مسجد البيت المعمور - ت: <a href="tel:0000">0000</a>
+                    <div class="like-dislike">
+                        <i id="like-420" class="fas fa-thumbs-up" onclick="updateCount('like', 420)"></i> 
+                        <span id="like-count-420" class="like-count">0</span>
+                        <i id="dislike-420" class="fas fa-thumbs-down" onclick="updateCount('dislike', 420)"></i> 
+                        <span id="dislike-count-420" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>الوحدة الصحية - المرحلة الخامسة ابني بيتك من امتداد شارع زويل  - ت: <a href="tel:0000">0000</a>
+                    <div class="like-dislike">
+                        <i id="like-421" class="fas fa-thumbs-up" onclick="updateCount('like', 421)"></i> 
+                        <span id="like-count-421" class="like-count">0</span>
+                        <i id="dislike-421" class="fas fa-thumbs-down" onclick="updateCount('dislike', 421)"></i> 
+                        <span id="dislike-count-421" class="dislike-count">0</span>
+                    </div>
+                </li>
             </ul>
         </div>
         <div id="pharmacies" class="info" style="display:none;">
             <ul>
-                <li>صيدلية د.احمد يحيي - مول الجوهرة - ت: <a href="tel:01007788156">01007788156</a></li>
-                <li>صيدلية روشتة - مول البنفسج - ت: <a href="tel:01156788080">01156788080</a></li>
-                <li>صيدلية وايز - كمبوند دجله - ت: <a href="tel:01050078506">01050078506</a></li>
-                <li>صيدلية أحمد ماهر - مول دجلة - ت: <a href="tel:01070055592">01070055592</a></li>
-                <li>صيدلية المصري - شارع المنتزة - ت: <a href="tel:01205516326">01205516326</a> / <a href="tel:01014688266">01014688266</a> / <a href="tel:01011636393">01011636393</a></li>
-                <li>صيدلية اللوتس - بجوار كمبوند اللوتس - ت: <a href="tel:01100883334">01100883334</a> / <a href="tel:01070171115">01070171115</a></li>
-                <li>صيدلية يوتوبيا - بجوار كمبوند يوتوبيا - ت: <a href="tel:01118666365">01118666365</a> / <a href="tel:01203999365">01203999365</a></li>
-                <li>صيدلية العزبي - مول بيتا - ت: <a href="tel:01080750749">01080750749</a></li>
-                <li>صيدلية المجد - شارع المنتزة - ت: <a href="tel:01004006805">01004006805</a></li>
+                <li>صيدلية د.احمد يحيي - مول الجوهرة - ت: <a href="tel:01007788156">01007788156</a>
+                    <div class="like-dislike">
+                        <i id="like-1" class="fas fa-thumbs-up" onclick="updateCount('like', 1)"></i> 
+                        <span id="like-count-1" class="like-count">0</span>
+                        <i id="dislike-1" class="fas fa-thumbs-down" onclick="updateCount('dislike', 1)"></i> 
+                        <span id="dislike-count-1" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>صيدلية روشتة - مول البنفسج - ت: <a href="tel:01156788080">01156788080</a>
+                    <div class="like-dislike">
+                        <i id="like-2" class="fas fa-thumbs-up" onclick="updateCount('like', 2)"></i> 
+                        <span id="like-count-2" class="like-count">0</span>
+                        <i id="dislike-2" class="fas fa-thumbs-down" onclick="updateCount('dislike', 2)"></i> 
+                        <span id="dislike-count-2" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>صيدلية وايز - كمبوند دجله - ت: <a href="tel:01050078506">01050078506</a>
+                    <div class="like-dislike">
+                        <i id="like-3" class="fas fa-thumbs-up" onclick="updateCount('like', 3)"></i> 
+                        <span id="like-count-3" class="like-count">0</span>
+                        <i id="dislike-3" class="fas fa-thumbs-down" onclick="updateCount('dislike', 3)"></i> 
+                        <span id="dislike-count-3" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>صيدلية أحمد ماهر - مول دجلة - ت: <a href="tel:01070055592">01070055592</a>
+                    <div class="like-dislike">
+                        <i id="like-4" class="fas fa-thumbs-up" onclick="updateCount('like', 4)"></i> 
+                        <span id="like-count-4" class="like-count">0</span>
+                        <i id="dislike-4" class="fas fa-thumbs-down" onclick="updateCount('dislike', 4)"></i> 
+                        <span id="dislike-count-4" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>صيدلية المصري - شارع المنتزة - ت: <a href="tel:01205516326">01205516326</a> / <a href="tel:01014688266">01014688266</a> / <a href="tel:01011636393">01011636393</a>
+                    <div class="like-dislike">
+                        <i id="like-5" class="fas fa-thumbs-up" onclick="updateCount('like', 5)"></i> 
+                        <span id="like-count-5" class="like-count">0</span>
+                        <i id="dislike-5" class="fas fa-thumbs-down" onclick="updateCount('dislike', 5)"></i> 
+                        <span id="dislike-count-5" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>صيدلية اللوتس - بجوار كمبوند اللوتس - ت: <a href="tel:01100883334">01100883334</a> / <a href="tel:01070171115">01070171115</a>
+                    <div class="like-dislike">
+                        <i id="like-6" class="fas fa-thumbs-up" onclick="updateCount('like', 6)"></i> 
+                        <span id="like-count-6" class="like-count">0</span>
+                        <i id="dislike-6" class="fas fa-thumbs-down" onclick="updateCount('dislike', 6)"></i> 
+                        <span id="dislike-count-6" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>صيدلية يوتوبيا - بجوار كمبوند يوتوبيا - ت: <a href="tel:01118666365">01118666365</a> / <a href="tel:01203999365">01203999365</a>
+                    <div class="like-dislike">
+                        <i id="like-7" class="fas fa-thumbs-up" onclick="updateCount('like', 7)"></i> 
+                        <span id="like-count-7" class="like-count">0</span>
+                        <i id="dislike-7" class="fas fa-thumbs-down" onclick="updateCount('dislike', 7)"></i> 
+                        <span id="dislike-count-7" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>صيدلية العزبي - مول بيتا - ت: <a href="tel:01080750749">01080750749</a>
+                    <div class="like-dislike">
+                        <i id="like-8" class="fas fa-thumbs-up" onclick="updateCount('like', 8)"></i> 
+                        <span id="like-count-8" class="like-count">0</span>
+                        <i id="dislike-8" class="fas fa-thumbs-down" onclick="updateCount('dislike', 8)"></i> 
+                        <span id="dislike-count-8" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>صيدلية المجد - شارع المنتزة - ت: <a href="tel:01004006805">01004006805</a>
+                    <div class="like-dislike">
+                        <i id="like-9" class="fas fa-thumbs-up" onclick="updateCount('like', 9)"></i> 
+                        <span id="like-count-9" class="like-count">0</span>
+                        <i id="dislike-9" class="fas fa-thumbs-down" onclick="updateCount('dislike', 9)"></i> 
+                        <span id="dislike-count-9" class="dislike-count">0</span>
+                    </div>
+                </li>
             </ul>
         </div>
+        
         <div id="supermarket" class="info" style="display:none;">
             <ul>
-                <li>سوبر ماركت السندباد - مول الجوهرة - ت: <a href="tel:01099198985">01099198985</a></li>
-                <li>سوبر ماركت النور - مول الجوهرة - ت: <a href="tel:01062223307">01062223307</a></li>
-                <li>سوبر ماركت الراية - مول جولف كورنر - ت: <a href="tel:01003116508">01003116508</a></li>
-                <li>سوبر ماركت الجيزاوي - مول بيتا - ت: <a href="tel:01555557923">01555557923</a> / <a href="tel:15542">15542</a></li>
-                <li>سوبر ماركت ميني كارفور - شارع المنتزة - ت: <a href="tel:01007325380">01007325380</a></li>
-                <li>سوبر ماركت الرحمة - مول الدولية شارع المنتزة - ت: <a href="tel:01097300612">01097300612</a></li>
-                <li>سوبر ماركت اولاد رزق - دجلة شارع المنتزة - ت: <a href="tel:01027678115">01027678115</a></li>
-                <li>سوبر ماركت الصعيدي - دجلة شارع المنتزة - ت: <a href="tel:01116086341">01116086341</a></li>
-                <li>سوبر ماركت الطيب - المنتزة - ت: <a href="tel:01024313918">01024313918</a></li>
-                <li>سوبر ماركت أسواق البركة - المنتزة - ت: <a href="tel:01013841465">01013841465</a> / <a href="tel:01121289329">01121289329</a></li>
+                <li>سوبر ماركت السندباد - مول الجوهرة - ت: <a href="tel:01099198985">01099198985</a>
+                    <div class="like-dislike">
+                        <i id="like-10" class="fas fa-thumbs-up" onclick="updateCount('like', 10)"></i> 
+                        <span id="like-count-10" class="like-count">0</span>
+                        <i id="dislike-10" class="fas fa-thumbs-down" onclick="updateCount('dislike', 10)"></i> 
+                        <span id="dislike-count-10" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>سوبر ماركت النور - مول الجوهرة - ت: <a href="tel:01062223307">01062223307</a>
+                    <div class="like-dislike">
+                        <i id="like-11" class="fas fa-thumbs-up" onclick="updateCount('like', 11)"></i> 
+                        <span id="like-count-11" class="like-count">0</span>
+                        <i id="dislike-11" class="fas fa-thumbs-down" onclick="updateCount('dislike', 11)"></i> 
+                        <span id="dislike-count-11" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>سوبر ماركت الراية - مول جولف كورنر - ت: <a href="tel:01003116508">01003116508</a>
+                    <div class="like-dislike">
+                        <i id="like-12" class="fas fa-thumbs-up" onclick="updateCount('like', 12)"></i> 
+                        <span id="like-count-12" class="like-count">0</span>
+                        <i id="dislike-12" class="fas fa-thumbs-down" onclick="updateCount('dislike', 12)"></i> 
+                        <span id="dislike-count-12" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>سوبر ماركت الجيزاوي - مول بيتا - ت: <a href="tel:01555557923">01555557923</a> / <a href="tel:15542">15542</a>
+                    <div class="like-dislike">
+                        <i id="like-13" class="fas fa-thumbs-up" onclick="updateCount('like', 13)"></i> 
+                        <span id="like-count-13" class="like-count">0</span>
+                        <i id="dislike-13" class="fas fa-thumbs-down" onclick="updateCount('dislike', 13)"></i> 
+                        <span id="dislike-count-13" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>سوبر ماركت ميني كارفور - شارع المنتزة - ت: <a href="tel:01007325380">01007325380</a>
+                    <div class="like-dislike">
+                        <i id="like-14" class="fas fa-thumbs-up" onclick="updateCount('like', 14)"></i> 
+                        <span id="like-count-14" class="like-count">0</span>
+                        <i id="dislike-14" class="fas fa-thumbs-down" onclick="updateCount('dislike', 14)"></i> 
+                        <span id="dislike-count-14" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>سوبر ماركت الرحمة - مول الدولية شارع المنتزة - ت: <a href="tel:01097300612">01097300612</a>
+                    <div class="like-dislike">
+                        <i id="like-15" class="fas fa-thumbs-up" onclick="updateCount('like', 15)"></i> 
+                        <span id="like-count-15" class="like-count">0</span>
+                        <i id="dislike-15" class="fas fa-thumbs-down" onclick="updateCount('dislike', 15)"></i> 
+                        <span id="dislike-count-15" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>سوبر ماركت اولاد رزق - دجلة شارع المنتزة - ت: <a href="tel:01027678115">01027678115</a>
+                    <div class="like-dislike">
+                        <i id="like-16" class="fas fa-thumbs-up" onclick="updateCount('like', 16)"></i> 
+                        <span id="like-count-16" class="like-count">0</span>
+                        <i id="dislike-16" class="fas fa-thumbs-down" onclick="updateCount('dislike', 16)"></i> 
+                        <span id="dislike-count-16" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>سوبر ماركت الصعيدي - دجلة شارع المنتزة - ت: <a href="tel:01116086341">01116086341</a>
+                    <div class="like-dislike">
+                        <i id="like-17" class="fas fa-thumbs-up" onclick="updateCount('like', 17)"></i> 
+                        <span id="like-count-17" class="like-count">0</span>
+                        <i id="dislike-17" class="fas fa-thumbs-down" onclick="updateCount('dislike', 17)"></i> 
+                        <span id="dislike-count-17" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>سوبر ماركت الطيب - المنتزة - ت: <a href="tel:01024313918">01024313918</a>
+                    <div class="like-dislike">
+                        <i id="like-18" class="fas fa-thumbs-up" onclick="updateCount('like', 18)"></i> 
+                        <span id="like-count-18" class="like-count">0</span>
+                        <i id="dislike-18" class="fas fa-thumbs-down" onclick="updateCount('dislike', 18)"></i> 
+                        <span id="dislike-count-18" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>سوبر ماركت أسواق البركة - المنتزة - ت: <a href="tel:01013841465">01013841465</a> / <a href="tel:01121289329">01121289329</a>
+                    <div class="like-dislike">
+                        <i id="like-19" class="fas fa-thumbs-up" onclick="updateCount('like', 19)"></i> 
+                        <span id="like-count-19" class="like-count">0</span>
+                        <i id="dislike-19" class="fas fa-thumbs-down" onclick="updateCount('dislike', 19)"></i> 
+                        <span id="dislike-count-19" class="dislike-count">0</span>
+                    </div>
+                </li>
             </ul>
         </div>
+        
         <div id="restaurants" class="info" style="display:none;">
             <ul>
-                <li>مطعم ع الحطب - مول جولف كورنر - ت: <a href="tel:01010554276">01010554276</a></li>   
-                <li>مطعم حضرموت - مدينة الفردوس - ت: <a href="tel:01094469828">01094469828</a></li>   
-                <li>مطعم حضرموت - كمبوند الرباب - ت: <a href="tel:01012106111">01012106111</a></li> 
-                <li>كريب مراسي - كمبوند الرباب - ت: <a href="tel:01010604062">01010604062</a></li>   
-                <li>بيتزا الملوك - كمبوند باراديس - ت: <a href="tel:01090802569">01090802569</a></li>   
-                <li>كشري البركة - كمبوند باراديس - ت: <a href="tel:01007672188">01007672188</a></li>   
-                <li>بندق - مول جولف كورنر - ت: <a href="tel:01124613130">01124613130</a></li>   
-                <li>حدائق الشام - مول بيتا - ت: <a href="tel:01125266026">01125266026</a></li>
-                <li>مشاوينا - مول بيتا - ت: <a href="tel:01283825181">01283825181</a></li>
-                <li>مشويات القصر - مول الدولية شارع المنتزة - ت: <a href="tel:01033555575">01033555575</a></li>
-                <li>مطعم التكية - مول دجلة جاردنز - ت: <a href="tel:01021029298">01021029298</a></li>
-                <li>مطعم revive - مول دجلة جاردنز - ت: <a href="tel:0115947442">0115947442</a></li>
-                <li>بيتزا بابا عبده - مول البنفسج - ت: <a href="tel:01015877578">01015877578</a></li>
-                <li>سيتي كريب - مول البنفسج - ت: <a href="tel:01113695503">01113695503</a></li>
-                <li> اسماك بحري للمأكولات البحرية - مول الدولية شارع المنتزة - ت: <a href="tel:01005507116">01005507116</a></li>
-                <li>مطعم اليمني فول وطعمية - مول الجوهرة - ت: <a href="tel:01120297039">01120297039</a></li>
-                <li>مطعم المعلم فول وطعيمة - مول قرطبة - ت: <a href="tel:01050926717">01050926717</a> / <a href="tel:01158712440">01158712440</a></li>
-                <li>مطعم كبده ومخ الحرمين - مول راية سيتي بشارع المنتزة - ت: <a href="tel:01129023583">01129023583</a> / <a href="tel:01003560026">01003560026</a></li>
-                <li> كبده و سجق صواريخ دجلة - مول دجلة شارع المنتزة - ت: <a href="tel:01019898476">01019898476</a></li>
-                <li> كبده و مخ الشرقاوي - مول رويال فالي بجوار كمبوند الحي الايطالي - ت: <a href="tel:01097631991">01097631991</a></li>
-                <li> مطعم كابوريا - مول رويال فالي بجوار كمبوند الحي الايطالي - ت: <a href="tel:01093167795">01093167795</a></li>
-                <li>مطعم العراب للمأكولات السورية - مول الفتح مشروع 266 عمارة - ت: <a href="tel:01033336937">01033336937</a> / <a href="tel:01033336938">01033336938</a></li>
+                <li>مطعم ع الحطب - مول جولف كورنر - ت: <a href="tel:01010554276">01010554276</a>
+                    <div class="like-dislike">
+                        <i id="like-211" class="fas fa-thumbs-up" onclick="updateCount('like', 211)"></i>
+                        <span id="like-count-211" class="like-count">0</span>
+                        <i id="dislike-211" class="fas fa-thumbs-down" onclick="updateCount('dislike', 211)"></i>
+                        <span id="dislike-count-211" class="dislike-count">0</span>
+                    </div>
+                </li>   
+                <li>مطعم حضرموت - مدينة الفردوس - ت: <a href="tel:01094469828">01094469828</a>
+                    <div class="like-dislike">
+                        <i id="like-212" class="fas fa-thumbs-up" onclick="updateCount('like', 212)"></i>
+                        <span id="like-count-212" class="like-count">0</span>
+                        <i id="dislike-212" class="fas fa-thumbs-down" onclick="updateCount('dislike', 212)"></i>
+                        <span id="dislike-count-212" class="dislike-count">0</span>
+                    </div>
+                </li>   
+                <li>مطعم حضرموت - كمبوند الرباب - ت: <a href="tel:01012106111">01012106111</a>
+                    <div class="like-dislike">
+                        <i id="like-213" class="fas fa-thumbs-up" onclick="updateCount('like', 213)"></i>
+                        <span id="like-count-213" class="like-count">0</span>
+                        <i id="dislike-213" class="fas fa-thumbs-down" onclick="updateCount('dislike', 213)"></i>
+                        <span id="dislike-count-213" class="dislike-count">0</span>
+                    </div>
+                </li> 
+                <li>كريب مراسي - كمبوند الرباب - ت: <a href="tel:01010604062">01010604062</a>
+                    <div class="like-dislike">
+                        <i id="like-214" class="fas fa-thumbs-up" onclick="updateCount('like', 214)"></i>
+                        <span id="like-count-214" class="like-count">0</span>
+                        <i id="dislike-214" class="fas fa-thumbs-down" onclick="updateCount('dislike', 214)"></i>
+                        <span id="dislike-count-214" class="dislike-count">0</span>
+                    </div>
+                </li>   
+                <li>بيتزا الملوك - كمبوند باراديس - ت: <a href="tel:01090802569">01090802569</a>
+                    <div class="like-dislike">
+                        <i id="like-215" class="fas fa-thumbs-up" onclick="updateCount('like', 215)"></i>
+                        <span id="like-count-215" class="like-count">0</span>
+                        <i id="dislike-215" class="fas fa-thumbs-down" onclick="updateCount('dislike', 215)"></i>
+                        <span id="dislike-count-215" class="dislike-count">0</span>
+                    </div>
+                </li>   
+                <li>كشري البركة - كمبوند باراديس - ت: <a href="tel:01007672188">01007672188</a>
+                    <div class="like-dislike">
+                        <i id="like-216" class="fas fa-thumbs-up" onclick="updateCount('like', 216)"></i>
+                        <span id="like-count-216" class="like-count">0</span>
+                        <i id="dislike-216" class="fas fa-thumbs-down" onclick="updateCount('dislike', 216)"></i>
+                        <span id="dislike-count-216" class="dislike-count">0</span>
+                    </div>
+                </li>   
+                <li>بندق - مول جولف كورنر - ت: <a href="tel:01124613130">01124613130</a>
+                    <div class="like-dislike">
+                        <i id="like-217" class="fas fa-thumbs-up" onclick="updateCount('like', 217)"></i>
+                        <span id="like-count-217" class="like-count">0</span>
+                        <i id="dislike-217" class="fas fa-thumbs-down" onclick="updateCount('dislike', 217)"></i>
+                        <span id="dislike-count-217" class="dislike-count">0</span>
+                    </div>
+                </li>   
+                <li>حدائق الشام - مول بيتا - ت: <a href="tel:01125266026">01125266026</a>
+                    <div class="like-dislike">
+                        <i id="like-218" class="fas fa-thumbs-up" onclick="updateCount('like', 218)"></i>
+                        <span id="like-count-218" class="like-count">0</span>
+                        <i id="dislike-218" class="fas fa-thumbs-down" onclick="updateCount('dislike', 218)"></i>
+                        <span id="dislike-count-218" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>مشاوينا - مول بيتا - ت: <a href="tel:01283825181">01283825181</a>
+                    <div class="like-dislike">
+                        <i id="like-219" class="fas fa-thumbs-up" onclick="updateCount('like', 219)"></i>
+                        <span id="like-count-219" class="like-count">0</span>
+                        <i id="dislike-219" class="fas fa-thumbs-down" onclick="updateCount('dislike', 219)"></i>
+                        <span id="dislike-count-219" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>مشويات القصر - مول الدولية شارع المنتزة - ت: <a href="tel:01033555575">01033555575</a>
+                    <div class="like-dislike">
+                        <i id="like-220" class="fas fa-thumbs-up" onclick="updateCount('like', 220)"></i>
+                        <span id="like-count-220" class="like-count">0</span>
+                        <i id="dislike-220" class="fas fa-thumbs-down" onclick="updateCount('dislike', 220)"></i>
+                        <span id="dislike-count-220" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>مطعم التكية - مول دجلة جاردنز - ت: <a href="tel:01021029298">01021029298</a>
+                    <div class="like-dislike">
+                        <i id="like-221" class="fas fa-thumbs-up" onclick="updateCount('like', 221)"></i>
+                        <span id="like-count-221" class="like-count">0</span>
+                        <i id="dislike-221" class="fas fa-thumbs-down" onclick="updateCount('dislike', 221)"></i>
+                        <span id="dislike-count-221" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>مطعم revive - مول دجلة جاردنز - ت: <a href="tel:0115947442">0115947442</a>
+                    <div class="like-dislike">
+                        <i id="like-222" class="fas fa-thumbs-up" onclick="updateCount('like', 222)"></i>
+                        <span id="like-count-222" class="like-count">0</span>
+                        <i id="dislike-222" class="fas fa-thumbs-down" onclick="updateCount('dislike', 222)"></i>
+                        <span id="dislike-count-222" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>بيتزا بابا عبده - مول البنفسج - ت: <a href="tel:01015877578">01015877578</a>
+                    <div class="like-dislike">
+                        <i id="like-223" class="fas fa-thumbs-up" onclick="updateCount('like', 223)"></i>
+                        <span id="like-count-223" class="like-count">0</span>
+                        <i id="dislike-223" class="fas fa-thumbs-down" onclick="updateCount('dislike', 223)"></i>
+                        <span id="dislike-count-223" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>سيتي كريب - مول البنفسج - ت: <a href="tel:01113695503">01113695503</a>
+                    <div class="like-dislike">
+                        <i id="like-224" class="fas fa-thumbs-up" onclick="updateCount('like', 224)"></i>
+                        <span id="like-count-224" class="like-count">0</span>
+                        <i id="dislike-224" class="fas fa-thumbs-down" onclick="updateCount('dislike', 224)"></i>
+                        <span id="dislike-count-224" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li> اسماك بحري للمأكولات البحرية - مول الدولية شارع المنتزة - ت: <a href="tel:01005507116">01005507116</a>
+                    <div class="like-dislike">
+                        <i id="like-225" class="fas fa-thumbs-up" onclick="updateCount('like', 225)"></i>
+                        <span id="like-count-225" class="like-count">0</span>
+                        <i id="dislike-225" class="fas fa-thumbs-down" onclick="updateCount('dislike', 225)"></i>
+                        <span id="dislike-count-225" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>مطعم اليمني فول وطعمية - مول الجوهرة - ت: <a href="tel:01120297039">01120297039</a>
+                    <div class="like-dislike">
+                        <i id="like-226" class="fas fa-thumbs-up" onclick="updateCount('like', 226)"></i>
+                        <span id="like-count-226" class="like-count">0</span>
+                        <i id="dislike-226" class="fas fa-thumbs-down" onclick="updateCount('dislike', 226)"></i>
+                        <span id="dislike-count-226" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>مطعم المعلم فول وطعيمة - مول قرطبة - ت: <a href="tel:01050926717">01050926717</a> / <a href="tel:01158712440">01158712440</a>
+                    <div class="like-dislike">
+                        <i id="like-227" class="fas fa-thumbs-up" onclick="updateCount('like', 227)"></i>
+                        <span id="like-count-227" class="like-count">0</span>
+                        <i id="dislike-227" class="fas fa-thumbs-down" onclick="updateCount('dislike', 227)"></i>
+                        <span id="dislike-count-227" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>مطعم كبده ومخ الحرمين - مول راية سيتي بشارع المنتزة - ت: <a href="tel:01129023583">01129023583</a> / <a href="tel:01003560026">01003560026</a>
+                    <div class="like-dislike">
+                        <i id="like-228" class="fas fa-thumbs-up" onclick="updateCount('like', 228)"></i>
+                        <span id="like-count-228" class="like-count">0</span>
+                        <i id="dislike-228" class="fas fa-thumbs-down" onclick="updateCount('dislike', 228)"></i>
+                        <span id="dislike-count-228" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li> كبده و سجق صواريخ دجلة - مول دجلة شارع المنتزة - ت: <a href="tel:01019898476">01019898476</a>
+                    <div class="like-dislike">
+                        <i id="like-229" class="fas fa-thumbs-up" onclick="updateCount('like', 229)"></i>
+                        <span id="like-count-229" class="like-count">0</span>
+                        <i id="dislike-229" class="fas fa-thumbs-down" onclick="updateCount('dislike', 229)"></i>
+                        <span id="dislike-count-229" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li> كبده و مخ الشرقاوي - مول رويال فالي بجوار كمبوند الحي الايطالي - ت: <a href="tel:01097631991">01097631991</a>
+                    <div class="like-dislike">
+                        <i id="like-230" class="fas fa-thumbs-up" onclick="updateCount('like', 230)"></i>
+                        <span id="like-count-230" class="like-count">0</span>
+                        <i id="dislike-230" class="fas fa-thumbs-down" onclick="updateCount('dislike', 230)"></i>
+                        <span id="dislike-count-230" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li> مطعم كابوريا - مول رويال فالي بجوار كمبوند الحي الايطالي - ت: <a href="tel:01093167795">01093167795</a>
+                    <div class="like-dislike">
+                        <i id="like-231" class="fas fa-thumbs-up" onclick="updateCount('like', 231)"></i>
+                        <span id="like-count-231" class="like-count">0</span>
+                        <i id="dislike-231" class="fas fa-thumbs-down" onclick="updateCount('dislike', 231)"></i>
+                        <span id="dislike-count-231" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>مطعم العراب للمأكولات السورية - مول الفتح مشروع 266 عمارة - ت: <a href="tel:01033336937">01033336937</a> / <a href="tel:01033336938">01033336938</a>
+                    <div class="like-dislike">
+                        <i id="like-232" class="fas fa-thumbs-up" onclick="updateCount('like', 232)"></i>
+                        <span id="like-count-232" class="like-count">0</span>
+                        <i id="dislike-232" class="fas fa-thumbs-down" onclick="updateCount('dislike', 232)"></i>
+                        <span id="dislike-count-232" class="dislike-count">0</span>
+                    </div>
+                </li>
             </ul>
         </div>
+        
         <div id="vegetables" class="info" style="display:none;">
             <ul>
-                <li>خضراوات و فواكه مكه - كمبوند دجلة - ت: <a href="tel:01154147434">01154147434</a></li>
-                <li>خضراوات بسمة- كمبوند دجلة - ت: <a href="tel:01005254234">01005254234</a></li>
-                <li>خضراوات فتحة خير- كمبوند دجلة - ت: <a href="tel:01093631266">01093631266</a></li>
-                <li>خضراوات سوق العصر- كمبوند الرباب - ت: <a href="tel:01065080543">01065080543</a></li>
-                <li>خضراوات كمبوند بيت المصرية - ت: <a href="tel:01116447852">01116447852</a></li>
-                <li> سوق الخضار - مول الدولية شارع المنتزة - ت: <a href="tel:01061377826">01061377826</a></li>
-                <li>خضراوات و فواكه الارزاق بالله - مول الجوهرة - ت: <a href="tel:01070836422">01070836422</a> / <a href="tel:01070836421">01070836421</a> / <a href="tel:01116179947">01116179947</a></li>
+                <li>خضراوات و فواكه مكه - كمبوند دجلة - ت: <a href="tel:01154147434">01154147434</a>
+                    <div class="like-dislike">
+                        <i id="like-111" class="fas fa-thumbs-up" onclick="updateCount('like', 111)"></i>
+                        <span id="like-count-111" class="like-count">0</span>
+                        <i id="dislike-111" class="fas fa-thumbs-down" onclick="updateCount('dislike', 111)"></i>
+                        <span id="dislike-count-111" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>خضراوات بسمة- كمبوند دجلة - ت: <a href="tel:01005254234">01005254234</a>
+                    <div class="like-dislike">
+                        <i id="like-112" class="fas fa-thumbs-up" onclick="updateCount('like', 112)"></i>
+                        <span id="like-count-112" class="like-count">0</span>
+                        <i id="dislike-112" class="fas fa-thumbs-down" onclick="updateCount('dislike', 112)"></i>
+                        <span id="dislike-count-112" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>خضراوات فتحة خير- كمبوند دجلة - ت: <a href="tel:01093631266">01093631266</a>
+                    <div class="like-dislike">
+                        <i id="like-113" class="fas fa-thumbs-up" onclick="updateCount('like', 113)"></i>
+                        <span id="like-count-113" class="like-count">0</span>
+                        <i id="dislike-113" class="fas fa-thumbs-down" onclick="updateCount('dislike', 113)"></i>
+                        <span id="dislike-count-113" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>خضراوات سوق العصر- كمبوند الرباب - ت: <a href="tel:01065080543">01065080543</a>
+                    <div class="like-dislike">
+                        <i id="like-114" class="fas fa-thumbs-up" onclick="updateCount('like', 114)"></i>
+                        <span id="like-count-114" class="like-count">0</span>
+                        <i id="dislike-114" class="fas fa-thumbs-down" onclick="updateCount('dislike', 114)"></i>
+                        <span id="dislike-count-114" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>خضراوات كمبوند بيت المصرية - ت: <a href="tel:01116447852">01116447852</a>
+                    <div class="like-dislike">
+                        <i id="like-115" class="fas fa-thumbs-up" onclick="updateCount('like', 115)"></i>
+                        <span id="like-count-115" class="like-count">0</span>
+                        <i id="dislike-115" class="fas fa-thumbs-down" onclick="updateCount('dislike', 115)"></i>
+                        <span id="dislike-count-115" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>سوق الخضار - مول الدولية شارع المنتزة - ت: <a href="tel:01061377826">01061377826</a>
+                    <div class="like-dislike">
+                        <i id="like-116" class="fas fa-thumbs-up" onclick="updateCount('like', 116)"></i>
+                        <span id="like-count-116" class="like-count">0</span>
+                        <i id="dislike-116" class="fas fa-thumbs-down" onclick="updateCount('dislike', 116)"></i>
+                        <span id="dislike-count-116" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>خضراوات و فواكه الارزاق بالله - مول الجوهرة - ت: <a href="tel:01070836422">01070836422</a> / <a href="tel:01070836421">01070836421</a> / <a href="tel:01116179947">01116179947</a>
+                    <div class="like-dislike">
+                        <i id="like-117" class="fas fa-thumbs-up" onclick="updateCount('like', 117)"></i>
+                        <span id="like-count-117" class="like-count">0</span>
+                        <i id="dislike-117" class="fas fa-thumbs-down" onclick="updateCount('dislike', 117)"></i>
+                        <span id="dislike-count-117" class="dislike-count">0</span>
+                    </div>
+                </li>
             </ul>
         </div>
+        
         <div id="meat" class="info" style="display:none;">
             <ul>
-                <li>طيور باراديس - كمبوند باراديس شارع المنتزة - ت: <a href="tel:01011151687">01011151687</a> / <a href="tel:01098941581">01098941581</a></li>
-                <li>طيور المدينة - كمبوند باراديس شارع المنتزة - ت: <a href="tel:01023532233">01023532233</a></li>
-                <li>طيور المرشدي - كمبوند الرباب - ت: <a href="tel:01005820615">01005820615</a></li>
-                <li>طيور اولاد رجب - ارض المخابرات - ت: <a href="tel:01027885171">01027885171</a></li>
-                <li>طيور البركة - مول الدولية شارع المنتزة - ت: <a href="tel:01064602789">01064602789</a></li>
-                <li>جزارة القصر - مول الدولية شارع المنتزة - ت: <a href="tel:01033777730">01033777730</a></li>
-                <li>جزارة البركة - دجلة جاردنز شارع المنتزة - ت: <a href="tel:01029161792">01029161792</a></li>
-                <li>جزارة الساعة اولاد ابو الغيط - حدائق الاهرام - ت: <a href="tel:01229990742">01229990742</a></li>
+                <li>طيور باراديس - كمبوند باراديس شارع المنتزة - ت: <a href="tel:01011151687">01011151687</a> / <a href="tel:01098941581">01098941581</a>
+                    <div class="like-dislike">
+                        <i id="like-31" class="fas fa-thumbs-up" onclick="updateCount('like', 31)"></i> 
+                        <span id="like-count-31" class="like-count">0</span>
+                        <i id="dislike-31" class="fas fa-thumbs-down" onclick="updateCount('dislike', 31)"></i> 
+                        <span id="dislike-count-31" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>طيور المدينة - كمبوند باراديس شارع المنتزة - ت: <a href="tel:01023532233">01023532233</a>
+                    <div class="like-dislike">
+                        <i id="like-32" class="fas fa-thumbs-up" onclick="updateCount('like', 32)"></i> 
+                        <span id="like-count-32" class="like-count">0</span>
+                        <i id="dislike-32" class="fas fa-thumbs-down" onclick="updateCount('dislike', 32)"></i> 
+                        <span id="dislike-count-32" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>طيور المرشدي - كمبوند الرباب - ت: <a href="tel:01005820615">01005820615</a>
+                    <div class="like-dislike">
+                        <i id="like-33" class="fas fa-thumbs-up" onclick="updateCount('like', 33)"></i> 
+                        <span id="like-count-33" class="like-count">0</span>
+                        <i id="dislike-33" class="fas fa-thumbs-down" onclick="updateCount('dislike', 33)"></i> 
+                        <span id="dislike-count-33" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>طيور اولاد رجب - ارض المخابرات - ت: <a href="tel:01027885171">01027885171</a>
+                    <div class="like-dislike">
+                        <i id="like-34" class="fas fa-thumbs-up" onclick="updateCount('like', 34)"></i> 
+                        <span id="like-count-34" class="like-count">0</span>
+                        <i id="dislike-34" class="fas fa-thumbs-down" onclick="updateCount('dislike', 34)"></i> 
+                        <span id="dislike-count-34" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>طيور البركة - مول الدولية شارع المنتزة - ت: <a href="tel:01064602789">01064602789</a>
+                    <div class="like-dislike">
+                        <i id="like-35" class="fas fa-thumbs-up" onclick="updateCount('like', 35)"></i> 
+                        <span id="like-count-35" class="like-count">0</span>
+                        <i id="dislike-35" class="fas fa-thumbs-down" onclick="updateCount('dislike', 35)"></i> 
+                        <span id="dislike-count-35" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>جزارة القصر - مول الدولية شارع المنتزة - ت: <a href="tel:01033777730">01033777730</a>
+                    <div class="like-dislike">
+                        <i id="like-36" class="fas fa-thumbs-up" onclick="updateCount('like', 36)"></i> 
+                        <span id="like-count-36" class="like-count">0</span>
+                        <i id="dislike-36" class="fas fa-thumbs-down" onclick="updateCount('dislike', 36)"></i> 
+                        <span id="dislike-count-36" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>جزارة البركة - دجلة جاردنز شارع المنتزة - ت: <a href="tel:01029161792">01029161792</a>
+                    <div class="like-dislike">
+                        <i id="like-37" class="fas fa-thumbs-up" onclick="updateCount('like', 37)"></i> 
+                        <span id="like-count-37" class="like-count">0</span>
+                        <i id="dislike-37" class="fas fa-thumbs-down" onclick="updateCount('dislike', 37)"></i> 
+                        <span id="dislike-count-37" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>جزارة الساعة اولاد ابو الغيط - حدائق الاهرام - ت: <a href="tel:01229990742">01229990742</a>
+                    <div class="like-dislike">
+                        <i id="like-38" class="fas fa-thumbs-up" onclick="updateCount('like', 38)"></i> 
+                        <span id="like-count-38" class="like-count">0</span>
+                        <i id="dislike-38" class="fas fa-thumbs-down" onclick="updateCount('dislike', 38)"></i> 
+                        <span id="dislike-count-38" class="dislike-count">0</span>
+                    </div>
+                </li>
             </ul>
         </div>
         <div id="Cleaning" class="info" style="display:none;">
             <ul>
-                <li>مغسلة دريم - كمبوند الرباب - ت: <a href="tel:01092545294">01092545294</a></li>
-                <li>دراي كلين المركز العالمي - مول الجوهرة - ت: <a href="tel:01145848418">01145848418</a></li>
-                <li>دراي كلين سبلاش - شارع المنتزة - ت: <a href="tel:01096390084">01096390084</a></li>
-                <li>دراي كلين دجلة - كمبوند دجلة جاردنز - ت: <a href="tel:01019805416">01019805416</a></li>
-                <li>دراي كلين اللوتس - كمبوند اللوتس - ت: <a href="tel:01012275734">01012275734</a></li>
+                <li>مغسلة دريم - كمبوند الرباب - ت: <a href="tel:01092545294">01092545294</a>
+                    <div class="like-dislike">
+                        <i id="like-39" class="fas fa-thumbs-up" onclick="updateCount('like', 39)"></i> 
+                        <span id="like-count-39" class="like-count">0</span>
+                        <i id="dislike-39" class="fas fa-thumbs-down" onclick="updateCount('dislike', 39)"></i> 
+                        <span id="dislike-count-39" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>دراي كلين المركز العالمي - مول الجوهرة - ت: <a href="tel:01145848418">01145848418</a>
+                    <div class="like-dislike">
+                        <i id="like-40" class="fas fa-thumbs-up" onclick="updateCount('like', 40)"></i> 
+                        <span id="like-count-40" class="like-count">0</span>
+                        <i id="dislike-40" class="fas fa-thumbs-down" onclick="updateCount('dislike', 40)"></i> 
+                        <span id="dislike-count-40" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>دراي كلين سبلاش - شارع المنتزة - ت: <a href="tel:01096390084">01096390084</a>
+                    <div class="like-dislike">
+                        <i id="like-41" class="fas fa-thumbs-up" onclick="updateCount('like', 41)"></i> 
+                        <span id="like-count-41" class="like-count">0</span>
+                        <i id="dislike-41" class="fas fa-thumbs-down" onclick="updateCount('dislike', 41)"></i> 
+                        <span id="dislike-count-41" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>دراي كلين دجلة - كمبوند دجلة جاردنز - ت: <a href="tel:01019805416">01019805416</a>
+                    <div class="like-dislike">
+                        <i id="like-42" class="fas fa-thumbs-up" onclick="updateCount('like', 42)"></i> 
+                        <span id="like-count-42" class="like-count">0</span>
+                        <i id="dislike-42" class="fas fa-thumbs-down" onclick="updateCount('dislike', 42)"></i> 
+                        <span id="dislike-count-42" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>دراي كلين اللوتس - كمبوند اللوتس - ت: <a href="tel:01012275734">01012275734</a>
+                    <div class="like-dislike">
+                        <i id="like-43" class="fas fa-thumbs-up" onclick="updateCount('like', 43)"></i> 
+                        <span id="like-count-43" class="like-count">0</span>
+                        <i id="dislike-43" class="fas fa-thumbs-down" onclick="updateCount('dislike', 43)"></i> 
+                        <span id="dislike-count-43" class="dislike-count">0</span>
+                    </div>
+                </li>
             </ul>
         </div>
+        
         <div id="Milk" class="info" style="display:none;">
             <ul>
-                <li>ألبان سليم - شارع المنتزة - ت: <a href="tel:01012114141">01012114141</a></li>
-                <li>ألبان سارة البطة - مول بيتا - ت: <a href="tel:01125589001">01125589001</a></li>
-                <li>ألبان ادم - ارض المخابرات - ت: <a href="tel:01094749720">01094749720</a></li>
-                <li>ألبان دجلة - المنتزة - ت: <a href="tel:01099836878">01099836878</a></li>
+                <li>ألبان سليم - شارع المنتزة - ت: <a href="tel:01012114141">01012114141</a>
+                    <div class="like-dislike">
+                        <i id="like-44" class="fas fa-thumbs-up" onclick="updateCount('like', 44)"></i> 
+                        <span id="like-count-44" class="like-count">0</span>
+                        <i id="dislike-44" class="fas fa-thumbs-down" onclick="updateCount('dislike', 44)"></i> 
+                        <span id="dislike-count-44" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>ألبان سارة البطة - مول بيتا - ت: <a href="tel:01125589001">01125589001</a>
+                    <div class="like-dislike">
+                        <i id="like-45" class="fas fa-thumbs-up" onclick="updateCount('like', 45)"></i> 
+                        <span id="like-count-45" class="like-count">0</span>
+                        <i id="dislike-45" class="fas fa-thumbs-down" onclick="updateCount('dislike', 45)"></i> 
+                        <span id="dislike-count-45" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>ألبان ادم - ارض المخابرات - ت: <a href="tel:01094749720">01094749720</a>
+                    <div class="like-dislike">
+                        <i id="like-46" class="fas fa-thumbs-up" onclick="updateCount('like', 46)"></i> 
+                        <span id="like-count-46" class="like-count">0</span>
+                        <i id="dislike-46" class="fas fa-thumbs-down" onclick="updateCount('dislike', 46)"></i> 
+                        <span id="dislike-count-46" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>ألبان دجلة - المنتزة - ت: <a href="tel:01099836878">01099836878</a>
+                    <div class="like-dislike">
+                        <i id="like-47" class="fas fa-thumbs-up" onclick="updateCount('like', 47)"></i> 
+                        <span id="like-count-47" class="like-count">0</span>
+                        <i id="dislike-47" class="fas fa-thumbs-down" onclick="updateCount('dislike', 47)"></i> 
+                        <span id="dislike-count-47" class="dislike-count">0</span>
+                    </div>
+                </li>
             </ul>
         </div>
+        
         <div id="Grocery" class="info" style="display:none;">
             <ul>
-                <li>عطارة دحوم - مول الصناعات الصغيرة شارع المنتزة - ت: <a href="tel:01011918187">01011918187</a></li>
-                <li>بيت العطارة - مول الجوهرة - ت: <a href="tel:01091313187">01091313187</a></li>
-                <li>عطارة الخير - مول راية سيتي المنتزة - ت: <a href="tel:01270508311">01270508311</a> / <a href="tel:01124876151">01124876151</a></li>
+                <li>عطارة دحوم - مول الصناعات الصغيرة شارع المنتزة - ت: <a href="tel:01011918187">01011918187</a>
+                    <div class="like-dislike">
+                        <i id="like-48" class="fas fa-thumbs-up" onclick="updateCount('like', 48)"></i> 
+                        <span id="like-count-48" class="like-count">0</span>
+                        <i id="dislike-48" class="fas fa-thumbs-down" onclick="updateCount('dislike', 48)"></i> 
+                        <span id="dislike-count-48" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>بيت العطارة - مول الجوهرة - ت: <a href="tel:01091313187">01091313187</a>
+                    <div class="like-dislike">
+                        <i id="like-49" class="fas fa-thumbs-up" onclick="updateCount('like', 49)"></i> 
+                        <span id="like-count-49" class="like-count">0</span>
+                        <i id="dislike-49" class="fas fa-thumbs-down" onclick="updateCount('dislike', 49)"></i> 
+                        <span id="dislike-count-49" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>عطارة الخير - مول راية سيتي المنتزة - ت: <a href="tel:01270508311">01270508311</a> / <a href="tel:01124876151">01124876151</a>
+                    <div class="like-dislike">
+                        <i id="like-50" class="fas fa-thumbs-up" onclick="updateCount('like', 50)"></i> 
+                        <span id="like-count-50" class="like-count">0</span>
+                        <i id="dislike-50" class="fas fa-thumbs-down" onclick="updateCount('dislike', 50)"></i> 
+                        <span id="dislike-count-50" class="dislike-count">0</span>
+                    </div>
+                </li>
             </ul>
         </div>
+        
         <div id="other_services" class="info" style="display:none;">
             <ul>
-                <li>ابو مروان - بيع مستلزمات حيوانات - مول البنفسج - ت: <a href="tel:01061516413">01061516413</a></li>
-                <li>الفردوس كلينيك - عيادة بيطرية - مول رويال فالي بعد الحي الايطالي - ت: <a href="tel:01065949868">01065949868</a></li>
-                <li>جمال - كهربائي سيارات - شارع المنتزة - ت: <a href="tel:01033464647">01033464647</a></li>
-                <li>ابو علي - ميكانيكي سيارات - ت: <a href="tel:01221352910">01221352910</a></li>
-                <li>ابو رحيم - سباك - ت: <a href="tel:01144184413">01144184413</a></li>
-                <li>مصطفي رزق - سباك - ت: <a href="tel:01114120032">01114120032</a></li>
-                <li>ربيع - تغيير انابيب بوتاجاز - ت: <a href="tel:01020668654">01020668654</a></li>
-                <li>شركة انابيب البوتاجاز - ت: <a href="tel:19492">19492</a></li>
-                <li>علي - نجار عفش - ت: <a href="tel:01149772501">01149772501</a></li>
-                <li>احمد - ستائر مدينة الفردوس - ت: <a href="tel:01127916024">01127916024</a></li>
-                <li>سحر رشاد - خدمة تنظيف منازل - ت: <a href="tel:01127501366">01127501366</a></li>
-                <li>عفاف - خدمة تنظيف منازل - ت: <a href="tel:01224502990">01224502990</a></li>
-                <li>العالمية - شركة نقل عفش - ت: <a href="tel:01153421500">01153421500</a></li>
-                <li>مقلة الرحاب - ت: <a href="tel:01123654710">01123654710</a></li>
-                <li>ماستر كاي - عمل نسخ مفاتيح وشفرات الاسانسير - مول البنفسج 1 - ت: <a href="tel:01100327878">01100327878</a></li>
-                <li>شركة ناتجاس للغاز الطبيعي- شارع الصفا والمروة بجوار مطعم حضرموت مدينة الفردوس - ت: <a href="tel:0000">0000</a></li>
-                <li>شركة كهرباء حدائق اكتوبر - هرم سيتي - ت: <a href="tel:0000">0000</a></li>
-                <li>شركة مياة حدائق اكتوبر - شارع احمد زويل بجوار جهاز تنمية حدائق اكتوبر وامام إلموندو مول  - ت: <a href="tel:0000">0000</a></li>
-                <li>سجل مدني هرم سيتي - طريق وادي النطرون بعد صينية البترول بجوار كمبوند دار مصر - ت: <a href="tel:0000">0000</a></li>
-                <li>سجل مدني - طريق استوريا بارك متفرع من طريق الحي الايطالي بجوار مبني هيئة قضايا الدولة - ت: <a href="tel:0000">0000</a></li>
+                <li>ابو مروان - بيع مستلزمات حيوانات - مول البنفسج - ت: <a href="tel:01061516413">01061516413</a>
+                    <div class="like-dislike">
+                        <i id="like-500" class="fas fa-thumbs-up" onclick="updateCount('like', 500)"></i> 
+                        <span id="like-count-500" class="like-count">0</span>
+                        <i id="dislike-500" class="fas fa-thumbs-down" onclick="updateCount('dislike', 500)"></i> 
+                        <span id="dislike-count-500" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>الفردوس كلينيك - عيادة بيطرية - مول رويال فالي بعد الحي الايطالي - ت: <a href="tel:01065949868">01065949868</a>
+                    <div class="like-dislike">
+                        <i id="like-501" class="fas fa-thumbs-up" onclick="updateCount('like', 501)"></i> 
+                        <span id="like-count-501" class="like-count">0</span>
+                        <i id="dislike-501" class="fas fa-thumbs-down" onclick="updateCount('dislike', 501)"></i> 
+                        <span id="dislike-count-501" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>جمال - كهربائي سيارات - شارع المنتزة - ت: <a href="tel:01033464647">01033464647</a>
+                    <div class="like-dislike">
+                        <i id="like-502" class="fas fa-thumbs-up" onclick="updateCount('like', 502)"></i> 
+                        <span id="like-count-502" class="like-count">0</span>
+                        <i id="dislike-502" class="fas fa-thumbs-down" onclick="updateCount('dislike', 502)"></i> 
+                        <span id="dislike-count-502" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>ابو علي - ميكانيكي سيارات - ت: <a href="tel:01221352910">01221352910</a>
+                    <div class="like-dislike">
+                        <i id="like-503" class="fas fa-thumbs-up" onclick="updateCount('like', 503)"></i> 
+                        <span id="like-count-503" class="like-count">0</span>
+                        <i id="dislike-503" class="fas fa-thumbs-down" onclick="updateCount('dislike', 503)"></i> 
+                        <span id="dislike-count-503" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>ابو رحيم - سباك - ت: <a href="tel:01144184413">01144184413</a>
+                    <div class="like-dislike">
+                        <i id="like-504" class="fas fa-thumbs-up" onclick="updateCount('like', 504)"></i> 
+                        <span id="like-count-504" class="like-count">0</span>
+                        <i id="dislike-504" class="fas fa-thumbs-down" onclick="updateCount('dislike', 504)"></i> 
+                        <span id="dislike-count-504" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>مصطفي رزق - سباك - ت: <a href="tel:01114120032">01114120032</a>
+                    <div class="like-dislike">
+                        <i id="like-505" class="fas fa-thumbs-up" onclick="updateCount('like', 505)"></i> 
+                        <span id="like-count-505" class="like-count">0</span>
+                        <i id="dislike-505" class="fas fa-thumbs-down" onclick="updateCount('dislike', 505)"></i> 
+                        <span id="dislike-count-505" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>ربيع - تغيير انابيب بوتاجاز - ت: <a href="tel:01020668654">01020668654</a>
+                    <div class="like-dislike">
+                        <i id="like-506" class="fas fa-thumbs-up" onclick="updateCount('like', 506)"></i> 
+                        <span id="like-count-506" class="like-count">0</span>
+                        <i id="dislike-506" class="fas fa-thumbs-down" onclick="updateCount('dislike', 506)"></i> 
+                        <span id="dislike-count-506" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>شركة انابيب البوتاجاز - ت: <a href="tel:19492">19492</a>
+                    <div class="like-dislike">
+                        <i id="like-507" class="fas fa-thumbs-up" onclick="updateCount('like', 507)"></i> 
+                        <span id="like-count-507" class="like-count">0</span>
+                        <i id="dislike-507" class="fas fa-thumbs-down" onclick="updateCount('dislike', 507)"></i> 
+                        <span id="dislike-count-507" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>علي - نجار عفش - ت: <a href="tel:01149772501">01149772501</a>
+                    <div class="like-dislike">
+                        <i id="like-508" class="fas fa-thumbs-up" onclick="updateCount('like', 508)"></i> 
+                        <span id="like-count-508" class="like-count">0</span>
+                        <i id="dislike-508" class="fas fa-thumbs-down" onclick="updateCount('dislike', 508)"></i> 
+                        <span id="dislike-count-508" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>احمد - ستائر مدينة الفردوس - ت: <a href="tel:01127916024">01127916024</a>
+                    <div class="like-dislike">
+                        <i id="like-509" class="fas fa-thumbs-up" onclick="updateCount('like', 509)"></i> 
+                        <span id="like-count-509" class="like-count">0</span>
+                        <i id="dislike-509" class="fas fa-thumbs-down" onclick="updateCount('dislike', 509)"></i> 
+                        <span id="dislike-count-509" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>سحر رشاد - خدمة تنظيف منازل - ت: <a href="tel:01127501366">01127501366</a>
+                    <div class="like-dislike">
+                        <i id="like-510" class="fas fa-thumbs-up" onclick="updateCount('like', 510)"></i> 
+                        <span id="like-count-510" class="like-count">0</span>
+                        <i id="dislike-510" class="fas fa-thumbs-down" onclick="updateCount('dislike', 510)"></i> 
+                        <span id="dislike-count-510" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>عفاف - خدمة تنظيف منازل - ت: <a href="tel:01224502990">01224502990</a>
+                    <div class="like-dislike">
+                        <i id="like-511" class="fas fa-thumbs-up" onclick="updateCount('like', 511)"></i> 
+                        <span id="like-count-511" class="like-count">0</span>
+                        <i id="dislike-511" class="fas fa-thumbs-down" onclick="updateCount('dislike', 511)"></i> 
+                        <span id="dislike-count-511" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>العالمية - شركة نقل عفش - ت: <a href="tel:01153421500">01153421500</a>
+                    <div class="like-dislike">
+                        <i id="like-512" class="fas fa-thumbs-up" onclick="updateCount('like', 512)"></i> 
+                        <span id="like-count-512" class="like-count">0</span>
+                        <i id="dislike-512" class="fas fa-thumbs-down" onclick="updateCount('dislike', 512)"></i> 
+                        <span id="dislike-count-512" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>مقلة الرحاب - ت: <a href="tel:01123654710">01123654710</a>
+                    <div class="like-dislike">
+                        <i id="like-513" class="fas fa-thumbs-up" onclick="updateCount('like', 513)"></i> 
+                        <span id="like-count-513" class="like-count">0</span>
+                        <i id="dislike-513" class="fas fa-thumbs-down" onclick="updateCount('dislike', 513)"></i> 
+                        <span id="dislike-count-513" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>ماستر كاي - عمل نسخ مفاتيح وشفرات الاسانسير - مول البنفسج 1 - ت: <a href="tel:01100327878">01100327878</a>
+                    <div class="like-dislike">
+                        <i id="like-514" class="fas fa-thumbs-up" onclick="updateCount('like', 514)"></i> 
+                        <span id="like-count-514" class="like-count">0</span>
+                        <i id="dislike-514" class="fas fa-thumbs-down" onclick="updateCount('dislike', 514)"></i> 
+                        <span id="dislike-count-514" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>شركة ناتجاس للغاز الطبيعي- شارع الصفا والمروة بجوار مطعم حضرموت مدينة الفردوس - ت: <a href="tel:0000">0000</a>
+                    <div class="like-dislike">
+                        <i id="like-515" class="fas fa-thumbs-up" onclick="updateCount('like', 515)"></i> 
+                        <span id="like-count-515" class="like-count">0</span>
+                        <i id="dislike-515" class="fas fa-thumbs-down" onclick="updateCount('dislike', 515)"></i> 
+                        <span id="dislike-count-515" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>شركة كهرباء حدائق اكتوبر - هرم سيتي - ت: <a href="tel:0000">0000</a>
+                    <div class="like-dislike">
+                        <i id="like-516" class="fas fa-thumbs-up" onclick="updateCount('like', 516)"></i> 
+                        <span id="like-count-516" class="like-count">0</span>
+                        <i id="dislike-516" class="fas fa-thumbs-down" onclick="updateCount('dislike', 516)"></i> 
+                        <span id="dislike-count-516" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>شركة مياة حدائق اكتوبر - شارع احمد زويل بجوار جهاز تنمية حدائق اكتوبر وامام إلموندو مول  - ت: <a href="tel:0000">0000</a>
+                    <div class="like-dislike">
+                        <i id="like-517" class="fas fa-thumbs-up" onclick="updateCount('like', 517)"></i> 
+                        <span id="like-count-517" class="like-count">0</span>
+                        <i id="dislike-517" class="fas fa-thumbs-down" onclick="updateCount('dislike', 517)"></i> 
+                        <span id="dislike-count-517" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>سجل مدني هرم سيتي - طريق وادي النطرون بعد صينية البترول بجوار كمبوند دار مصر - ت: <a href="tel:0000">0000</a>
+                    <div class="like-dislike">
+                        <i id="like-518" class="fas fa-thumbs-up" onclick="updateCount('like', 518)"></i> 
+                        <span id="like-count-518" class="like-count">0</span>
+                        <i id="dislike-518" class="fas fa-thumbs-down" onclick="updateCount('dislike', 518)"></i> 
+                        <span id="dislike-count-518" class="dislike-count">0</span>
+                    </div>
+                </li>
+                <li>سجل مدني - طريق استوريا بارك متفرع من طريق الحي الايطالي بجوار مبني هيئة قضايا الدولة - ت: <a href="tel:0000">0000</a>
+                    <div class="like-dislike">
+                        <i id="like-519" class="fas fa-thumbs-up" onclick="updateCount('like', 519)"></i> 
+                        <span id="like-count-519" class="like-count">0</span>
+                        <i id="dislike-519" class="fas fa-thumbs-down" onclick="updateCount('dislike', 519)"></i> 
+                        <span id="dislike-count-519" class="dislike-count">0</span>
+                    </div>
+                </li>
             </ul>
         </div>
     </section>
@@ -241,6 +1019,29 @@
         audio.pause();
         audio.currentTime = 0; 
     });
+let likeClicked = {}; // لتتبع إذا تم الضغط على like لكل عنصر
+let dislikeClicked = {}; // لتتبع إذا تم الضغط على dislike لكل عنصر
+
+function updateCount(type, id) {
+    const likeIcon = document.getElementById(`like-${id}`);
+    const dislikeIcon = document.getElementById(`dislike-${id}`);
+    const likeCount = document.getElementById(`like-count-${id}`);
+    const dislikeCount = document.getElementById(`dislike-count-${id}`);
+
+    if (type === 'like' && !likeClicked[id]) {
+        likeClicked[id] = true; // تعيين الحالة إلى true
+        dislikeClicked[id] = false; // إعادة تعيين dislike
+        likeCount.textContent = parseInt(likeCount.textContent) + 1; // زيادة العد
+        likeIcon.style.color = 'blue'; // تغيير اللون أو أي تأثير آخر
+        dislikeIcon.style.pointerEvents = 'none'; // تعطيل dislike
+    } else if (type === 'dislike' && !dislikeClicked[id]) {
+        dislikeClicked[id] = true; // تعيين الحالة إلى true
+        likeClicked[id] = false; // إعادة تعيين like
+        dislikeCount.textContent = parseInt(dislikeCount.textContent) + 1; // زيادة العد
+        dislikeIcon.style.color = 'red'; // تغيير اللون أو أي تأثير آخر
+        likeIcon.style.pointerEvents = 'none'; // تعطيل like
+    }
+}
     </script>
 </body>
 </html>
