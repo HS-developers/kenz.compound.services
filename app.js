@@ -45,6 +45,12 @@ function updateCount(type, id) {
 
         set(ratingRef, data).then(() => {
             console.log(`Updated data for ${id}:`, data);
+            // Verify if data is written successfully
+            get(ratingRef).then((newSnapshot) => {
+                console.log(`Verified data for ${id}:`, newSnapshot.val());
+            }).catch((error) => {
+                console.error("Error verifying data:", error);
+            });
         }).catch((error) => {
             console.error("Error updating data:", error);
         });
