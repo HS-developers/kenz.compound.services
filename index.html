@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <title>تشغيل وإيقاف الموسيقى</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
     <script>
     function toggleInfo(id) {
         var info = document.getElementById(id);
@@ -23,7 +22,6 @@
     </script>
 </head>
 <body>
-    
     <header>
         <!-- إضافة الأيقونة بجانب العنوان -->
         <h1>مرحبا بكـم في موقعنا الاول لخدمات 🌟كمبوند كنز🌟</h1>
@@ -32,7 +30,6 @@
             <button id="stopButton"><i class="fas fa-stop"></i></button>
         </p>
     </header>
-   
     <nav>
         <ul>
             <li><a href="https://firstgroup-egypt.com/kenz-compound/" target="_blank">معلومات عن الكمبوند</a></li>
@@ -46,17 +43,12 @@
     </style>
     <script>
         function toggleInfo(sectionId) {
-            // إخفاء جميع الأقسام
             var sections = document.querySelectorAll('.info');
             sections.forEach(function(section) {
                 section.style.display = 'none';
             });
-
-            // إظهار القسم المطلوب
             var section = document.getElementById(sectionId);
             section.style.display = 'block';
-
-            // التمرير إلى القسم المطلوب
             section.scrollIntoView({ behavior: 'smooth' });
         }
     </script>
@@ -68,7 +60,6 @@
                 <img src="gate 2.jpg" class="image" alt="gate">
                 <img src="Inside.jpg" class="image" alt="Inside">
                 <img src="Bar.jpg" class="image" alt="Bar">
-                
             </div>
             <ul class="buttons">
                 <li><button onclick="toggleInfo('clinics')">خدمات طبية</button></li>
@@ -202,7 +193,6 @@
                 <li>ألبان دجلة - المنتزة - ت: <a href="tel:01099836878">01099836878</a></li>
             </ul>
         </div>
-        
         <div id="Grocery" class="info" style="display:none;">
             <ul>
                 <li>عطارة دحوم - مول الصناعات الصغيرة شارع المنتزة - ت: <a href="tel:01011918187">01011918187</a></li>
@@ -239,12 +229,10 @@
     <footer dir="rtl" style="display: flex; justify-content: right; align-items: center; padding: 0; line-height: 1; text-align: right; background-color: #f8f9fa; color: rgb(82, 154, 248); font-size: 0.6em; height: 35px;">
     <p style="background-color: #e9ecef; padding: 5px;">جميع الحقوق محفوظة © 2024 <span style="text-decoration: underline;">H&S For Programming</span></p>
 </footer>
-<!-- ملف الصوت -->
 <audio id="backgroundAudio" loop>
     <source src="good.mp3" type="audio/ogg">
     متصفحك لا يدعم تشغيل الملفات الصوتية.
 </audio>
-
 <script>
     var audio = document.getElementById('backgroundAudio');
     document.getElementById('playButton').addEventListener('click', function() {
