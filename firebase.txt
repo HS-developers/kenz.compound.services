@@ -1,7 +1,7 @@
 Kenz-project
 ------------
 
-onst firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyCnRLUzLraNE-AR94ZlRGIAFOKks74ZtyQ",
   authDomain: "kenz--project.firebaseapp.com",
   projectId: "kenz--project",
