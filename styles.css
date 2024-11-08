@@ -159,13 +159,40 @@ body {
     align-items: center;
     margin-top: 10px;
 }
+
 .like-dislike i {
     cursor: pointer;
-    margin-right: 5px;
-}
-.like-dislike span {
     margin-right: 15px;
+    font-size: 18px;
 }
+
+/* تثبيت لون الأيقونات */
+.like-dislike .fa-thumbs-up {
+    color: green;  /* أيقونة like باللون الأخضر */
+}
+
+.like-dislike .fa-thumbs-down {
+    color: red;    /* أيقونة dislike باللون الأحمر */
+}
+
+/* العدادات تظهر بلون ثابت */
+.like-dislike span {
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.like-dislike span.like-count {
+    color: green;  /* عداد like باللون الأخضر */
+}
+
+.like-dislike span.dislike-count {
+    color: red;    /* عداد dislike باللون الأحمر */
+}
+.like-dislike i[style*="pointer-events: none;"] {
+    opacity: 0.5;  /* تعتيم الأيقونة عند تعطيلها */
+    cursor: not-allowed; /* تغيير شكل المؤشر عند محاولة الضغط */
+}
+
 
 body {
     font-family: 'Cairo', sans-serif;
