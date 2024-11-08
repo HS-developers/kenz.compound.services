@@ -17,26 +17,85 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app); // Initialize Database
 
-// Function to write data
-function writeTestData() {
-    const testRef = ref(database, 'test/');
-    const testData = { test: 'This is a test' };
-    console.log('Writing test data:', testData);
+function updateCount(type, id) {
+    const likeIcon = document.getElementById(`like-${id}`);
+    const dislikeIcon = document.getElementById(`dislike-${id}`);
+    const likeCount = document.getElementById(`like-count-${id}`);
+    const dislikeCount = document.getElementById(`dislike-count-${id}`);
 
-    set(testRef, testData).then(() => {
-        console.log('Test data written successfully');
-        // Verify if data is written successfully
-        get(testRef).then((snapshot) => {
-            console.log('Verified test data:', snapshot.val());
+    const ratingRef = ref(database, 'ratings/' + id);
+
+    get(ratingRef).then((snapshot) => {
+        let data = snapshot.val() || { likes: 0, dislikes: 0 };
+        console.log(`Current data for ${id}:`, data);
+
+        if (type === 'like') {
+            data.likes += 1;
+            likeCount.textContent = data.likes;
+            likeIcon.style.color = 'blue';
+            dislikeIcon.style.pointerEvents = 'none';
+        } else if (type === 'dislike') {
+            data.dislikes += 1;
+            dislikeCount.textContent = data.dislikes;
+            dislikeIcon.style.color = 'red';
+            likeIcon.style.pointerEvents = 'none';
+        }
+
+        console.log(`Data to be written for ${id}:`, data); // Log data before writing
+
+        set(ratingRef, data).then(() => {
+            console.log(`Data successfully written for ${id}:`, data); // Log after writing
+
+            // Verify if data is written successfully
+            get(ratingRef).then((newSnapshot) => {
+                console.log(`Verified data for ${id}:`, newSnapshot.val()); // Log verified data
+            }).catch((error) => {
+                console.error("Error verifying data:", error);
+            });
         }).catch((error) => {
-            console.error('Error verifying test data:', error);
+            console.error("Error updating data:", error);
         });
     }).catch((error) => {
-        console.error('Error writing test data:', error);
+        console.error("Error fetching data:", error);
     });
 }
 
-// Call the function to write test data
+function displayRatings(id) {
+    const likeCount = document.getElementById(`like-count-${id}`);
+    const dislikeCount = document.getElementById(`dislike-count-${id}`);
+
+    const ratingRef = ref(database, 'ratings/' + id);
+
+    onValue(ratingRef, (snapshot) => {
+        let data = snapshot.val() || { likes: 0, dislikes: 0 };
+        console.log(`Displaying data for ${id}:`, data);
+        likeCount.textContent = data.likes;
+        dislikeCount.textContent = data.dislikes;
+    });
+}
+
+// Generate IDs based on the specified ranges
+const ids = [];
+for (let i = 400; i <= 421; i++) {
+    ids.push(i.toString());
+}
+for (let i = 1; i <= 19; i++) {
+    ids.push(i.toString());
+}
+for (let i = 211; i <= 232; i++) {
+    ids.push(i.toString());
+}
+for (let i = 111; i <= 117; i++) {
+    ids.push(i.toString());
+}
+for (let i = 31; i <= 50; i++) {
+    ids.push(i.toString());
+}
+for (let i = 500; i <= 519; i++) {
+    ids.push(i.toString());
+}
+
+// Call the function to display ratings when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-    writeTestData();
+    ids.forEach(id => displayRatings(id));
 });
