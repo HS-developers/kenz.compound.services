@@ -6,7 +6,7 @@ import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/fir
 const firebaseConfig = {
     apiKey: "AIzaSyCnRLUzLraNE-AR94ZlRGIAFOKks74ZtyQ",
     authDomain: "kenz--project.firebaseapp.com",
-    databaseURL: "https://kenz--project-default-rtdb.firebaseio.com",
+    databaseURL: "https://kenz--project-default-rtdb.firebaseio.com", // Ensure this URL is correct
     projectId: "kenz--project",
     storageBucket: "kenz--project.appspot.com",
     messagingSenderId: "435317870255",
@@ -43,11 +43,14 @@ function updateCount(type, id) {
             likeIcon.style.pointerEvents = 'none';
         }
 
+        console.log(`Data to be written for ${id}:`, data); // Log data before writing
+
         set(ratingRef, data).then(() => {
-            console.log(`Updated data for ${id}:`, data);
+            console.log(`Data successfully written for ${id}:`, data); // Log after writing
+
             // Verify if data is written successfully
             get(ratingRef).then((newSnapshot) => {
-                console.log(`Verified data for ${id}:`, newSnapshot.val());
+                console.log(`Verified data for ${id}:`, newSnapshot.val()); // Log verified data
             }).catch((error) => {
                 console.error("Error verifying data:", error);
             });
