@@ -99,3 +99,15 @@ for (let i = 500; i <= 519; i++) {
 document.addEventListener('DOMContentLoaded', () => {
     ids.forEach(id => displayRatings(id));
 });
+
+const testRef = ref(database, 'ratings/test');
+set(testRef, { likes: 1, dislikes: 1 })
+  .then(() => {
+      console.log("Test data written successfully.");
+      return get(testRef);
+  })
+  .then(snapshot => {
+      console.log("Test data read successfully:", snapshot.val());
+  })
+  .catch(error => console.error("Error in test write/read:", error));
+
