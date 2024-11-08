@@ -109,7 +109,7 @@ const initializeDataForId = async (id) => {
     }
 };
 
-// Use the previously defined `ids` array for initialization
+// Use the `ids` array for initialization
 ids.forEach(id => initializeDataForId(id));
 
 const testRef = ref(database, 'ratings/test');
