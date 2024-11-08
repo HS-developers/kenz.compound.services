@@ -109,9 +109,8 @@ const initializeDataForId = async (id) => {
     }
 };
 
-const ids = [400, 401, 402, 403, 404, 405, 406, 407, 408,]; // List of IDs you want to initialize
+// Use the previously defined `ids` array for initialization
 ids.forEach(id => initializeDataForId(id));
-
 
 const testRef = ref(database, 'ratings/test');
 set(testRef, { likes: 1, dislikes: 1 })
@@ -123,7 +122,3 @@ set(testRef, { likes: 1, dislikes: 1 })
       console.log("Test data read successfully:", snapshot.val());
   })
   .catch(error => console.error("Error in test write/read:", error));
-
-console.log(`Displaying data for ${id}: ${JSON.stringify(data)}`);
-
-
