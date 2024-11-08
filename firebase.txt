@@ -1,15 +1,14 @@
 Kenz-project
 ------------
 
-const firebaseConfig = {
-    apiKey: "AIzaSyCvRIeZ6k6H876dtug6oRip09X1AX4RWCs",
-    authDomain: "kenz-project.firebaseapp.com",
-    databaseURL: "https://kenz-project-default-rtdb.firebaseio.com", // Ensure this URL is correct
-    projectId: "kenz-project",
-    storageBucket: "kenz-project.appspot.com",
-    messagingSenderId: "224735676437",
-    appId: "1:224735676437:web:9f29c4d74b56080b0aa61c",
-    measurementId: "G-2FSGW01R4T"
+onst firebaseConfig = {
+  apiKey: "AIzaSyCnRLUzLraNE-AR94ZlRGIAFOKks74ZtyQ",
+  authDomain: "kenz--project.firebaseapp.com",
+  projectId: "kenz--project",
+  storageBucket: "kenz--project.firebasestorage.app",
+  messagingSenderId: "435317870255",
+  appId: "1:435317870255:web:f521650dcfeb63a7378e5a",
+  measurementId: "G-FX6BSCQ8KQ"
 };
 
 
