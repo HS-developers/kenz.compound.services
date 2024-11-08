@@ -124,3 +124,6 @@ set(testRef, { likes: 1, dislikes: 1 })
   })
   .catch(error => console.error("Error in test write/read:", error));
 
+console.log(`Displaying data for ${id}: ${JSON.stringify(data)}`);
+
+
