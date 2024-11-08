@@ -1,10 +1,11 @@
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+
 // Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyCnRLUzLraNE-AR94ZlRGIAFOKks74ZtyQ",
     authDomain: "kenz--project.firebaseapp.com",
-    databaseURL: "https://kenz--project-default-rtdb.firebaseio.com", // Ensure this URL is correct
+    databaseURL: "https://kenz--project-default-rtdb.firebaseio.com",
     projectId: "kenz--project",
     storageBucket: "kenz--project.appspot.com",
     messagingSenderId: "435317870255",
@@ -14,43 +15,28 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const database = getDatabase(app); // Initialize Database
+const database = getDatabase(app);
 
+// Function to update like/dislike count
 function updateCount(type, id) {
-    const likeIcon = document.getElementById(`like-${id}`);
-    const dislikeIcon = document.getElementById(`dislike-${id}`);
-    const likeCount = document.getElementById(`like-count-${id}`);
-    const dislikeCount = document.getElementById(`dislike-count-${id}`);
-
     const ratingRef = ref(database, 'ratings/' + id);
 
     get(ratingRef).then((snapshot) => {
         let data = snapshot.val() || { likes: 0, dislikes: 0 };
-        console.log(`Current data for ${id}:`, data);
 
+        // Increment likes or dislikes based on the type
         if (type === 'like') {
             data.likes += 1;
-            likeCount.textContent = data.likes;
-            likeIcon.style.color = 'blue';
-            dislikeIcon.style.pointerEvents = 'none';
         } else if (type === 'dislike') {
             data.dislikes += 1;
-            dislikeCount.textContent = data.dislikes;
-            dislikeIcon.style.color = 'red';
-            likeIcon.style.pointerEvents = 'none';
         }
 
-        console.log(`Data to be written for ${id}:`, data); // Log data before writing
-
+        // Write the updated data back to Firebase
         set(ratingRef, data).then(() => {
-            console.log(`Data successfully written for ${id}:`, data); // Log after writing
-
-            // Verify if data is written successfully
-            get(ratingRef).then((newSnapshot) => {
-                console.log(`Verified data for ${id}:`, newSnapshot.val()); // Log verified data
-            }).catch((error) => {
-                console.error("Error verifying data:", error);
-            });
+            console.log(`Data successfully written for ${id}:`, data);
+            // Update the UI
+            document.getElementById(`like-count-${id}`).textContent = data.likes;
+            document.getElementById(`dislike-count-${id}`).textContent = data.dislikes;
         }).catch((error) => {
             console.error("Error updating data:", error);
         });
@@ -59,6 +45,7 @@ function updateCount(type, id) {
     });
 }
 
+// Function to display ratings
 function displayRatings(id) {
     const likeCount = document.getElementById(`like-count-${id}`);
     const dislikeCount = document.getElementById(`dislike-count-${id}`);
@@ -99,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ids.forEach(id => displayRatings(id));
 });
 
+// Function to initialize data for an ID
 const initializeDataForId = async (id) => {
     const idRef = ref(database, `ratings/${id}`);
     const snapshot = await get(idRef);
@@ -111,13 +99,14 @@ const initializeDataForId = async (id) => {
 // Use the `ids` array for initialization
 ids.forEach(id => initializeDataForId(id));
 
+// Test data (optional, for checking functionality)
 const testRef = ref(database, 'ratings/test');
 set(testRef, { likes: 1, dislikes: 1 })
-  .then(() => {
-      console.log("Test data written successfully.");
-      return get(testRef);
-  })
-  .then(snapshot => {
-      console.log("Test data read successfully:", snapshot.val());
-  })
-  .catch(error => console.error("Error in test write/read:", error));
+    .then(() => {
+        console.log("Test data written successfully.");
+        return get(testRef);
+    })
+    .then(snapshot => {
+        console.log("Test data read successfully:", snapshot.val());
+    })
+    .catch(error => console.error("Error in test write/read:", error));
