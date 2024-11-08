@@ -100,6 +100,19 @@ document.addEventListener('DOMContentLoaded', () => {
     ids.forEach(id => displayRatings(id));
 });
 
+const initializeDataForId = async (id) => {
+    const idRef = ref(database, `ratings/${id}`);
+    const snapshot = await get(idRef);
+    if (!snapshot.exists()) {
+        await set(idRef, { likes: 0, dislikes: 0 });
+        console.log(`Initialized data for ID ${id}`);
+    }
+};
+
+const ids = [400, 401, 402, 403, 404, 405, 406, 407, 408,]; // List of IDs you want to initialize
+ids.forEach(id => initializeDataForId(id));
+
+
 const testRef = ref(database, 'ratings/test');
 set(testRef, { likes: 1, dislikes: 1 })
   .then(() => {
