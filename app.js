@@ -29,6 +29,7 @@ function updateCount(type, id) {
 
     get(ratingRef).then((snapshot) => {
         let data = snapshot.val() || { likes: 0, dislikes: 0 };
+        console.log(`Current data for ${id}:`, data);
 
         if (type === 'like') {
             data.likes += 1;
@@ -42,7 +43,13 @@ function updateCount(type, id) {
             likeIcon.style.pointerEvents = 'none';
         }
 
-        set(ratingRef, data);
+        set(ratingRef, data).then(() => {
+            console.log(`Updated data for ${id}:`, data);
+        }).catch((error) => {
+            console.error("Error updating data:", error);
+        });
+    }).catch((error) => {
+        console.error("Error fetching data:", error);
     });
 }
 
@@ -54,6 +61,7 @@ function displayRatings(id) {
 
     onValue(ratingRef, (snapshot) => {
         let data = snapshot.val() || { likes: 0, dislikes: 0 };
+        console.log(`Displaying data for ${id}:`, data);
         likeCount.textContent = data.likes;
         dislikeCount.textContent = data.dislikes;
     });
@@ -84,4 +92,3 @@ for (let i = 500; i <= 519; i++) {
 document.addEventListener('DOMContentLoaded', () => {
     ids.forEach(id => displayRatings(id));
 });
-
