@@ -82,25 +82,10 @@ function displayRatings(id) {
     });
 }
 
-// Generate IDs based on the specified ranges
+// Generate IDs from 1 to 110
 const ids = [];
-for (let i = 400; i <= 421; i++) {
-    ids.push(i.toString());
-}
-for (let i = 1; i <= 19; i++) {
-    ids.push(i.toString());
-}
-for (let i = 211; i <= 232; i++) {
-    ids.push(i.toString());
-}
-for (let i = 111; i <= 117; i++) {
-    ids.push(i.toString());
-}
-for (let i = 31; i <= 50; i++) {
-    ids.push(i.toString());
-}
-for (let i = 500; i <= 519; i++) {
-    ids.push(i.toString());
+for (let i = 1; i <= 110; i++) {
+    ids.push(i.toString()); // Add each number as a string
 }
 
 // Call the function to display ratings when the page loads
