@@ -1,9 +1,8 @@
-// Import the functions you need from the SDKs you need
+// تأكد من تحميل مكتبات Firebase بشكل صحيح
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getDatabase, ref, get, set, onValue } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
-//import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js"; // Import Analytics
 
-// Your web app's Firebase configuration
+// تكوين Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyCnRLUzLraNE-AR94ZlRGIAFOKks74ZtyQ",
     authDomain: "kenz--project.firebaseapp.com",
@@ -15,17 +14,17 @@ const firebaseConfig = {
     measurementId: "G-FX6BSCQ8KQ"
 };
 
-// Initialize Firebase
+// تهيئة Firebase
 const app = initializeApp(firebaseConfig);
-//const analytics = getAnalytics(app); // Initialize Analytics
-const database = getDatabase(app); // Initialize Database
+const database = getDatabase(app);
 
+// تحديث العدادات
 function updateCount(type, id) {
     const likeIcon = document.getElementById(`like-${id}`);
     const dislikeIcon = document.getElementById(`dislike-${id}`);
     const likeCount = document.getElementById(`like-count-${id}`);
     const dislikeCount = document.getElementById(`dislike-count-${id}`);
-    const thankYouMessage = document.getElementById(`thank-you-message-${id}`); // الرسالة التي ستظهر
+    const thankYouMessage = document.getElementById(`thank-you-message-${id}`);
 
     const ratingRef = ref(database, 'ratings/' + id);
 
@@ -44,15 +43,12 @@ function updateCount(type, id) {
             likeIcon.style.pointerEvents = 'none';
         }
 
-        // إرسال البيانات إلى Firebase
         set(ratingRef, data).then(() => {
             console.log("Rating updated successfully.");
-            // عرض رسالة الشكر بعد إرسال التقييم بنجاح
-            thankYouMessage.style.display = 'block'; // إظهار الرسالة
+            thankYouMessage.style.display = 'block';
 
-            // إخفاء الرسالة بعد 3 ثواني
             setTimeout(() => {
-                thankYouMessage.style.display = 'none'; // إخفاء الرسالة بعد مرور 3 ثواني
+                thankYouMessage.style.display = 'none';
             }, 3000);
         }).catch((error) => {
             console.error("Error writing to Firebase: ", error);
@@ -60,17 +56,17 @@ function updateCount(type, id) {
     }).catch(error => console.error("Error fetching count:", error));
 }
 
+// عرض التقييمات
 function displayRatings(id) {
     const likeCount = document.getElementById(`like-count-${id}`);
     const dislikeCount = document.getElementById(`dislike-count-${id}`);
     
-    // إضافة رسالة الشكر إلى الصفحة
     const thankYouMessage = document.createElement('div');
     thankYouMessage.id = `thank-you-message-${id}`;
-    thankYouMessage.style.display = 'none'; // في البداية لا تظهر الرسالة
+    thankYouMessage.style.display = 'none';
     thankYouMessage.style.color = 'green';
-    thankYouMessage.textContent = 'شكراً تم التقييم!'; // نص الرسالة
-    document.body.appendChild(thankYouMessage); // يمكنك تغيير مكان الرسالة حسب التصميم الخاص بك
+    thankYouMessage.textContent = 'شكراً تم التقييم!';
+    document.body.appendChild(thankYouMessage);
 
     const ratingRef = ref(database, 'ratings/' + id);
 
@@ -83,13 +79,23 @@ function displayRatings(id) {
     });
 }
 
-// Generate IDs from 1 to 110
+// توليد معرفات من 1 إلى 110
 const ids = [];
 for (let i = 1; i <= 110; i++) {
-    ids.push(i.toString()); // Add each number as a string
+    ids.push(i.toString());
 }
 
-// Call the function to display ratings when the page loads
+// عرض التقييمات عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', () => {
     ids.forEach(id => displayRatings(id));
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    ids.forEach(id => {
+        displayRatings(id);
+
+        // إضافة مستمعي أحداث للنقرات
+        document.getElementById(`like-${id}`).addEventListener('click', () => updateCount('like', id));
+        document.getElementById(`dislike-${id}`).addEventListener('click', () => updateCount('dislike', id));
+    });
 });
