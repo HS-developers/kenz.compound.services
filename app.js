@@ -46,6 +46,7 @@ function updateCount(type, id) {
 
         // إرسال البيانات إلى Firebase
         set(ratingRef, data).then(() => {
+            console.log("Rating updated successfully.");
             // عرض رسالة الشكر بعد إرسال التقييم بنجاح
             thankYouMessage.style.display = 'block'; // إظهار الرسالة
 
