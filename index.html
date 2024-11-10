@@ -596,7 +596,7 @@
                 </li>
             </ul>
         </div>
-        
+
         <div id="vegetables" class="info" style="display:none;">
             <ul>
                 <li>خضراوات و فواكه مكه - كمبوند دجلة - ت: <a href="tel:01154147434">01154147434</a>
@@ -726,6 +726,7 @@
                 </li>
             </ul>
         </div>
+        
         <div id="Cleaning" class="info" style="display:none;">
             <ul>
                 <li>مغسلة دريم - كمبوند الرباب - ت: <a href="tel:01092545294">01092545294</a>
@@ -1019,8 +1020,8 @@
         audio.pause();
         audio.currentTime = 0; 
     });
-let likeClicked = {}; // لتتبع إذا تم الضغط على like لكل عنصر
-let dislikeClicked = {}; // لتتبع إذا تم الضغط على dislike لكل عنصر
+let likeClicked = {}; 
+let dislikeClicked = {}; 
 
 function updateCount(type, id) {
     const likeIcon = document.getElementById(`like-${id}`);
@@ -1029,17 +1030,17 @@ function updateCount(type, id) {
     const dislikeCount = document.getElementById(`dislike-count-${id}`);
 
     if (type === 'like' && !likeClicked[id]) {
-        likeClicked[id] = true; // تعيين الحالة إلى true
-        dislikeClicked[id] = false; // إعادة تعيين dislike
-        likeCount.textContent = parseInt(likeCount.textContent) + 1; // زيادة العد
-        likeIcon.style.color = 'blue'; // تغيير اللون أو أي تأثير آخر
-        dislikeIcon.style.pointerEvents = 'none'; // تعطيل dislike
+        likeClicked[id] = true; 
+        dislikeClicked[id] = false; 
+        likeCount.textContent = parseInt(likeCount.textContent) + 1; 
+        likeIcon.style.color = 'blue';
+        dislikeIcon.style.pointerEvents = 'none'; 
     } else if (type === 'dislike' && !dislikeClicked[id]) {
-        dislikeClicked[id] = true; // تعيين الحالة إلى true
-        likeClicked[id] = false; // إعادة تعيين like
-        dislikeCount.textContent = parseInt(dislikeCount.textContent) + 1; // زيادة العد
-        dislikeIcon.style.color = 'red'; // تغيير اللون أو أي تأثير آخر
-        likeIcon.style.pointerEvents = 'none'; // تعطيل like
+        dislikeClicked[id] = true; 
+        likeClicked[id] = false; 
+        dislikeCount.textContent = parseInt(dislikeCount.textContent) + 1;
+        dislikeIcon.style.color = 'red'; 
+        likeIcon.style.pointerEvents = 'none'; //
     }
 }
     </script>
