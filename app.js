@@ -34,28 +34,46 @@ function updateCount(type, id, deviceId) {
     get(ratingRef).then((snapshot) => {
         let data = snapshot.val() || { likes: 0, dislikes: 0, devices: {} };
 
-        if (data.devices[deviceId]) {
-            alert("لقد قمت بتقييم هذه الخدمة من قبل.");
-            return;
+        if (data.devices[deviceId] === type) {
+            // إلغاء التقييم
+            if (type === 'like') {
+                data.likes -= 1;
+                likeCount.textContent = data.likes;
+                likeIcon.style.color = '';
+            } else if (type === 'dislike') {
+                data.dislikes -= 1;
+                dislikeCount.textContent = data.dislikes;
+                dislikeIcon.style.color = '';
+            }
+            delete data.devices[deviceId];
+        } else {
+            // إضافة التقييم أو تغييره
+            if (type === 'like') {
+                if (data.devices[deviceId] === 'dislike') {
+                    data.dislikes -= 1;
+                    dislikeCount.textContent = data.dislikes;
+                    dislikeIcon.style.color = '';
+                }
+                data.likes += 1;
+                likeCount.textContent = data.likes;
+                likeIcon.style.color = 'blue';
+            } else if (type === 'dislike') {
+                if (data.devices[deviceId] === 'like') {
+                    data.likes -= 1;
+                    likeCount.textContent = data.likes;
+                    likeIcon.style.color = '';
+                }
+                data.dislikes += 1;
+                dislikeCount.textContent = data.dislikes;
+                dislikeIcon.style.color = 'red';
+            }
+            data.devices[deviceId] = type;
         }
-
-        if (type === 'like') {
-            data.likes += 1;
-            likeCount.textContent = data.likes;
-            likeIcon.style.color = 'blue';
-            dislikeIcon.style.pointerEvents = 'none';
-        } else if (type === 'dislike') {
-            data.dislikes += 1;
-            dislikeCount.textContent = data.dislikes;
-            dislikeIcon.style.color = 'red';
-            likeIcon.style.pointerEvents = 'none';
-        }
-
-        data.devices[deviceId] = type;
 
         set(ratingRef, data).then(() => {
             console.log("Rating updated successfully.");
             thankYouMessage.style.display = 'block';
+            thankYouMessage.textContent = type === 'like' ? 'شكراً على الإعجاب!' : 'شكراً على عدم الإعجاب!';
 
             setTimeout(() => {
                 thankYouMessage.style.display = 'none';
