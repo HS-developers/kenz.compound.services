@@ -88,7 +88,7 @@ function displayRatings(id) {
 }
 
 const ids = [];
-for (let i = 1; i <= 110; i++) {
+for (let i = 1; i <= 111; i++) {
     ids.push(i.toString());
 }
 
