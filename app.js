@@ -15,7 +15,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
-// الحصول على معرف الجهاز من Local Storage أو إنشاء معرف جديد
 let deviceId = localStorage.getItem('deviceId');
 if (!deviceId) {
     deviceId = 'device-' + Date.now();
