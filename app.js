@@ -15,7 +15,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
-function updateCount(type, id) {
+// الحصول على معرف الجهاز من Local Storage أو إنشاء معرف جديد
+let deviceId = localStorage.getItem('deviceId');
+if (!deviceId) {
+    deviceId = 'device-' + Date.now();
+    localStorage.setItem('deviceId', deviceId);
+}
+
+function updateCount(type, id, deviceId) {
     const likeIcon = document.getElementById(`like-${id}`);
     const dislikeIcon = document.getElementById(`dislike-${id}`);
     const likeCount = document.getElementById(`like-count-${id}`);
@@ -25,7 +32,12 @@ function updateCount(type, id) {
     const ratingRef = ref(database, 'ratings/' + id);
 
     get(ratingRef).then((snapshot) => {
-        let data = snapshot.val() || { likes: 0, dislikes: 0 };
+        let data = snapshot.val() || { likes: 0, dislikes: 0, devices: {} };
+
+        if (data.devices[deviceId]) {
+            alert("لقد قمت بتقييم هذه الخدمة من قبل.");
+            return;
+        }
 
         if (type === 'like') {
             data.likes += 1;
@@ -38,6 +50,8 @@ function updateCount(type, id) {
             dislikeIcon.style.color = 'red';
             likeIcon.style.pointerEvents = 'none';
         }
+
+        data.devices[deviceId] = type;
 
         set(ratingRef, data).then(() => {
             console.log("Rating updated successfully.");
@@ -80,14 +94,10 @@ for (let i = 1; i <= 110; i++) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    ids.forEach(id => displayRatings(id));
-});
-
-document.addEventListener('DOMContentLoaded', () => {
     ids.forEach(id => {
         displayRatings(id);
 
-        document.getElementById(`like-${id}`).addEventListener('click', () => updateCount('like', id));
-        document.getElementById(`dislike-${id}`).addEventListener('click', () => updateCount('dislike', id));
+        document.getElementById(`like-${id}`).addEventListener('click', () => updateCount('like', id, deviceId));
+        document.getElementById(`dislike-${id}`).addEventListener('click', () => updateCount('dislike', id, deviceId));
     });
 });
