@@ -5,14 +5,14 @@ body {
             padding: 0;
         }
         header {
-            background: linear-gradient(135deg, #b4b9bd, #386074); /* تدرج لوني */
+            background: linear-gradient(135deg, #b4b9bd, #386074); 
             color: white;
             padding: 20px;
             text-align: right;
         }
         h1 {
             animation: fadeInDown 2s ease-in-out;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* ظل للنص */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
         }
         p {
             animation: fadeInUp 2s ease-in-out;
@@ -128,7 +128,7 @@ body {
         }
         .info {
             display: none;
-            flex-direction: column; /* ترتيب العناصر عموديًا */
+            flex-direction: column; 
             margin-top: 10px;
             padding: 10px;
             background-color: #f4f4f4;
@@ -137,8 +137,8 @@ body {
         }
 
         .info ul li {
-            display: block; /* عرض كل عنصر على سطر منفصل */
-            margin-bottom: 10px; /* إضافة مسافة بين العناصر */
+            display: block; 
+            margin-bottom: 10px; 
         }
         .small-button {
             font-size: 0.8em;
@@ -166,40 +166,40 @@ body {
     font-size: 18px;
 }
 
-/* تثبيت لون الأيقونات */
+
 .like-dislike .fa-thumbs-up {
-    color: green;  /* أيقونة like باللون الأخضر */
+    color: green;  
 }
 
 .like-dislike .fa-thumbs-down {
-    color: red;    /* أيقونة dislike باللون الأحمر */
+    color: red;    
 }
 
-/* العدادات تظهر بلون ثابت */
+
 .like-dislike span {
     font-size: 14px;
     margin-left: 5px;
 }
 
 .like-dislike span.like-count {
-    color: green;  /* عداد like باللون الأخضر */
+    color: green;  
 }
 
 .like-dislike span.dislike-count {
-    color: red;    /* عداد dislike باللون الأحمر */
+    color: red;    
 }
 .like-dislike i[style*="pointer-events: none;"] {
-    opacity: 0.5;  /* تعتيم الأيقونة عند تعطيلها */
-    cursor: not-allowed; /* تغيير شكل المؤشر عند محاولة الضغط */
+    opacity: 0.5;  
+    cursor: not-allowed; 
 }
 
 
 body {
     font-family: 'Cairo', sans-serif;
-    background-color: #000000; /* اللون الأسود */
+    background-color: #000000; 
     margin: 0;
     padding: 0;
-    direction: rtl; /* إضافة هذه الخاصية لمحاذاة النصوص إلى اليمين */
+    direction: rtl; 
 }
 
 header {
@@ -208,7 +208,7 @@ header {
     padding: 20px;
 }
 
-/* إضافة الحركة للنص */
+
 @keyframes slideIn {
     from {
         opacity: 0;
@@ -222,9 +222,9 @@ header {
 
 header h1 {
     font-size: 28px;
-    color: #f8f52f; /* لون العنوان */
-    animation: slideIn 4s ease-in-out; /* تطبيق الحركة على العنوان */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* ظل للنص */
+    color: #f8f52f; 
+    animation: slideIn 4s ease-in-out; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 }
 
 p {
@@ -244,11 +244,11 @@ nav ul {
     overflow: hidden;
     background-color: #333;
     display: flex;
-    justify-content: left; /* لضمان أن العناصر تظهر في المنتصف */
+    justify-content: left; 
 }
 
 nav ul li {
-    margin-left: 20px; /* إضافة مسافة بين العناصر */
+    margin-left: 20px; 
 }
 
 nav ul li a {
@@ -257,16 +257,16 @@ nav ul li a {
     text-align: center;
     padding: 5px 30px;
     text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s; /* إضافة تأثير الانتقال */
+    transition: background-color 0.3s, transform 0.3s; 
 }
 
 nav ul li a:hover {
-    transform: scale(1.1); /* تكبير العنصر عند التمرير */
+    transform: scale(1.1); 
 }
 
 main {
     padding: 20px;
-    text-align: right; /* إضافة هذه الخاصية لمحاذاة النصوص إلى اليمين */
+    text-align: right; 
 }
 
 .content-container {
@@ -274,50 +274,50 @@ main {
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 20px;
-    position: relative; /* للسماح للأزرار بالتحرك فوق الصور */
-    direction: rtl; /* إضافة هذه الخاصية لضمان أن الأزرار تظهر على اليمين */
+    position: relative; 
+    direction: rtl; 
 }
 
 .buttons {
-    flex: 0 0 30%; /* تأخذ 30% من العرض */
+    flex: 0 0 30%; 
     display: flex;
     flex-direction: column;
     gap: 10px;
-    order: 1; /* تأكيد ترتيب الأزرار */
-    z-index: 10; /* لضمان ظهور الأزرار فوق الصور */
+    order: 1; 
+    z-index: 10; 
 }
 
 .buttons button {
     
-    color: #f8f52f; /* لون النص */
+    color: #f8f52f; 
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s; /* إضافة تأثير الانتقال */
+    transition: background-color 0.3s, transform 0.3s; 
     width: 100%;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
-    font-family: 'Cairo', sans-serif; /* إضافة هذه الخاصية لضمان استخدام نفس الخط */
+    font-family: 'Cairo', sans-serif;
 }
 
 .buttons button:hover {
-    background-color: rgba(178, 243, 58, 0.7); /* تغيير درجة الشفافية عند التمرير */
-    transform: scale(1.05); /* تكبير الزر عند التمرير */
+    background-color: rgba(178, 243, 58, 0.7); 
+    transform: scale(1.05); 
 }
 
 .images {
-    flex: 0 0 70%; /* تأخذ 70% من العرض */
+    flex: 0 0 70%; 
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    order: 2; /* تأكيد ترتيب الصور */
-    margin-top: 20px; /* لإعطاء مساحة للأزرار */
+    order: 2; 
+    margin-top: 20px; 
 }
 
 .image {
-    width: calc(50% - 5px); /* عرض كل صورة يأخذ نصف المساحة المتاحة */
+    width: calc(50% - 5px); 
     height: auto;
     max-height: 388px;
     object-fit: cover;
@@ -330,7 +330,7 @@ main {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: right; /* إضافة هذه الخاصية لمحاذاة النصوص إلى اليمين */
+    text-align: right; 
 }
 
 .info ul {
@@ -339,34 +339,34 @@ main {
 }
 
 .info ul li {
-    display: block; /* عرض كل عنصر على سطر منفصل */
-    margin-bottom: 10px; /* إضافة مسافة بين العناصر */
-    position: relative; /* لضمان أن العلامة المميزة تظهر بجوار النص */
-    padding-right: 20px; /* إضافة مسافة لظهور العلامة المميزة */
+    display: block; 
+    margin-bottom: 10px; 
+    position: relative; 
+    padding-right: 20px; 
 }
 
 .info ul li::before {
-    content: "★"; /* يمكنك تغيير هذا الرمز إلى أي رمز آخر تفضله */
+    content: "★"; 
     position: absolute;
-    right: 0; /* لضمان أن العلامة المميزة تظهر على يمين النص */
-    color: #4CAF50; /* لون العلامة المميزة */
+    right: 0; 
+    color: #4CAF50;
 }
 
 .info ul li a {
-    color: #4CAF50; /* لون النص */
-    text-decoration: none; /* إزالة التسطير */
-    transition: color 0.3s; /* إضافة تأثير الانتقال */
+    color: #4CAF50; 
+    text-decoration: none; 
+    transition: color 0.3s; 
 }
 
 .info ul li a:hover {
-    color: #45a049; /* تغيير لون النص عند التمرير */
+    color: #45a049; 
 }
 
 /* إعدادات للشاشات الصغيرة */
 @media (max-width: 768px) {
     .content-container {
-        flex-direction: column; /* تغيير الاتجاه إلى عمودي */
-        margin-top: 0; /* إزالة أي فراغ علوي */
+        flex-direction: column; 
+        margin-top: 0; 
     }
 
     #services h2 {
@@ -374,42 +374,42 @@ main {
     }
     
     .images {
-        margin-top: 0.50px; /* تقليل المسافة العلوية لإعطاء مساحة للأزرار */
-        position: relative; /* لجعل الأزرار تتداخل بشكل صحيح */
+        margin-top: 0.50px; 
+        position: relative; 
     }
 
     .buttons {
-        position: absolute; /* تجعل الأزرار فوق الصور */
-        top: 45%; /* ضبط المسافة من الأعلى لتكون في منتصف الصورة */
-        left: 50%; /* ضبط المسافة من اليسار لتكون في منتصف الصورة */
-        transform: translate(-50%, -50%); /* لضبط الأزرار في منتصف الحاوية */
-        width: 100%; /* عرض الأزرار يكون بنفس عرض الصور */
-        padding: 2px; /* تقليل الحواف للأزرار */
-        border-radius: 5px; /* زوايا دائرية */
-        display: flex; /* جعل الأزرار تظهر بشكل أفقي */
-        flex-direction: row; /* عرض الأزرار أفقيًا */
-        gap: 0.1px; /* تقليل المسافة بين الأزرار */
-        z-index: 10; /* ضمان بقاء الأزرار فوق العناصر الأخرى */
+        position: absolute; 
+        top: 45%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        width: 100%;
+        padding: 2px; 
+        border-radius: 5px; 
+        display: flex; 
+        flex-direction: row; 
+        gap: 0.1px; 
+        z-index: 10; 
     }
 
     .buttons button {
-        background-color: rgba(5, 36, 46, 0.7) !important; /* خلفية شفافة أكثر عند التمرير */
-        color: #f8fc05 !important; /* لون النص أصفر */
-        padding: 0.20px 1px; /* تقليل حجم الأزرار */
-        font-size: 8.5px; /* تقليل حجم النص داخل الأزرار */
-        border: 0.3px solid #4CAF50; /* تقليل حجم الحدود */
-        border-radius: 3px; /* زوايا دائرية */
-        cursor: pointer; /* تغيير شكل المؤشر عند المرور فوق الزر */
-        transition: background-color 0.3s, transform 0.3s; /* إضافة تأثير الانتقال */
+        background-color: rgba(5, 36, 46, 0.7) !important; 
+        color: #f8fc05 !important; 
+        padding: 0.20px 1px; 
+        font-size: 8.5px; 
+        border: 0.3px solid #4CAF50; 
+        border-radius: 3px; 
+        cursor: pointer; 
+        transition: background-color 0.3s, transform 0.3s; 
     }
 
     .buttons button:hover {
-        background-color: rgba(22, 23, 24, 0.9) !important; /* خلفية شفافة أكثر عند التمرير */
-        transform: scale(1.05); /* تكبير الزر عند التمرير */
+        background-color: rgba(22, 23, 24, 0.9) !important; 
+        transform: scale(1.05); 
     }
 
     .info {
-        margin-top: 20px; /* تقليل المسافة العلوية لعدم التداخل مع الأزرار */
-        z-index: 0; /* التأكد من أن المعلومات تحت الأزرار */
+        margin-top: 20px; 
+        z-index: 0; 
     }
 }
