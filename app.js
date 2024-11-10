@@ -1,8 +1,6 @@
-// تأكد من تحميل مكتبات Firebase بشكل صحيح
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getDatabase, ref, get, set, onValue } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
 
-// تكوين Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyCnRLUzLraNE-AR94ZlRGIAFOKks74ZtyQ",
     authDomain: "kenz--project.firebaseapp.com",
@@ -14,11 +12,9 @@ const firebaseConfig = {
     measurementId: "G-FX6BSCQ8KQ"
 };
 
-// تهيئة Firebase
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
-// تحديث العدادات
 function updateCount(type, id) {
     const likeIcon = document.getElementById(`like-${id}`);
     const dislikeIcon = document.getElementById(`dislike-${id}`);
@@ -56,7 +52,6 @@ function updateCount(type, id) {
     }).catch(error => console.error("Error fetching count:", error));
 }
 
-// عرض التقييمات
 function displayRatings(id) {
     const likeCount = document.getElementById(`like-count-${id}`);
     const dislikeCount = document.getElementById(`dislike-count-${id}`);
@@ -79,13 +74,11 @@ function displayRatings(id) {
     });
 }
 
-// توليد معرفات من 1 إلى 110
 const ids = [];
 for (let i = 1; i <= 110; i++) {
     ids.push(i.toString());
 }
 
-// عرض التقييمات عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', () => {
     ids.forEach(id => displayRatings(id));
 });
@@ -94,7 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ids.forEach(id => {
         displayRatings(id);
 
-        // إضافة مستمعي أحداث للنقرات
         document.getElementById(`like-${id}`).addEventListener('click', () => updateCount('like', id));
         document.getElementById(`dislike-${id}`).addEventListener('click', () => updateCount('dislike', id));
     });
