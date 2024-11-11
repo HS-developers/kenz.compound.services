@@ -21,61 +21,65 @@ if (!deviceId) {
     localStorage.setItem('deviceId', deviceId);
 }
 
-function updateCount(type, id, deviceId) {
-    const likeIcon = document.getElementById(`like-${id}`);
-    const dislikeIcon = document.getElementById(`dislike-${id}`);
-    const likeCount = document.getElementById(`like-count-${id}`);
-    const dislikeCount = document.getElementById(`dislike-count-${id}`);
-    const thankYouMessage = document.getElementById(`thank-you-message-${id}`);
-
+function toggleRating(type, id, deviceId) {
     const ratingRef = ref(database, 'ratings/' + id);
 
     get(ratingRef).then((snapshot) => {
         let data = snapshot.val() || { likes: 0, dislikes: 0, devices: {} };
 
-        if (data.devices[deviceId]) {
-            alert("لقد قمت بتقييم هذه الخدمة من قبل.");
-            return;
+        // إلغاء التقييم إذا كان الجهاز قد قيم الخدمة بنفس النوع
+        if (data.devices && data.devices[deviceId] === type) {
+            if (type === 'like') {
+                data.likes -= 1;
+            } else if (type === 'dislike') {
+                data.dislikes -= 1;
+            }
+            delete data.devices[deviceId]; // حذف التقييم القديم
+            alert("تم إلغاء التقييم.");
+        } else {
+            // إزالة التقييم القديم في حال وجوده
+            if (data.devices && data.devices[deviceId] === 'like') {
+                data.likes -= 1;
+            } else if (data.devices && data.devices[deviceId] === 'dislike') {
+                data.dislikes -= 1;
+            }
+
+            // إضافة التقييم الجديد
+            if (type === 'like') {
+                data.likes += 1;
+            } else if (type === 'dislike') {
+                data.dislikes += 1;
+            }
+
+            if (!data.devices) {
+                data.devices = {};
+            }
+            data.devices[deviceId] = type; // إضافة التقييم الجديد
+            alert("تم إضافة التقييم بنجاح.");
         }
 
-        if (type === 'like') {
-            data.likes += 1;
-            likeCount.textContent = data.likes;
-            likeIcon.style.color = 'blue';
-            dislikeIcon.style.pointerEvents = 'none';
-        } else if (type === 'dislike') {
-            data.dislikes += 1;
-            dislikeCount.textContent = data.dislikes;
-            dislikeIcon.style.color = 'red';
-            likeIcon.style.pointerEvents = 'none';
-        }
-
-        data.devices[deviceId] = type;
-
+        // تحديث البيانات في Firebase
         set(ratingRef, data).then(() => {
-            console.log("Rating updated successfully.");
-            thankYouMessage.style.display = 'block';
-
-            setTimeout(() => {
-                thankYouMessage.style.display = 'none';
-            }, 3000);
+            console.log("تم تحديث التقييم بنجاح.");
+            updateUI(id); // تحديث واجهة المستخدم بناءً على التقييم الجديد
         }).catch((error) => {
-            console.error("Error writing to Firebase: ", error);
+            console.error("خطأ في الكتابة إلى Firebase: ", error);
         });
-    }).catch(error => console.error("Error fetching count:", error));
+    }).catch(error => console.error("خطأ في جلب البيانات:", error));
+}
+
+function updateUI(id) {
+    const likeButton = document.getElementById(`like-${id}`);
+    const dislikeButton = document.getElementById(`dislike-${id}`);
+    
+    // تحديث واجهة المستخدم بشكل مباشر بعد التقييم
+    displayRatings(id);
 }
 
 function displayRatings(id) {
     const likeCount = document.getElementById(`like-count-${id}`);
     const dislikeCount = document.getElementById(`dislike-count-${id}`);
     
-    const thankYouMessage = document.createElement('div');
-    thankYouMessage.id = `thank-you-message-${id}`;
-    thankYouMessage.style.display = 'none';
-    thankYouMessage.style.color = 'green';
-    thankYouMessage.textContent = 'شكراً تم التقييم!';
-    document.body.appendChild(thankYouMessage);
-
     const ratingRef = ref(database, 'ratings/' + id);
 
     onValue(ratingRef, (snapshot) => {
@@ -96,7 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
     ids.forEach(id => {
         displayRatings(id);
 
-        document.getElementById(`like-${id}`).addEventListener('click', () => updateCount('like', id, deviceId));
-        document.getElementById(`dislike-${id}`).addEventListener('click', () => updateCount('dislike', id, deviceId));
+        // إضافة التقييم عند الضغط على الأزرار
+        document.getElementById(`like-${id}`).addEventListener('click', () => {
+            toggleRating('like', id, deviceId);
+        });
+
+        document.getElementById(`dislike-${id}`).addEventListener('click', () => {
+            toggleRating('dislike', id, deviceId);
+        });
     });
 });
