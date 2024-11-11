@@ -1037,18 +1037,38 @@ function updateCount(type, id) {
     const likeCount = document.getElementById(`like-count-${id}`);
     const dislikeCount = document.getElementById(`dislike-count-${id}`);
 
-    if (type === 'like' && !likeClicked[id]) {
-        likeClicked[id] = true; 
-        dislikeClicked[id] = false; 
-        likeCount.textContent = parseInt(likeCount.textContent) + 1; 
-        likeIcon.style.color = 'blue';
-        dislikeIcon.style.pointerEvents = 'none'; 
-    } else if (type === 'dislike' && !dislikeClicked[id]) {
-        dislikeClicked[id] = true; 
-        likeClicked[id] = false; 
-        dislikeCount.textContent = parseInt(dislikeCount.textContent) + 1;
-        dislikeIcon.style.color = 'red'; 
-        likeIcon.style.pointerEvents = 'none'; //
+        if (type === 'like') {
+        if (!likeClicked[id]) {
+            likeClicked[id] = true; 
+            dislikeClicked[id] = false; 
+            likeCount.textContent = parseInt(likeCount.textContent) + 1; 
+            likeIcon.style.color = 'blue'; 
+            
+            dislikeIcon.style.pointerEvents = 'auto';
+        } else {
+            likeClicked[id] = false; 
+            likeCount.textContent = parseInt(likeCount.textContent) - 1;
+            likeIcon.style.color = ''; 
+            
+            dislikeIcon.style.pointerEvents = 'auto';
+        }
+    }
+    
+    else if (type === 'dislike') {
+        if (!dislikeClicked[id]) {
+            dislikeClicked[id] = true; 
+            likeClicked[id] = false; 
+            dislikeCount.textContent = parseInt(dislikeCount.textContent) + 1; 
+            dislikeIcon.style.color = 'red'; 
+            
+            likeIcon.style.pointerEvents = 'auto';
+        } else {
+            dislikeClicked[id] = false; 
+            dislikeCount.textContent = parseInt(dislikeCount.textContent) - 1; 
+            dislikeIcon.style.color = ''; 
+            
+            likeIcon.style.pointerEvents = 'auto';
+        }
     }
 }
     </script>
