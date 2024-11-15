@@ -166,12 +166,7 @@ footer {
     font-size: 18px;
     padding: 10px;
     border-radius: 10px;
-    
-}
-
-.like-dislike i:hover {
-    transform: scale(1.1);
-}
+ }
 
 .like-dislike .fa-thumbs-up {
     color: green;
