@@ -164,37 +164,33 @@ footer {
     cursor: pointer;
     margin-right: 15px;
     font-size: 18px;
-    padding: 10px;
-    border-radius: 10px;
- }
+}
 
+/* تثبيت لون الأيقونات */
 .like-dislike .fa-thumbs-up {
-    color: green;
-    background-color: #e0ffe0;
+    color: green;  /* أيقونة like باللون الأخضر */
 }
 
 .like-dislike .fa-thumbs-down {
-    color: red;
-    background-color: #ffe0e0;
+    color: red;    /* أيقونة dislike باللون الأحمر */
 }
 
-/* ضبط مسافة النص */
+/* العدادات تظهر بلون ثابت */
 .like-dislike span {
     font-size: 16px;
-    margin-left: 10px; /* المسافة بين الأيقونة والعدد */
+    margin-left: 7px;
 }
 
 .like-dislike span.like-count {
-    color: green;
+    color: green;  /* عداد like باللون الأخضر */
 }
 
 .like-dislike span.dislike-count {
-    color: red;
+    color: red;    /* عداد dislike باللون الأحمر */
 }
-
 .like-dislike i[style*="pointer-events: none;"] {
-    opacity: 0.5;
-    cursor: not-allowed;
+    opacity: 0.5;  /* تعتيم الأيقونة عند تعطيلها */
+    cursor: not-allowed; /* تغيير شكل المؤشر عند محاولة الضغط */
 }
 
 /* لجعل الأيقونة مجسمة */
