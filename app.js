@@ -4,14 +4,14 @@ import { getDatabase, ref, get, set, onValue } from "https://www.gstatic.com/fir
 
 // تكوين Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyCaDUOg_UmyzjKdahiLikAzOPE-_o7bIZo",
-    authDomain: "test-kenz.firebaseapp.com",
-    databaseURL: "https://test-kenz-default-rtdb.firebaseio.com",
-    projectId: "test-kenz",
-    storageBucket: "test-kenz.firebasestorage.app",
-    messagingSenderId: "801703329035",
-    appId: "1:801703329035:web:b324715ad1c2b10a33360e",
-    measurementId: "G-GT0Z5MYP0Q"
+    apiKey: "AIzaSyCnRLUzLraNE-AR94ZlRGIAFOKks74ZtyQ",
+    authDomain: "kenz--project.firebaseapp.com",
+    databaseURL: "https://kenz--project-default-rtdb.firebaseio.com",
+    projectId: "kenz--project",
+    storageBucket: "kenz--project.firebasestorage.app",
+    messagingSenderId: "435317870255",
+    appId: "1:435317870255:web:f521650dcfeb63a7378e5a",
+    measurementId: "G-FX6BSCQ8KQ"
 };
 
 const app = initializeApp(firebaseConfig);
