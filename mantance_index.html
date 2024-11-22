@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الموقع قيد الصيانة</title>
+  <title>🚧 الموقع قيد الصيانة 🚧</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,23 +12,55 @@
       justify-content: center;
       height: 100vh;
       margin: 0;
-      background-color: #f3f3f3;
+      background: linear-gradient(to bottom, #373536, #8cab02); /* خلفية جذابة */
+      overflow: hidden;
     }
     .maintenance {
       text-align: center;
+      color: #333;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     .maintenance h1 {
-      color: #333;
+      margin: 0;
+      font-size: 2em;
     }
     .maintenance p {
-      color: #555;
+      font-size: 1em;
+      margin: 10px 0;
+    }
+    .loader {
+      margin: 20px auto;
+      border: 6px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 6px solid #333;
+      width: 50px;
+      height: 50px;
+      animation: spin 2s linear infinite;
+    }
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
     }
   </style>
 </head>
 <body>
+  <!-- تشغيل الموسيقى تلقائيًا -->
+  <audio autoplay loop>
+    <source src="good2.mp3" type="audio/mpeg">
+    المتصفح الخاص بك لا يدعم تشغيل الصوت.
+  </audio>
+
   <div class="maintenance">
     <h1>🚧 الموقع قيد الصيانة 🚧</h1>
-    <p>نأسف للإزعاج، نحن نعمل على تحسين الموقع. نرجو زيارتنا لاحقًا!</p>
+    <p>نأسف للإزعاج.. نحن نعمل على تحسين الموقع وسنعود قريباً</p>
+    <div class="loader"></div>
   </div>
 </body>
 </html>
