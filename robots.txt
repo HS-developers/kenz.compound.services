@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: https://HS-developers.github.io/kenz.compound.services/sitemap.xml
+
+
