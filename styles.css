@@ -274,7 +274,7 @@ nav ul {
     overflow: hidden;
     background-color: #333;
     display: flex;
-    justify-content: left; /* لضمان أن العناصر تظهر في المنتصف */
+    justify-content: center; /* لضمان أن العناصر تظهر في المنتصف */
 }
 
 nav ul li {
