@@ -215,11 +215,35 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* إضافة ظل ليظهر تأثير مجسم */
     color: #0056b3; /* تغيير اللون عند التمرير لإضفاء لمسة جمالية */
 }
+@keyframes waveAnimation {
+    0% {
+      transform: scale(1) rotate(0deg);
+    }
+    25% {
+      transform: scale(1.2) rotate(5deg);
+    }
+    50% {
+      transform: scale(1) rotate(0deg);
+    }
+    75% {
+      transform: scale(0.8) rotate(-5deg);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+    }
+  }
+  
+  .animate-wave {
+    animation: waveAnimation 2s ease-in-out infinite;
+  }
+  
 
 
 
 
 
+
+  
 
 
 
