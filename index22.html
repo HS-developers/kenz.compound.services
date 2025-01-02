@@ -10,6 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <title>تشغيل وإيقاف الموسيقى</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
     function toggleInfo(id) {
         var info = document.getElementById(id);
@@ -22,8 +27,7 @@
     </script>
     <script type="module" src="app.js"></script>
 </head>
-<body>
-    <header>
+<header>
         <h1>مرحبا بكـم في موقعنا الاول لخدمات 🌟كمبوند كنز🌟</h1>
         <p> قوائم متجددة دائما بجميع الخدمات المتاحة حول الكمبوند 
             <button id="playButton"><i class="fas fa-play"></i></button>
@@ -53,7 +57,9 @@
         }
     </script>
     <section id="services">
-        <h2>المحتوى</h2>
+        <!-- مكان العداد - يمكنك تغيير موقعه كما تريد -->
+        <div class="my-4" id="countdown-container"></div>
+
         <div class="content-container">
             <div class="images">
                 <img src="lake.jpg" class="image" alt="lake">
@@ -1378,19 +1384,19 @@
     <footer dir="rtl" style="display: flex; justify-content: center; border-radius: 16px; align-items: center; padding: 0; line-height: 1; text-align: center; background-color: #dee8f0; color: #007bff; font-size: 0.7em; height: 25px;">
             <p>Copyright © 2024 GENIUS Tech Co. All Rights Reserved</p>
         </footer>
-<audio id="backgroundAudio" loop>
-    <source src="good.mp3" type="audio/ogg">
-    متصفحك لا يدعم تشغيل الملفات الصوتية.
-</audio>
-<script>
-    var audio = document.getElementById('backgroundAudio');
-    document.getElementById('playButton').addEventListener('click', function() {
-        audio.play();
-    });
-    document.getElementById('stopButton').addEventListener('click', function() {
-        audio.pause();
-        audio.currentTime = 0; 
-    });
+        <audio id="backgroundAudio" loop>
+            <source src="music.mp3" type="audio/ogg">
+            متصفحك لا يدعم تشغيل الملفات الصوتية.
+        </audio>
+        <script>
+            var audio = document.getElementById('backgroundAudio');
+            document.getElementById('playButton').addEventListener('click', function() {
+                audio.play();
+            });
+            document.getElementById('stopButton').addEventListener('click', function() {
+                audio.pause();
+                audio.currentTime = 0; 
+            });
 let likeClicked = {}; // لتتبع إذا تم الضغط على like لكل عنصر
 let dislikeClicked = {}; // لتتبع إذا تم الضغط على dislike لكل عنصر
 
@@ -1414,6 +1420,12 @@ function updateCount(type, id) {
         likeIcon.style.pointerEvents = 'none'; // تعطيل like
     }
 }
+    </script>
+    <script type="text/babel" src="RamadanCountdown.js"></script>
+    <script type="text/babel">
+        // تركيب المكون في المكان المحدد
+        const container = ReactDOM.createRoot(document.getElementById('countdown-container'));
+        container.render(<RamadanCountdown />);
     </script>
 </body>
 </html>
