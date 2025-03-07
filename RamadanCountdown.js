@@ -8,7 +8,7 @@ const RamadanCountdown = () => {
     const [isRamadan, setIsRamadan] = React.useState(false);
   
     React.useEffect(() => {
-      const ramadanDate = new Date('2025-03-01T00:00:00');
+      const ramadanDate = new Date('2025-03-31T00:00:00');
   
       const timer = setInterval(() => {
         const now = new Date();
@@ -44,13 +44,13 @@ const RamadanCountdown = () => {
             {isRamadan ? (
               <h2 className="text-xl font-bold text-white animate-wave">
                 <i className="fas fa-moon text-yellow-400"></i>
-                نهنئكم بحلول الشهر الفضيل
+                  عيد سعيد..كل عام وانتم بخير  
                 <i className="fas fa-moon text-yellow-400"></i>
               </h2> 
             ) : (
               <h2 className="text-xl font-bold text-white animate-wave">
                 <i className="fas fa-moon text-yellow-400"></i>
-                رمضان كـــريم
+                نهنئكم بحلول الشهر الفضيل
                 <i className="fas fa-moon text-yellow-400"></i>
               </h2>
             )}
