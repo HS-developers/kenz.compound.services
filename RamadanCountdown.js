@@ -44,7 +44,7 @@ const RamadanCountdown = () => {
             {isRamadan ? (
               <h2 className="text-xl font-bold text-white animate-wave">
                 <i className="fas fa-moon text-yellow-400"></i>
-                نهنئكم بحلول الشهر الفضيل!
+                نهنئكم بحلول الشهر الفضيل
                 <i className="fas fa-moon text-yellow-400"></i>
               </h2> 
             ) : (
