@@ -8,7 +8,7 @@ const RamadanCountdown = () => {
     const [isRamadan, setIsRamadan] = React.useState(false);
   
     React.useEffect(() => {
-      const ramadanDate = new Date('2025-03-31T00:00:00');
+      const ramadanDate = new Date('2025-04-01T00:00:00');
   
       const timer = setInterval(() => {
         const now = new Date();
