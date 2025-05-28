@@ -29,16 +29,11 @@ function updateCount(type, id) {
     const likeCount = document.getElementById(`like-count-${id}`);
     const dislikeCount = document.getElementById(`dislike-count-${id}`);
     const thankYouMessage = document.getElementById(`thank-you-message-${id}`);
+
     if (!likeIcon || !dislikeIcon || !likeCount || !dislikeCount || !thankYouMessage) {
         console.warn(`❌ عناصر ناقصة للتقييم - الخدمة ${id}`);
         return;
     }
-
-    const likeIcon = document.getElementById(`like-${id}`);
-    const dislikeIcon = document.getElementById(`dislike-${id}`);
-    const likeCount = document.getElementById(`like-count-${id}`);
-    const dislikeCount = document.getElementById(`dislike-count-${id}`);
-    const thankYouMessage = document.getElementById(`thank-you-message-${id}`);
 
     const ratingRef = ref(database, 'ratings/' + id);
 
@@ -50,7 +45,6 @@ function updateCount(type, id) {
         }
 
         if (data.devices[deviceId] === type) {
-            // إلغاء التقييم
             if (type === 'like') {
                 data.likes -= 1;
                 likeIcon.style.color = '';
@@ -62,7 +56,6 @@ function updateCount(type, id) {
             }
             delete data.devices[deviceId];
         } else {
-            // إضافة التقييم
             if (type === 'like') {
                 data.likes += 1;
                 likeIcon.style.color = 'blue';
@@ -89,20 +82,17 @@ function updateCount(type, id) {
     }).catch(error => console.error("Error fetching count:", error));
 }
 
+
 function displayRatings(id) {
     const likeCount = document.getElementById(`like-count-${id}`);
     const dislikeCount = document.getElementById(`dislike-count-${id}`);
     const likeIcon = document.getElementById(`like-${id}`);
     const dislikeIcon = document.getElementById(`dislike-${id}`);
+
     if (!likeCount || !dislikeCount || !likeIcon || !dislikeIcon) {
         console.warn(`❌ عناصر ناقصة لعرض التقييم - الخدمة ${id}`);
         return;
     }
-
-    const likeCount = document.getElementById(`like-count-${id}`);
-    const dislikeCount = document.getElementById(`dislike-count-${id}`);
-    const likeIcon = document.getElementById(`like-${id}`);
-    const dislikeIcon = document.getElementById(`dislike-${id}`);
 
     const thankYouMessage = document.createElement('div');
     thankYouMessage.id = `thank-you-message-${id}`;
@@ -118,7 +108,6 @@ function displayRatings(id) {
         likeCount.textContent = data.likes;
         dislikeCount.textContent = data.dislikes;
 
-        // تحقق من التقييم السابق للجهاز
         if (data.devices && data.devices[deviceId] === 'like') {
             likeIcon.style.color = 'blue';
             dislikeIcon.style.pointerEvents = 'none';
@@ -130,6 +119,7 @@ function displayRatings(id) {
         console.error("Error fetching ratings:", error);
     });
 }
+
 
 const groups = [
     ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'], // المجموعة 1 خدمات طبية
@@ -147,7 +137,7 @@ const groups = [
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("📦 DOM جاهز... جاري إضافة الأحداث للتقييم.");
-    (group => {
+    groups.forEach(group => {
         group.forEach(id => {
             displayRatings(id);
 
@@ -156,7 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (likeBtn && dislikeBtn) {
                 likeBtn.addEventListener('click', () => updateCount('like', id));
                 dislikeBtn.addEventListener('click', () => updateCount('dislike', id));
-                displayRatings(id);
             } else {
                 console.warn(`⚠️ عناصر غير موجودة للخدمة ${id}`);
             }
