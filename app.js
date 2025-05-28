@@ -29,6 +29,16 @@ function updateCount(type, id) {
     const likeCount = document.getElementById(`like-count-${id}`);
     const dislikeCount = document.getElementById(`dislike-count-${id}`);
     const thankYouMessage = document.getElementById(`thank-you-message-${id}`);
+    if (!likeIcon || !dislikeIcon || !likeCount || !dislikeCount || !thankYouMessage) {
+        console.warn(`❌ عناصر ناقصة للتقييم - الخدمة ${id}`);
+        return;
+    }
+
+    const likeIcon = document.getElementById(`like-${id}`);
+    const dislikeIcon = document.getElementById(`dislike-${id}`);
+    const likeCount = document.getElementById(`like-count-${id}`);
+    const dislikeCount = document.getElementById(`dislike-count-${id}`);
+    const thankYouMessage = document.getElementById(`thank-you-message-${id}`);
 
     const ratingRef = ref(database, 'ratings/' + id);
 
@@ -84,6 +94,15 @@ function displayRatings(id) {
     const dislikeCount = document.getElementById(`dislike-count-${id}`);
     const likeIcon = document.getElementById(`like-${id}`);
     const dislikeIcon = document.getElementById(`dislike-${id}`);
+    if (!likeCount || !dislikeCount || !likeIcon || !dislikeIcon) {
+        console.warn(`❌ عناصر ناقصة لعرض التقييم - الخدمة ${id}`);
+        return;
+    }
+
+    const likeCount = document.getElementById(`like-count-${id}`);
+    const dislikeCount = document.getElementById(`dislike-count-${id}`);
+    const likeIcon = document.getElementById(`like-${id}`);
+    const dislikeIcon = document.getElementById(`dislike-${id}`);
 
     const thankYouMessage = document.createElement('div');
     thankYouMessage.id = `thank-you-message-${id}`;
@@ -127,58 +146,20 @@ const groups = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-    groups.forEach(group => {
+    console.log("📦 DOM جاهز... جاري إضافة الأحداث للتقييم.");
+    (group => {
         group.forEach(id => {
             displayRatings(id);
 
-            document.getElementById(`like-${id}`).addEventListener('click', () => updateCount('like', id));
-            document.getElementById(`dislike-${id}`).addEventListener('click', () => updateCount('dislike', id));
+            const likeBtn = document.getElementById(`like-${id}`);
+            const dislikeBtn = document.getElementById(`dislike-${id}`);
+            if (likeBtn && dislikeBtn) {
+                likeBtn.addEventListener('click', () => updateCount('like', id));
+                dislikeBtn.addEventListener('click', () => updateCount('dislike', id));
+                displayRatings(id);
+            } else {
+                console.warn(`⚠️ عناصر غير موجودة للخدمة ${id}`);
+            }
         });
     });
 });
-
-
-function checkMissingRatingElements() {
-    const missingElements = [];
-
-    const allGroups = [
-        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'],
-        ['76', '77', '78', '79', '80', '81', '82', '83', '84', '85', '86', '87', '88', '89', '90', '91'],
-        ['126', '127', '128', '129', '130', '131', '132', '133', '134', '135', '136'],
-        ['201', '202', '203', '204', '205', '206', '207', '208', '209', '210', '211', '212', '213', '214', '215', '216', '217', '218', '219', '220', '221', '222', '223', '224', '225', '226', '227', '228', '229', '230', '231', '232', '233', '234', '235'],
-        ['276', '277', '278', '279', '280', '281', '282'],
-        ['351', '352', '353', '354', '355', '356', '357', '358', '359'],
-        ['426', '427', '428', '429', '430', '431', '432', '433'],
-        ['501', '502', '503', '504'],
-        ['576', '577', '578', '579', '580', '581'],
-        ['651', '652', '653', '654', '655', '656', '657', '658', '659', '660', '661', '662', '663', '664', '665', '666', '667', '668', '669', '670', '671', '672', '673', '674', '675', '676', '677', '678', '679', '680', '681', '682', '683', '684', '685'],
-        ['726', '727', '728', '729', '730', '731', '732', '733', '734', '735', '736']
-    ];
-
-    const flatIds = allGroups.flat();
-
-    flatIds.forEach(id => {
-        const likeIcon = document.getElementById(`like-${id}`);
-        const likeCount = document.getElementById(`like-count-${id}`);
-        const dislikeIcon = document.getElementById(`dislike-${id}`);
-        const dislikeCount = document.getElementById(`dislike-count-${id}`);
-
-        if (!likeIcon || !likeCount || !dislikeIcon || !dislikeCount) {
-            missingElements.push({
-                id,
-                likeIcon: !!likeIcon,
-                likeCount: !!likeCount,
-                dislikeIcon: !!dislikeIcon,
-                dislikeCount: !!dislikeCount
-            });
-        }
-    });
-
-    if (missingElements.length > 0) {
-        console.warn("الخدمات التالية ناقصة عناصر التقييم:");
-        console.table(missingElements);
-    } else {
-        console.log("✅ كل عناصر التقييم موجودة بشكل سليم.");
-    }
-}
-
