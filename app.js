@@ -152,3 +152,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+window.updateCount = updateCount;
