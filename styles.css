@@ -5,14 +5,14 @@ body {
     padding: 0;
 }
 header {
-    background: linear-gradient(135deg, #b4b9bd, #386074); /* تدرج لوني */
-    color: white;
+    background: linear-gradient(135deg, #fffffd, #fffffd);
+    color: rgb(84, 3, 184);
     padding: 20px;
     text-align: right;
 }
 h1 {
     animation: fadeInDown 2s ease-in-out;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* ظل للنص */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 p {
     animation: fadeInUp 2s ease-in-out;
@@ -48,7 +48,7 @@ nav ul li {
 }
 nav ul li a {
     display: block;
-    color: white;
+    color: rgb(25, 23, 23);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -93,11 +93,14 @@ footer {
     bottom: 0;
 }
 #services {
-    background-color: #0a0a0a;
     padding: 20px;
     margin-top: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative; 
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow: hidden;
 }
 #services h2 {
     color: #4CAF50;
@@ -128,17 +131,16 @@ footer {
 }
 .info {
     display: none;
-    flex-direction: column; /* ترتيب العناصر عموديًا */
+    flex-direction: column;
     margin-top: 10px;
     padding: 10px;
     background-color: #f4f4f4;
     border-radius: 4px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
-
 .info ul li {
-    display: block; /* عرض كل عنصر على سطر منفصل */
-    margin-bottom: 10px; /* إضافة مسافة بين العناصر */
+    display: block;
+    margin-bottom: 10px;
 }
 .small-button {
     font-size: 0.8em;
@@ -159,7 +161,6 @@ footer {
     align-items: center;
     margin-top: 10px;
 }
-
 .like-dislike i {
     cursor: pointer;
     margin-right: 15px;
@@ -169,51 +170,40 @@ footer {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s ease;
 }
-
 .like-dislike i:hover {
     transform: scale(1.1);
 }
-
 .like-dislike .fa-thumbs-up {
     color: green;
     background-color: #e0ffe0;
 }
-
 .like-dislike .fa-thumbs-down {
     color: red;
     background-color: #ffe0e0;
 }
-
-/* ضبط مسافة النص */
 .like-dislike span {
     font-size: 16px;
-    margin-left: 10px; /* المسافة بين الأيقونة والعدد */
+    margin-left: 10px;
 }
-
 .like-dislike span.like-count {
     color: green;
 }
-
 .like-dislike span.dislike-count {
     color: red;
 }
-
 .like-dislike i[style*="pointer-events: none;"] {
     opacity: 0.5;
     cursor: not-allowed;
 }
-
-/* لجعل الأيقونة مجسمة */
 .map-icon {
-    color: #007bff; /* يمكنك تعديل اللون حسب الرغبة */
+    color: #007bff;
     font-size: 24px;
     transition: transform 0.3s, box-shadow 0.3s;
 }
-
 .map-icon:hover {
-    transform: scale(1.2); /* تكبير الأيقونة عند التمرير */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* إضافة ظل ليظهر تأثير مجسم */
-    color: #0056b3; /* تغيير اللون عند التمرير لإضفاء لمسة جمالية */
+    transform: scale(1.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #0056b3;
 }
 @keyframes waveAnimation {
     0% {
@@ -232,37 +222,21 @@ footer {
       transform: scale(1) rotate(0deg);
     }
   }
-  
   .animate-wave {
     animation: waveAnimation 2s ease-in-out infinite;
   }
-  
-
-
-
-
-
-
-  
-
-
-
-
 body {
     font-family: 'Cairo', sans-serif;
-    background-color: #000000; /* اللون الأسود */
+    background-color: #000000;
     margin: 0;
     padding: 0;
-    direction: rtl; /* إضافة هذه الخاصية لمحاذاة النصوص إلى اليمين */
+    direction: rtl;
 }
-
 header {
     position: relative;
     text-align: right;
     padding: 20px;
 }
-
-/* إضافة الحركة للنص */
 @keyframes slideIn {
     from {
         opacity: 0;
@@ -273,110 +247,94 @@ header {
         transform: translateY(0);
     }
 }
-
 header h1 {
     font-size: 28px;
-    color: #f8f52f; /* لون العنوان */
-    animation: slideIn 4s ease-in-out; /* تطبيق الحركة على العنوان */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* ظل للنص */
+    color: #1b05a7;
+    animation: slideIn 4s ease-in-out;
+    text-shadow: 2px 2px 4px rgba(211, 2, 2, 0.5);
 }
-
 p {
     text-align: right;
     margin: 20px;
 }
-
 .top-left {
     position: absolute;
     top: 5;
     left: 0;
 }
-
 nav ul {
     list-style-type: none;
     padding: 0;
     overflow: hidden;
     background-color: #333;
     display: flex;
-    justify-content: center; /* لضمان أن العناصر تظهر في المنتصف */
+    justify-content: center;
 }
-
 nav ul li {
-    margin-left: 20px; /* إضافة مسافة بين العناصر */
+    margin-left: 20px;
 }
-
 nav ul li a {
     display: block;
     color: rgb(157, 197, 250);
     text-align: center;
     padding: 5px 30px;
     text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s; /* إضافة تأثير الانتقال */
+    transition: background-color 0.3s, transform 0.3s;
 }
-
 nav ul li a:hover {
-    transform: scale(1.1); /* تكبير العنصر عند التمرير */
+    transform: scale(1.1);
 }
-
 main {
     padding: 20px;
-    text-align: right; /* إضافة هذه الخاصية لمحاذاة النصوص إلى اليمين */
+    text-align: right;
 }
-
 .content-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 20px;
-    position: relative; /* للسماح للأزرار بالتحرك فوق الصور */
-    direction: rtl; /* إضافة هذه الخاصية لضمان أن الأزرار تظهر على اليمين */
+    position: relative;
+    direction: rtl;
 }
-
 .buttons {
-    flex: 0 0 30%; /* تأخذ 30% من العرض */
+    flex: 0 0 30%;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    order: 1; /* تأكيد ترتيب الأزرار */
-    z-index: 10; /* لضمان ظهور الأزرار فوق الصور */
+    order: 1;
+    z-index: 10;
 }
-
 .buttons button {
-    
-    color: #f8f52f; /* لون النص */
+    color: #f8f52f;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s; /* إضافة تأثير الانتقال */
+    transition: background-color 0.3s, transform 0.3s;
     width: 100%;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
-    font-family: 'Cairo', sans-serif; /* إضافة هذه الخاصية لضمان استخدام نفس الخط */
+    font-family: 'Cairo', sans-serif;
 }
-
 .buttons button:hover {
-    background-color: rgba(178, 243, 58, 0.7); /* تغيير درجة الشفافية عند التمرير */
-    transform: scale(1.05); /* تكبير الزر عند التمرير */
+    background-color: rgba(178, 243, 58, 0.7);
+    transform: scale(1.05);
 }
-
 .images {
-    flex: 0 0 70%; /* تأخذ 70% من العرض */
+    flex: 0 0 70%;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    order: 2; /* تأكيد ترتيب الصور */
-    margin-top: 20px; /* لإعطاء مساحة للأزرار */
+    order: 2;
+    margin-top: 20px;
 }
-
 .image {
-    width: calc(50% - 5px); /* عرض كل صورة يأخذ نصف المساحة المتاحة */
+    width: calc(50% - 5px);
     height: auto;
     max-height: 388px;
     object-fit: cover;
 }
-
 .info {
     flex: 1 100%;
     margin-top: 20px;
@@ -384,86 +342,309 @@ main {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: right; /* إضافة هذه الخاصية لمحاذاة النصوص إلى اليمين */
+    text-align: right;
 }
-
 .info ul {
     list-style-type: none;
     padding: 0;
 }
-
 .info ul li {
-    display: block; /* عرض كل عنصر على سطر منفصل */
-    margin-bottom: 10px; /* إضافة مسافة بين العناصر */
-    position: relative; /* لضمان أن العلامة المميزة تظهر بجوار النص */
-    padding-right: 20px; /* إضافة مسافة لظهور العلامة المميزة */
+    display: red;
+    background:#e0dedb;
+    margin-bottom: 10px;
+    position: relative;
+    padding-right: 20px;
 }
-
 .info ul li::before {
-    content: "★"; /* يمكنك تغيير هذا الرمز إلى أي رمز آخر تفضله */
+    content: "★";
     position: absolute;
-    right: 0; /* لضمان أن العلامة المميزة تظهر على يمين النص */
-    color: #4CAF50; /* لون العلامة المميزة */
+    right: 0;
+    color: #4CAF50;
 }
-
 .info ul li a {
-    color: #4CAF50; /* لون النص */
-    text-decoration: none; /* إزالة التسطير */
-    transition: color 0.3s; /* إضافة تأثير الانتقال */
+    color: #4CAF50;
+    text-decoration: none;
+    transition: color 0.3s;
 }
-
 .info ul li a:hover {
-    color: #45a049; /* تغيير لون النص عند التمرير */
+    color: #45a049;
 }
-
 /* إعدادات للشاشات الصغيرة */
 @media (max-width: 768px) {
     .content-container {
-        flex-direction: column; /* تغيير الاتجاه إلى عمودي */
-        margin-top: 0; /* إزالة أي فراغ علوي */
+        flex-direction: column;
+        margin-top: 0;
     }
-
     #services h2 {
         color: #f8fc05 !important;
     }
-    
     .images {
-        margin-top: 0.20px; /* تقليل المسافة العلوية لإعطاء مساحة للأزرار */
-        position: relative; /* لجعل الأزرار تتداخل بشكل صحيح */
+        margin-top: 0.20px;
+        position: relative;
     }
-
     .buttons {
-        position: absolute; /* تجعل الأزرار فوق الصور */
-        top: 45%; /* ضبط المسافة من الأعلى لتكون في منتصف الصورة */
-        left: 50%; /* ضبط المسافة من اليسار لتكون في منتصف الصورة */
-        transform: translate(-50%, -50%); /* لضبط الأزرار في منتصف الحاوية */
-        width: 100%; /* عرض الأزرار يكون بنفس عرض الصور */
-        padding: 2px; /* تقليل الحواف للأزرار */
-        border-radius: 5px; /* زوايا دائرية */
-        display: flex; /* جعل الأزرار تظهر بشكل أفقي */
-        flex-direction: row; /* عرض الأزرار أفقيًا */
-        gap: 0px; /* تقليل المسافة بين الأزرار */
-        z-index: 10; /* ضمان بقاء الأزرار فوق العناصر الأخرى */
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        padding: 2px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: row;
+        gap: 0px;
+        z-index: 10;
     }
-
     .buttons button {
-        background-color: rgba(5, 36, 46, 0.7) !important; /* خلفية شفافة أكثر عند التمرير */
-        color: #f8fc05 !important; /* لون النص أصفر */
-        padding: 0.10px 0.50px; /* تقليل حجم الأزرار */
-        font-size: 9.5px; /* تقليل حجم النص داخل الأزرار */
-        border: 0.3px solid #4CAF50; /* تقليل حجم الحدود */
-        border-radius: 3px; /* زوايا دائرية */
-        cursor: pointer; /* تغيير شكل المؤشر عند المرور فوق الزر */
-        transition: background-color 0.3s, transform 0.3s; /* إضافة تأثير الانتقال */
+        background-color: rgba(5, 36, 46, 0.7) !important;
+        color: #f8fc05 !important;
+        padding: 0.10px 0.50px;
+        font-size: 9.5px;
+        border: 0.3px solid #4CAF50;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
     }
-
     .buttons button:hover {
-        background-color: rgba(22, 23, 24, 0.9) !important; /* خلفية شفافة أكثر عند التمرير */
-        transform: scale(1.05); /* تكبير الزر عند التمرير */
+        background-color: rgba(22, 23, 24, 0.9) !important;
+        transform: scale(1.05);
     }
-
     .info {
-        margin-top: 10px; /* تقليل المسافة العلوية لعدم التداخل مع الأزرار */
-        z-index: 0; /* التأكد من أن المعلومات تحت الأزرار */
+        margin-top: 10px;
+        z-index: 0;
     }
 }
+
+/* ===== نظام التقييم بالنجوم والتعليقات ===== */
+.star-rating-comment {
+    margin-top: 10px;
+    background: #f7f7f7;
+    padding: 10px;
+    border-radius: 8px;
+}
+.star-rating {
+    direction: ltr;
+    unicode-bidi: bidi-override;
+    display: inline-block;
+}
+.star-rating .star {
+    font-size: 24px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+    margin-left: 2px;
+}
+.star-rating .star.selected,
+.star-rating .star.hovered {
+    color: #ffc107;
+}
+.comment-text {
+    width: 98%;
+    min-height: 40px;
+    margin-top: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    font-family: 'Cairo', sans-serif;
+    padding: 5px;
+}
+.submit-rating {
+    margin-top: 8px;
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 7px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+}
+.all-comments {
+    margin-top: 12px;
+}
+.all-comments .user-comment {
+    background: #fafafa;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    margin-bottom: 6px;
+    padding: 6px 10px;
+    font-size: 14px;
+    color: #222;
+}
+/* نافذة منبثقة للتعليقات */
+#comments-modal {
+    display: none;
+    position: fixed;
+    top: 0; right: 0; left: 0; bottom: 0;
+    z-index: 9999;
+}
+#comments-modal .modal-backdrop {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.25);
+    top: 0; left: 0;
+}
+#comments-modal .modal-content {
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    top: 10%;
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 20px 18px 20px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.15);
+    min-width: 340px;
+    max-width: 95vw;
+    max-height: 80vh;
+    overflow-y: auto;
+    direction: rtl;
+}
+#comments-modal .close-modal {
+    position: absolute;
+    left: 16px;
+    top: 10px;
+    font-size: 26px;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+#comments-modal .close-modal:hover {
+    color: #d32f2f;
+}
+#comments-modal .modal-comments-list .user-comment {
+    margin-bottom: 12px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 7px;
+}
+.show-comments-btn {
+    background: #eee;
+    color: #0288d1;
+    border: none;
+    cursor: pointer;
+    margin: 5px 0 0 0;
+    padding: 4px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+.show-comments-btn:hover { background: #e0e0e0; }
+.old-likes-info {
+  margin-top: 7px;
+  font-size: 15px;
+  text-align: right;
+  direction: rtl;
+}
+.old-likes-info small {
+  font-size: 11px;
+  color: #888;
+  margin-top: 2px;
+}
+
+#perfect-clinic {
+    display: none;
+}
+
+.header-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: #fffffd;
+    border-bottom: 1px solid #ccc;
+    flex-wrap: wrap;
+}
+
+.header-buttons button, .header-buttons a {
+    padding: 10px 20px;
+    background-color: #5a778c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.header-buttons button:hover, .header-buttons a:hover {
+    background-color: #386074;
+}
+
+.search-container {
+    display: flex;
+    gap: 5px;
+}
+
+#search-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Cairo', sans-serif;
+    min-width: 200px;
+}
+
+/* تنسيق الفقرة للحفاظ على الحركة داخل حدودها */
+header p {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left;
+    height: 30px; /* تحديد ارتفاع مناسب للفقرة */
+}
+
+/* الأنماط الخاصة بالحركة */
+.moving-text {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: -100%; /* يبدأ من خارج الشاشة تماماً على اليسار */
+    animation: moveLeftToRight 14s linear infinite;
+    font-size: 16px;
+    padding-top: 2px;
+    padding-bottom: 10px;
+}
+
+/* تعريف الحركة (keyframes) */
+@keyframes moveLeftToRight {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(calc(100% + 100vw)); /* القيمة الجديدة */
+    }
+}
+
+/* الأنماط الخاصة بالشاشات الكبيرة (الكمبيوتر) */
+@media (min-width: 768px) {
+    header p {
+        /* هنا نلغي الحركة ونجعل النص في المنتصف */
+        overflow: visible; /* نجعل المحتوى مرئياً */
+        text-align: center;
+        height: auto; /* نلغي الارتفاع المحدد */
+    }
+
+    .moving-text {
+        position: static; /* نلغي الوضع المطلق ليصبح النص عادياً */
+        left: auto; /* نلغي خاصية left */
+        animation: none; /* نلغي الحركة */
+        display: block;
+        margin: 0;
+        color: #004d40; /* لون الخط الجديد */
+        font-size: 24px; /* حجم الخط الجديد */
+        font-weight: bold; /* جعل الخط عريض */
+    }
+}
+#bubbleCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+}
+
+
