@@ -248,7 +248,7 @@ header {
     }
 }
 header h1 {
-    font-size: 28px;
+    font-size: 25px;
     color: #1b05a7;
     animation: slideIn 4s ease-in-out;
     text-shadow: 2px 2px 4px rgba(211, 2, 2, 0.5);
@@ -556,7 +556,7 @@ main {
 }
 
 .header-buttons button, .header-buttons a {
-    padding: 10px 20px;
+    padding: 5px 10px;
     background-color: #5a778c;
     color: white;
     border: none;
@@ -565,7 +565,7 @@ main {
     font-family: 'Cairo', sans-serif;
     text-decoration: none;
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     transition: background-color 0.3s ease;
 }
 
