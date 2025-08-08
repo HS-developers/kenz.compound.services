@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -8,8 +9,7 @@
     <title>Kenz Compound Services</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <title>تشغيل وإيقاف الموسيقى</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
     function toggleInfo(id) {
         var info = document.getElementById(id);
@@ -29,11 +29,21 @@
     </p>
 </header>
 <div class="header-buttons">
-    <a href="https://www.accuweather.com/ar/eg/nazlat-as-samman/127039/hourly-weather-forecast/127039" target="_blank" id="weather-button">الطقس الآن</a>
-    <a href="https://www.banquemisr.com/ar-EG/Home/CAPITAL-MARKETS/Exchange-Rates-and-Currencies" target="_blank" id="currency-button">أسعار العملات</a>
-    <button id="traffic-button"> من و إلي الكمبوند</button>
-    <button id="news-button">أخبار الكمبوند</button>
-    <button id="emergency-button">أرقام الطوارئ</button>
+    <a href="https://www.accuweather.com/ar/eg/nazlat-as-samman/127039/hourly-weather-forecast/127039" target="_blank" class="weather-link" data-tooltip="الطقس الآن">
+      <i class="fas fa-cloud-sun"></i> 
+    </a>
+    <a href="https://www.banquemisr.com/ar-EG/Home/CAPITAL-MARKETS/Exchange-Rates-and-Currencies" target="_blank" class="weather-link" data-tooltip="أسعار العملات">
+      <i class="fas fa-money-bill-wave"></i> 
+    </a>
+    <button id="traffic-button" data-tooltip="من و إلي الكمبوند">
+      <i class="fas fa-car-side"></i> 
+    </button>
+    <button id="news-button" data-tooltip="أخبار الكمبوند">
+      <i class="fas fa-newspaper"></i> 
+    </button>
+    <button id="emergency-button" data-tooltip="أرقام الطوارئ">
+      <i class="fas fa-ambulance"></i> 
+    </button>
     <div class="search-container">
         <input type="text" id="search-input" placeholder="ابحث عن خدمة...">
         <button id="search-button">بحث</button>
@@ -3829,5 +3839,3 @@
         
 </body>
 </html>
-
-
