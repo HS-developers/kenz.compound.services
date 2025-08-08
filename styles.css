@@ -760,4 +760,24 @@ header p {
     padding: 8px 0;
     border-bottom: 1px dashed #ddd;
 }
+/* هذا الكود يضمن أن تكون الأيقونات داخل أزرار الشريط العلوي بنفس الحجم */
+.header-buttons button i,
+.header-buttons a i {
+    font-size: 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+    line-height: 20px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+/* للتأكد من أن الزر نفسه بحجم موحد */
+.header-buttons button,
+.header-buttons a {
+    width: 50px !important;
+    height: 50px !important;
+    padding: 0 !important;
+}
+
 
