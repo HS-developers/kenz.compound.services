@@ -550,7 +550,7 @@ main {
     align-items: center;
     gap: 15px;
     padding: 15px;
-    background-color: #fffffd;
+    background-color: #cacac5;
     border-bottom: 1px solid #ccc;
     flex-wrap: wrap;
 }
@@ -689,3 +689,4 @@ header p {
     opacity: 1;
     visibility: visible;
 }
+
