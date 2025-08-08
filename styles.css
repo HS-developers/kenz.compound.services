@@ -646,5 +646,46 @@ header p {
     pointer-events: none;
     z-index: -1;
 }
+/* تنسيق الأزرار/الروابط داخل قسم الأزرار العلوية */
+.header-buttons button,
+.header-buttons a {
+    position: relative; /* مهم لربط موقع التلميح بها */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px; /* أو حجم مناسب للأيقونة */
+    height: 50px; /* أو حجم مناسب للأيقونة */
+    border-radius: 50%; /* لجعلها دائرية */
+    background-color: #5a778c;
+    color: white;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
 
+/* التنسيق الأساسي للتلميحات (Tooltips) */
+.header-buttons [data-tooltip]::after {
+    content: attr(data-tooltip); /* يجلب النص من خاصية data-tooltip */
+    position: absolute;
+    bottom: calc(100% + 10px); /* يضع التلميح فوق الزر بمسافة 10 بكسل */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    font-size: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 1000;
+}
 
+/* إظهار التلميح عند مرور مؤشر الفأرة */
+.header-buttons [data-tooltip]:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
