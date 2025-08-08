@@ -417,6 +417,51 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+
+    // ----------------------------------------------------------------------------------
+    // بداية كود النافذة المنبثقة المخصص
+    // ----------------------------------------------------------------------------------
+
+    // إنشاء النافذة المنبثقة مرة واحدة
+    const modal = document.createElement('div');
+    modal.id = 'infoModal';
+    modal.className = 'modal';
+    modal.innerHTML = `
+      <div class="modal-content">
+        <span class="close-button">×</span>
+        <div id="modal-body-content"></div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    const closeButton = modal.querySelector(".close-button");
+    const modalBodyContent = document.getElementById("modal-body-content");
+
+    // دالة لإظهار النافذة المنبثقة مع محتوى مخصص
+    function showModal(content) {
+        modalBodyContent.innerHTML = content;
+        modal.style.display = "block";
+    }
+
+    // إغلاق النافذة عند الضغط على زر الإغلاق
+    closeButton.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // إغلاق النافذة عند الضغط خارجها
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // ----------------------------------------------------------------------------------
+    // نهاية كود النافذة المنبثقة المخصص
+    // ----------------------------------------------------------------------------------
+
+
+
+
     trafficButton.addEventListener('click', () => {
         const compoundLocation = "كنز كمبوند، السادس من أكتوبر، الجيزة، مصر";
         const googleMapsLink = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(compoundLocation)}&travelmode=driving`;
@@ -424,10 +469,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     newsButton.addEventListener('click', () => {
-        alert("أخبار الكمبوند : جاري اطلاق الخدمة قريبا....");
+        const newsInfo = `
+            <h3>أخبار الكمبوند</h3>
+            <p>جاري اطلاق الخدمة قريبا....</p>
+        `;
+        showModal(newsInfo);
     });
 
     emergencyButton.addEventListener('click', () => {
-        alert("أرقام الطوارئ في الكمبوند:\n\nمشرف الأمن الصباحي: 01281099253\nمشرف الأمن المسائي: 01281099273\nتصاريح الزيارات والدليفري: 01281099276");
+        const emergencyInfo = `
+            <h3>أرقام الطوارئ</h3>
+            <ul>
+                <li>مشرف الأمن الصباحي: 01281099253</li>
+                <li>مشرف الأمن المسائي: 01281099273</li>
+                <li>تصاريح الزيارات والدليفري: 01281099276</li>
+            </ul>
+        `;
+        showModal(emergencyInfo);
     });
 });
