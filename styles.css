@@ -96,14 +96,14 @@ footer {
     padding: 20px;
     margin-top: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(232, 8, 8, 0.1);
     position: relative; 
     padding-top: 20px;
     padding-bottom: 20px;
     overflow: hidden;
 }
 #services h2 {
-    color: #4CAF50;
+    color: #0c0c0c;
 }
 #services ul {
     list-style-type: none;
@@ -117,7 +117,7 @@ footer {
     box-sizing: border-box;
 }
 #services button {
-    background-color: #4CAF50;
+    background-color: #015205;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -137,6 +137,9 @@ footer {
     background-color: #f4f4f4;
     border-radius: 4px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border: 5px solid black; /* إضافة إطار أسود سميك */
+    padding: 20px; /* إضافة مسافة داخلية لجعل المحتوى يبدو أفضل داخل الإطار */
+    border-radius: 10px; /* لإعطاء الإطار حواف دائرية (اختياري) */
 }
 .info ul li {
     display: block;
@@ -227,10 +230,11 @@ footer {
   }
 body {
     font-family: 'Cairo', sans-serif;
-    background-color: #000000;
+    background-color: #9796a9;
     margin: 0;
     padding: 0;
     direction: rtl;
+
 }
 header {
     position: relative;
@@ -266,7 +270,7 @@ nav ul {
     list-style-type: none;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #9796a9;
     display: flex;
     justify-content: center;
 }
@@ -275,7 +279,7 @@ nav ul li {
 }
 nav ul li a {
     display: block;
-    color: rgb(157, 197, 250);
+    color: rgb(2, 84, 191);
     text-align: center;
     padding: 5px 30px;
     text-decoration: none;
@@ -339,7 +343,7 @@ main {
     flex: 1 100%;
     margin-top: 20px;
     padding: 20px;
-    background-color: #fff;
+    background-color: #bd9e03;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: right;
@@ -376,7 +380,7 @@ main {
         margin-top: 0;
     }
     #services h2 {
-        color: #f8fc05 !important;
+        color: #0320a1 !important;
     }
     .images {
         margin-top: 0.20px;
@@ -429,14 +433,14 @@ main {
 }
 .star-rating .star {
     font-size: 24px;
-    color: #ccc;
+    color: #844e4e5b;
     cursor: pointer;
     transition: color 0.2s;
     margin-left: 2px;
 }
 .star-rating .star.selected,
 .star-rating .star.hovered {
-    color: #ffc107;
+    color: #04c204;
 }
 .comment-text {
     width: 98%;
@@ -550,14 +554,14 @@ main {
     align-items: center;
     gap: 15px;
     padding: 15px;
-    background-color: #cacac5;
-    border-bottom: 1px solid #ccc;
+    background-color: #090153;
+    border-bottom: 1px solid #e5f322;
     flex-wrap: wrap;
 }
 
 .header-buttons button, .header-buttons a {
     padding: 5px 10px;
-    background-color: #5a778c;
+    background-color: #011a2b;
     color: white;
     border: none;
     border-radius: 5px;
@@ -760,6 +764,8 @@ header p {
     padding: 8px 0;
     border-bottom: 1px dashed #ddd;
 }
+
+
 /* هذا الكود يضمن أن تكون الأيقونات داخل أزرار الشريط العلوي بنفس الحجم */
 .header-buttons button i,
 .header-buttons a i {
@@ -779,5 +785,11 @@ header p {
     height: 50px !important;
     padding: 0 !important;
 }
-
-
+/* تنسيق لإبراز كلمة البحث */
+mark {
+    background-color: #ffde54; /* يمكنك تغيير اللون إلى أي لون تريده */
+    color: #000;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-weight: bold;
+}
