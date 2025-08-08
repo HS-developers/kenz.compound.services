@@ -417,30 +417,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    weatherButton.addEventListener('click', () => {
-        if ("geolocation" in navigator) {
-            navigator.geolocation.getCurrentPosition(position => {
-                const lat = position.coords.latitude;
-                const lon = position.coords.longitude;
-                fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`)
-                    .then(response => response.json())
-                    .then(data => {
-                        const temp = data.current.temperature_2m;
-                        alert(`درجة الحرارة الآن: ${temp}°C`);
-                    })
-                    .catch(error => {
-                        console.error('Error fetching weather data:', error);
-                        alert('عذراً، لم نتمكن من الحصول على معلومات الطقس.');
-                    });
-            }, error => {
-                console.error('Error getting geolocation:', error);
-                alert('الرجاء السماح للمتصفح بالوصول إلى موقعك لعرض الطقس.');
-            });
-        } else {
-            alert('خاصية تحديد الموقع الجغرافي غير مدعومة في متصفحك.');
-        }
-    });
-
     trafficButton.addEventListener('click', () => {
         const compoundLocation = "كنز كمبوند، السادس من أكتوبر، الجيزة، مصر";
         const googleMapsLink = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(compoundLocation)}&travelmode=driving`;
