@@ -392,16 +392,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.style.display = 'block';
                 serviceFound = true;
 
-            // تعديل: نقوم بتغيير المحتوى الداخلي للزر لإضافة تنسيق التظليل
-            // نستخدم originalText.replace لإعادة الكلمة الأصلية
-            mainButton.innerHTML = originalText.replace(searchRegex, `<mark>${originalText.match(searchRegex)[0]}</mark>`);
-
-           // ميزة الانتقال التلقائي للعنصر
-           item.scrollIntoView({
-           behavior: 'smooth',
-           block: 'center'
-           });
-
                 // إخفاء جميع العناصر الأخرى
                 serviceItems.forEach(otherItem => {
                     if (otherItem !== item) {
