@@ -383,11 +383,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const subContent = document.getElementById(serviceId);
             const combinedText = normalizeArabic(mainButton.textContent + ' ' + (subContent ? subContent.textContent : ''));
 
+            // تعديل: نستخدم تعبيراً منتظماً للعثور على الكلمة وتحديدها
+            const searchRegex = new RegExp(searchTerm, 'gi'); // 'g' للبحث في كل النص, 'i' لتجاهل حالة الحروف
+
             if (combinedText.includes(searchTerm)) {
                 // تم العثور على الخدمة، نقوم بإظهارها وإخفاء الباقي
                 toggleInfo(serviceId); // نفتح المحتوى الخاص بها
                 item.style.display = 'block';
                 serviceFound = true;
+
+            // تعديل: نقوم بتغيير المحتوى الداخلي للزر لإضافة تنسيق التظليل
+            // نستخدم originalText.replace لإعادة الكلمة الأصلية
+            mainButton.innerHTML = originalText.replace(searchRegex, `<mark>${originalText.match(searchRegex)[0]}</mark>`);
+
+           // ميزة الانتقال التلقائي للعنصر
+           item.scrollIntoView({
+           behavior: 'smooth',
+           block: 'center'
+           });
 
                 // إخفاء جميع العناصر الأخرى
                 serviceItems.forEach(otherItem => {
