@@ -230,7 +230,7 @@ footer {
   }
 body {
     font-family: 'Cairo', sans-serif;
-    background-color: #9796a9;
+    background-color: #9796a93f;
     margin: 0;
     padding: 0;
     direction: rtl;
@@ -279,7 +279,7 @@ nav ul li {
 }
 nav ul li a {
     display: block;
-    color: rgb(2, 84, 191);
+    color: rgb(2, 47, 105);
     text-align: center;
     padding: 5px 30px;
     text-decoration: none;
@@ -793,3 +793,4 @@ mark {
     border-radius: 3px;
     font-weight: bold;
 }
+
