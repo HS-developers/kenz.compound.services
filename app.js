@@ -485,9 +485,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <ul>
                 <li>مشرف الأمن الصباحي: 01281099253</li>
                 <li>مشرف الأمن المسائي: 01281099273</li>
-                <li>تصاريح الزيارات والدليفري: 01281099276</li>
             </ul>
         `;
         showModal(emergencyInfo);
     });
 });
+
