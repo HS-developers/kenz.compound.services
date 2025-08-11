@@ -326,7 +326,6 @@ const searchInput = document.getElementById('search-input');
 const searchButton = document.getElementById('search-button');
 const serviceSections = document.querySelectorAll('.info');
 const allListItems = document.querySelectorAll('.info li');
-const mainButtonsList = document.querySelector('.buttons ul'); // العنصر الذي يحتوي على الأزرار الرئيسية
 const allMainButtons = document.querySelectorAll('.buttons li'); // جميع أزرار الأقسام
 
 // إنشاء عنصر رسالة عدم وجود نتائج
@@ -347,6 +346,30 @@ if (searchContainer) {
     searchContainer.parentNode.insertBefore(noResultsMessage, searchContainer.nextSibling);
 }
 
+// إنشاء عنصر لقائمة نتائج البحث الفوري
+const autocompleteResults = document.createElement('div');
+autocompleteResults.id = 'autocomplete-results';
+autocompleteResults.style.cssText = `
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 0 0 8px 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 10;
+    display: none;
+    top: 100%; /* هذا هو التعديل الأساسي */
+    left: 0;
+`;
+// إضافة القائمة بعد حاوية البحث وليس بداخلها
+if (searchContainer) {
+    searchContainer.style.position = 'relative'; // لضمان أن يكون الـ 'absolute' الخاص بالقائمة يعمل بشكل صحيح
+    searchContainer.appendChild(autocompleteResults);
+}
+
+
 // دالة لإعادة الصفحة إلى حالتها الافتراضية
 function resetPageDisplay() {
     serviceSections.forEach(section => {
@@ -356,28 +379,95 @@ function resetPageDisplay() {
     allMainButtons.forEach(button => {
         button.style.display = 'block';
     });
+    autocompleteResults.style.display = 'none';
 }
 
-function performSearch() {
-    const searchTerm = searchInput.value.toLowerCase();
-    let foundMatch = false;
+// دالة لتوجيه المستخدم إلى النتيجة المختارة
+function navigateToResult(id) {
+    const section = document.getElementById(id);
+    if (section) {
+        // إخفاء كل الأقسام أولاً
+        serviceSections.forEach(s => s.style.display = 'none');
+        // إظهار القسم المحدد
+        section.style.display = 'block';
+        // إخفاء قائمة الأزرار الرئيسية
+        allMainButtons.forEach(button => button.style.display = 'none');
+        // إخفاء رسالة عدم وجود نتائج
+        noResultsMessage.style.display = 'none';
+        // التمرير إلى القسم
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
 
-    // إخفاء جميع الأقسام والرسالة وأزرار الأقسام الرئيسية أولاً
-    serviceSections.forEach(section => {
-        section.style.display = 'none';
-    });
-    noResultsMessage.style.display = 'none';
-    allMainButtons.forEach(button => {
-        button.style.display = 'none';
-    });
+// دالة البحث الفوري
+function performLiveSearch() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    autocompleteResults.innerHTML = '';
 
-    // إذا كان حقل البحث فارغًا، أعد الصفحة إلى حالتها الافتراضية
-    if (searchTerm === '') {
+    if (searchTerm.length === 0) {
+        autocompleteResults.style.display = 'none';
         resetPageDisplay();
         return;
     }
 
-    // البحث عن العناصر المطابقة وإظهارها مع القسم الأب، وإخفاء الباقي
+    const matches = [];
+    allListItems.forEach(item => {
+        const itemText = item.textContent.toLowerCase();
+        if (itemText.includes(searchTerm)) {
+            const parentSection = item.closest('.info');
+            if (parentSection) {
+                const sectionId = parentSection.id;
+                // قم بتضمين اسم القسم والعنصر في النتيجة
+                const sectionName = parentSection.getAttribute('data-name') || 'قسم';
+                const matchText = `${sectionName} > ${item.textContent.trim()}`;
+                matches.push({ text: matchText, id: sectionId });
+            }
+        }
+    });
+
+    if (matches.length > 0) {
+        const uniqueMatches = [...new Map(matches.map(item => [item.text, item])).values()];
+        uniqueMatches.forEach(match => {
+            const p = document.createElement('p');
+            p.textContent = match.text;
+            p.className = 'autocomplete-item';
+            p.style.cssText = `
+                padding: 10px;
+                cursor: pointer;
+                border-bottom: 1px solid #eee;
+            `;
+            p.onmouseover = () => p.style.backgroundColor = '#f0f0f0';
+            p.onmouseout = () => p.style.backgroundColor = '#fff';
+            p.onclick = () => {
+                searchInput.value = match.text;
+                navigateToResult(match.id);
+                autocompleteResults.style.display = 'none';
+            };
+            autocompleteResults.appendChild(p);
+        });
+        autocompleteResults.style.display = 'block';
+    } else {
+        autocompleteResults.style.display = 'none';
+    }
+}
+
+// دالة البحث الكامل (بالضغط على Enter أو الزر)
+function performFullSearch() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    let foundMatch = false;
+
+    // إخفاء كل شيء أولاً
+    serviceSections.forEach(section => section.style.display = 'none');
+    allMainButtons.forEach(button => button.style.display = 'none');
+    noResultsMessage.style.display = 'none';
+    autocompleteResults.style.display = 'none';
+    
+    // إذا كان الحقل فارغًا، أعد الصفحة
+    if (searchTerm === '') {
+        resetPageDisplay();
+        return;
+    }
+    
     serviceSections.forEach(section => {
         let sectionHasMatch = false;
         const listItems = section.querySelectorAll('li');
@@ -391,20 +481,16 @@ function performSearch() {
                 item.style.display = 'none';
             }
         });
-        // إظهار أو إخفاء القسم بالكامل بناءً على وجود نتائج
+        
         if (sectionHasMatch) {
             section.style.display = 'block';
             foundMatch = true;
-        } else {
-            section.style.display = 'none';
         }
     });
     
-    // إذا لم يتم العثور على أي نتائج، اعرض الرسالة
     if (!foundMatch) {
         noResultsMessage.style.display = 'block';
     } else {
-        // إذا تم العثور على نتائج، قم بالتمرير إلى أول قسم يحتوي على نتائج
         const firstResultSection = document.querySelector('.info[style*="block"]');
         if (firstResultSection) {
             firstResultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -413,17 +499,20 @@ function performSearch() {
 }
 
 // تسجيل أحداث البحث
-searchButton.addEventListener('click', performSearch);
+searchButton.addEventListener('click', performFullSearch);
 searchInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
-        performSearch();
+        e.preventDefault(); // منع الإرسال الافتراضي
+        performFullSearch();
     }
 });
 
-// الحدث الجديد: عند تغيير محتوى حقل البحث
-searchInput.addEventListener('input', () => {
-    if (searchInput.value.trim() === '') {
-        resetPageDisplay();
+// الحدث الجديد للبحث الفوري
+searchInput.addEventListener('input', performLiveSearch);
+// إخفاء قائمة الاقتراحات عند الضغط خارجها
+document.addEventListener('click', (e) => {
+    if (!searchContainer.contains(e.target)) {
+        autocompleteResults.style.display = 'none';
     }
 });
     
