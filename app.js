@@ -353,22 +353,21 @@ autocompleteResults.style.cssText = `
     position: absolute;
     background: #fff;
     border: 1px solid #ccc;
-    border-radius: 3 3 8px 8px;
+    border-radius: 0 0 8px 8px;
     max-height: 200px;
     overflow-y: auto;
     width: 100%;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     z-index: 10;
     display: none;
-    top: 100%; /* هذا هو التعديل الأساسي */
+    top: 100%;
     left: 0;
 `;
-// إضافة القائمة بعد حاوية البحث وليس بداخلها
+// إضافة القائمة بعد حاوية البحث
 if (searchContainer) {
-    searchContainer.style.position = 'relative'; // لضمان أن يكون الـ 'absolute' الخاص بالقائمة يعمل بشكل صحيح
+    searchContainer.style.position = 'relative';
     searchContainer.appendChild(autocompleteResults);
 }
-
 
 // دالة لإعادة الصفحة إلى حالتها الافتراضية
 function resetPageDisplay() {
@@ -399,9 +398,19 @@ function navigateToResult(id) {
     }
 }
 
+// دالة لتنقية النص العربي وتجاهل الهمزات وحالة الحروف
+function normalizeArabic(text) {
+    if (!text) return '';
+    let normalizedText = text.replace(/[أإآ]/g, 'ا');
+    normalizedText = normalizedText.replace(/ى/g, 'ي');
+    normalizedText = normalizedText.replace(/ة/g, 'ه');
+    normalizedText = normalizedText.replace(/َ|ً|ُ|ٌ|ِ|ٍ|ْ|ّ/g, '');
+    return normalizedText.trim().toLowerCase();
+}
+
 // دالة البحث الفوري
 function performLiveSearch() {
-    const searchTerm = searchInput.value.toLowerCase().trim();
+    const searchTerm = normalizeArabic(searchInput.value);
     autocompleteResults.innerHTML = '';
 
     if (searchTerm.length === 0) {
@@ -412,15 +421,14 @@ function performLiveSearch() {
 
     const matches = [];
     allListItems.forEach(item => {
-        const itemText = item.textContent.toLowerCase();
+        const itemText = normalizeArabic(item.textContent);
         if (itemText.includes(searchTerm)) {
             const parentSection = item.closest('.info');
             if (parentSection) {
                 const sectionId = parentSection.id;
-                // هذا هو التعديل: استخلاص النص المطلوب فقط
+                
                 let matchText = '';
                 item.childNodes.forEach(node => {
-                    // نأخذ نص العقد النصية ومحتوى روابط التليفون فقط
                     if (node.nodeType === Node.TEXT_NODE || (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'A')) {
                         matchText += node.textContent.trim() + ' ';
                     }
@@ -458,9 +466,14 @@ function performLiveSearch() {
 
 // دالة البحث الكامل (بالضغط على Enter أو الزر)
 function performFullSearch() {
-    const searchTerm = searchInput.value.toLowerCase().trim();
+    const searchTerm = normalizeArabic(searchInput.value);
     let foundMatch = false;
 
+    // إخفاء كل شيء أولاً
+    serviceSections.forEach(section => section.style.display = 'none');
+    allMainButtons.forEach(button => button.style.display = 'none');
+    noResultsMessage.style.display = 'none';
+    autocompleteResults.style.display = 'none';
     
     // إذا كان الحقل فارغًا، أعد الصفحة
     if (searchTerm === '') {
@@ -473,7 +486,7 @@ function performFullSearch() {
         const listItems = section.querySelectorAll('li');
         
         listItems.forEach(item => {
-            const itemText = item.textContent.toLowerCase();
+            const itemText = normalizeArabic(item.textContent);
             if (itemText.includes(searchTerm)) {
                 item.style.display = 'list-item';
                 sectionHasMatch = true;
