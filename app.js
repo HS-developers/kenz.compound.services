@@ -461,11 +461,6 @@ function performFullSearch() {
     const searchTerm = searchInput.value.toLowerCase().trim();
     let foundMatch = false;
 
-    // إخفاء كل شيء أولاً
-    serviceSections.forEach(section => section.style.display = 'none');
-    allMainButtons.forEach(button => button.style.display = 'none');
-    noResultsMessage.style.display = 'none';
-    autocompleteResults.style.display = 'none';
     
     // إذا كان الحقل فارغًا، أعد الصفحة
     if (searchTerm === '') {
