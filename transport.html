@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مواصلات كمبوند كنز</title>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f8f9fa;
+            --accent-color: #e3f2fd;
+            --text-color: #333;
+            --light-text: #666;
+            --night-color: #6a1b9a;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), #2b78d8);
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 2;
+        }
+        .header p {
+            opacity: 0.9;
+            font-size: 14px;
+            position: relative;
+            z-index: 2;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .transport-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--primary-color);
+        }
+        .transport-card.night-service {
+            border-top-color: var(--night-color);
+        }
+        .transport-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+        .night-service .card-icon {
+            background: #f3e5f5;
+            color: var(--night-color);
+        }
+        .card-title {
+            font-size: 22px;
+            color: var(--primary-color);
+        }
+        .night-service .card-title {
+            color: var(--night-color);
+        }
+        .route-info {
+            margin-bottom: 20px;
+        }
+        .info-item {
+            display: flex;
+            margin-bottom: 12px;
+        }
+        .info-icon {
+            color: var(--primary-color);
+            margin-left: 10px;
+            margin-top: 3px;
+        }
+        .night-service .info-icon {
+            color: var(--night-color);
+        }
+        .info-content {
+            flex: 1;
+        }
+        .info-title {
+            font-weight: bold;
+            margin-bottom: 3px;
+            color: var(--text-color);
+        }
+        .info-desc {
+            color: var(--light-text);
+            font-size: 14px;
+        }
+        .stops-container {
+            background: var(--secondary-color);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            position: relative;
+        }
+        .stops-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            color: var(--primary-color);
+        }
+        .night-service .stops-title {
+            color: var(--night-color);
+        }
+        .stop-item {
+            position: relative;
+            padding-right: 20px;
+            margin-bottom: 10px;
+        }
+        .stop-item:before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 10px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary-color);
+        }
+        .night-service .stop-item:before {
+            background: var(--night-color);
+        }
+        .stop-item:after {
+            content: "";
+            position: absolute;
+            right: 4px;
+            top: 20px;
+            bottom: -10px;
+            width: 2px;
+            background: var(--primary-color);
+        }
+        .night-service .stop-item:after {
+            background: var(--night-color);
+        }
+        .stop-item:last-child:after {
+            display: none;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .back-btn:hover {
+            background: #3a7bc8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(74, 144, 226, 0.4);
+        }
+        .note {
+            background: #fff8e1;
+            padding: 10px 15px;
+            border-right: 3px solid #ffc107;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #5d4037;
+        }
+        .working-days {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+        .all-week {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+        .holiday {
+            background: #ffebee;
+            color: #c62828;
+        }
+        .night-badge {
+            background: var(--night-color);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            .transport-card {
+                padding: 20px;
+            }
+            .card-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <h1>مواصلات كمبوند كنز</h1>
+    </div>
+    <center>
+            <button class="back-btn" onclick="window.location.href='index.html'">
+                <i class="fas fa-arrow-right" style="margin-left: 8px;"></i> العودة للصفحة الرئيسية
+            </button>
+        </center>
+
+    <div class="container">
+        <!-- الخط الجديد - خدمة ليلية -->
+        <div class="transport-card night-service">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-shuttle-van"></i>
+                </div>
+                <h2 class="card-title">خط ميكروباص الرماية <span class="night-badge">خدمة ممتدة</span></h2>
+            </div>
+            
+            <div class="route-info">
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-title">أيام العمل</div>
+                        <div class="info-desc">
+                            <span class="working-days all-week">طوال أيام الأسبوع (بدون إجازات)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="far fa-clock"></i>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-title">مواعيد التشغيل اليومية</div>
+                        <div class="info-desc">
+                            أول رحلة: 6:30 صباحًا<br>
+                            آخر رحلة: 1:00 بعد منتصف الليل
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-title">نقاط التوقف</div>
+                    </div>
+                </div>
+                
+                <div class="stops-container">
+                    <div class="stops-title">
+                        <i class="fas fa-route" style="margin-left: 5px;"></i>
+                        مسار الخط
+                    </div>
+                    <div class="stop-item">محطة المكتب الفني-مساكن دهشور</div>
+                    <div class="stop-item">بوابة الكمبوند الرئيسية</div>
+                    <div class="stop-item">بوابات حدائق الاهرام-طريق الفيوم</div>
+                    <div class="stop-item">موقف الرماية</div>
+                </div>
+                <div class="note">
+                    <i class="fas fa-info-circle" style="margin-left: 5px;"></i>
+                    التكلفة: 12 جنيهات - التكرار: كل 15 دقيقة تقريبا
+                </div>
+            </div>
+        </div>
+
+        <!-- خط M22 -->
+        <div class="transport-card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-bus"></i>
+                </div>
+                <h2 class="card-title">خط الميني باص M22</h2>
+            </div>
+            
+            <div class="route-info">
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-title">أيام العمل</div>
+                        <div class="info-desc">
+                            <span class="working-days">السبت إلى الخميس</span>
+                            <span class="working-days holiday">الجمعة والعطلات الرسمية إجازة</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="far fa-clock"></i>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-title">مواعيد التشغيل اليومية</div>
+                        <div class="info-desc">
+                            أول رحلة: 6:30 صباحًا<br>
+                            آخر رحلة: 8:00 مساءً
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-title">نقاط التوقف</div>
+                    </div>
+                </div>
+                
+                <div class="stops-container">
+                    <div class="stops-title">
+                        <i class="fas fa-route" style="margin-left: 5px;"></i>
+                        مسار الخط
+                    </div>
+                    <div class="stop-item">امام مول الحسن مشروع 266</div>
+                    <div class="stop-item">البوابة الرئيسية للكمبوند</div>
+                    <div class="stop-item">ميدان الرماية</div>
+                    <div class="stop-item">شارع فيصل</div>
+                    <div class="stop-item">ميدان الجيزة</div>
+                    <div class="stop-item">جامعة القاهرة (قبل كوبري ثروث)</div>
+                </div>
+                
+                <div class="note">
+                    <i class="fas fa-info-circle" style="margin-left: 5px;"></i>
+                    التكلفة: 22 جنيهات - التكرار: كل 20-30 دقيقة
+                </div>
+            </div>
+        </div>
+        
+        <!-- خط Z4 -->
+        <div class="transport-card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-bus"></i>
+                </div>
+                <h2 class="card-title">خط الميني باص Z4</h2>
+            </div>
+            
+            <div class="route-info">
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-title">أيام العمل</div>
+                        <div class="info-desc">
+                            <span class="working-days">السبت إلى الخميس</span>
+                            <span class="working-days holiday">الجمعة والعطلات الرسمية إجازة</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="far fa-clock"></i>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-title">مواعيد التشغيل اليومية</div>
+                        <div class="info-desc">
+                            أول رحلة: 6:30 صباحًا<br>
+                            آخر رحلة: 8:00 مساءً
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-title">نقاط التوقف</div>
+                    </div>
+                </div>
+                
+                <div class="stops-container">
+                    <div class="stops-title">
+                        <i class="fas fa-route" style="margin-left: 5px;"></i>
+                        مسار الخط
+                    </div>
+                    <div class="stop-item">محطة المكتب الفني (مساكن دهشور)</div>
+                    <div class="stop-item">مول مصر</div>
+                    <div class="stop-item">ميدان جهينة</div>
+                    <div class="stop-item">هايبر وان</div>
+                </div>
+                
+                <div class="note">
+                    <i class="fas fa-info-circle" style="margin-left: 5px;"></i>
+                    التكلفة: 22 جنيهات - التكرار: كل 30-45 دقيقة
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
