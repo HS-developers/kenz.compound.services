@@ -793,4 +793,50 @@ mark {
     border-radius: 3px;
     font-weight: bold;
 }
+.quick-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+.icon-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    width: 120px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: #5403b8;
+}
+.icon-link i {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+.icon-link span {
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+}
+.icon-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* إلغاء الحركات في قائمة البحث الفوري */
+#autocomplete-results, #autocomplete-results .autocomplete-item {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* إلغاء الحركات على حقل البحث نفسه */
+#search-input {
+  transition: none !important;
+}
+
 
