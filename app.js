@@ -353,7 +353,7 @@ autocompleteResults.style.cssText = `
     position: absolute;
     background: #fff;
     border: 1px solid #ccc;
-    border-radius: 0 0 8px 8px;
+    border-radius: 3 3 8px 8px;
     max-height: 200px;
     overflow-y: auto;
     width: 100%;
@@ -417,10 +417,15 @@ function performLiveSearch() {
             const parentSection = item.closest('.info');
             if (parentSection) {
                 const sectionId = parentSection.id;
-                // قم بتضمين اسم القسم والعنصر في النتيجة
-                const sectionName = parentSection.getAttribute('data-name') || 'قسم';
-                const matchText = `${sectionName} > ${item.textContent.trim()}`;
-                matches.push({ text: matchText, id: sectionId });
+                // هذا هو التعديل: استخلاص النص المطلوب فقط
+                let matchText = '';
+                item.childNodes.forEach(node => {
+                    // نأخذ نص العقد النصية ومحتوى روابط التليفون فقط
+                    if (node.nodeType === Node.TEXT_NODE || (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'A')) {
+                        matchText += node.textContent.trim() + ' ';
+                    }
+                });
+                matches.push({ text: matchText.trim(), id: sectionId });
             }
         }
     });
