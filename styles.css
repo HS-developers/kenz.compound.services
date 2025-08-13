@@ -55,7 +55,7 @@ nav ul li a {
     animation: pulse 1.5s infinite;
 }
 nav ul li a:hover {
-    background-color: #111;
+    background-color: #021376;
 }
 @keyframes pulse {
     0% {
@@ -94,9 +94,9 @@ footer {
 }
 #services {
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 1px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(232, 8, 8, 0.1);
+    box-shadow: 0 0 10px rgba(179, 177, 177, 0.1);
     position: relative; 
     padding-top: 20px;
     padding-bottom: 20px;
@@ -279,7 +279,7 @@ nav ul li {
 }
 nav ul li a {
     display: block;
-    color: rgb(2, 47, 105);
+    color: rgb(254, 254, 254);
     text-align: center;
     padding: 5px 30px;
     text-decoration: none;
@@ -584,10 +584,10 @@ main {
 
 #search-input {
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #ac0707;
     border-radius: 5px;
     font-family: 'Cairo', sans-serif;
-    min-width: 200px;
+    min-width: 75px;
 }
 
 /* تنسيق الفقرة للحفاظ على الحركة داخل حدودها */
@@ -769,7 +769,7 @@ header p {
 /* هذا الكود يضمن أن تكون الأيقونات داخل أزرار الشريط العلوي بنفس الحجم */
 .header-buttons button i,
 .header-buttons a i {
-    font-size: 20px !important;
+    font-size: 13px !important;
     width: 20px !important;
     height: 20px !important;
     line-height: 20px !important;
@@ -781,8 +781,8 @@ header p {
 /* للتأكد من أن الزر نفسه بحجم موحد */
 .header-buttons button,
 .header-buttons a {
-    width: 50px !important;
-    height: 50px !important;
+    width: 28px !important;
+    height: 28px !important;
     padding: 0 !important;
 }
 /* تنسيق لإبراز كلمة البحث */
@@ -793,6 +793,7 @@ mark {
     border-radius: 3px;
     font-weight: bold;
 }
+
 .quick-icons {
     display: flex;
     justify-content: center;
@@ -838,5 +839,3 @@ mark {
 #search-input {
   transition: none !important;
 }
-
-
