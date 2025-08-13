@@ -3,13 +3,13 @@
     {
       "source": "/(.*)\\.(png|jpg|jpeg|gif|svg|webp|ico)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=15552000, immutable" } 
+        { "key": "Cache-Control", "value": "public, max-age=15552000, immutable" }
       ]
     },
     {
       "source": "/(.*)\\.(css|js)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
       ]
     },
     {
