@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // عرض احصائيات الاعجاب وعدم الاعجاب القديمة لكل العناصر
     displayAllOldRatings();
 
-// نظام التقييم بالنجوم + تعليق (مع السماح بإضافة أو تعديل التقييم)
+// نظام التقييم بالنجوم + تعليق (مع نقل متوسط التقييم فقط)
 document.querySelectorAll('#clinics .star-rating-comment, #pharmacies .star-rating-comment, #supermarket .star-rating-comment, #restaurants .star-rating-comment, #vegetables .star-rating-comment, #meat .star-rating-comment, #Cleaning .star-rating-comment, #Milk .star-rating-comment, #Grocery .star-rating-comment, #bookstore .star-rating-comment, #Grocery .star-rating-comment, #other_services .star-rating-comment, #General_services .star-rating-comment').forEach(block => {
     const serviceId = block.getAttribute('data-service-id');
     const stars = block.querySelectorAll('.star');
@@ -144,14 +144,24 @@ document.querySelectorAll('#clinics .star-rating-comment, #pharmacies .star-rati
     let selectedRating = 0;
     let userRatingKey = null;
 
-    // عنصر لإظهار متوسط التقييم
-    let avgDiv = block.querySelector('.average-rating');
-    if (!avgDiv) {
-        avgDiv = document.createElement('div');
-        avgDiv.className = 'average-rating';
-        avgDiv.style.cssText = "margin: 5px 0 10px 0; font-weight: bold; color: #ff9800;";
-        block.insertBefore(avgDiv, commentsDiv);
-    }
+    // نقل عنصر متوسط التقييم ليكون أول عنصر في البلوك
+    const avgDiv = block.querySelector('.average-rating') || document.createElement('div');
+    avgDiv.className = 'average-rating';
+    avgDiv.style.cssText = "margin: 5px 0 10px 0; font-weight: bold; color: #ff9800;";
+    
+    // إعادة ترتيب العناصر: متوسط التقييم أولاً
+    const container = document.createElement('div');
+    container.appendChild(avgDiv);
+    container.appendChild(stars[0].parentNode); // النجوم
+    container.appendChild(textarea);
+    container.appendChild(submitBtn);
+    container.appendChild(commentsDiv);
+    
+    // استبدال محتوى البلوك بالترتيب الجديد
+    block.innerHTML = '';
+    block.appendChild(container);
+
+    // باقي الكود يبقى كما هو تمامًا بدون أي تغييرات ▼▼▼
 
     // تظليل النجوم عند المرور أو الاختيار
     stars.forEach(star => {
@@ -301,46 +311,29 @@ document.querySelectorAll('#clinics .star-rating-comment, #pharmacies .star-rati
                 };
                 commentsDiv.appendChild(btn);
             }
-            
-            // حساب المتوسط وتحسين عرض النجوم
+            // حساب المتوسط
             const sum = ratingsArr.reduce((a, b) => a + b.rating, 0);
-            const avg = ratingsArr.length > 0 ? (sum / ratingsArr.length) : 0;
-            const avgFixed = avg.toFixed(2);
-            
-            // إنشاء عرض النجوم مع التدرج اللوني
-            let starsHTML = '';
-            for (let i = 1; i <= 5; i++) {
-                if (i <= Math.floor(avg)) {
-                    // نجمة كاملة ملوّنة
-                    starsHTML += '<span style="color:#ffc107;">★</span>';
-                } else if (i === Math.ceil(avg) && avg % 1 >= 0.5) {
-                    // نصف نجمة (نعرضها كنجمة كاملة مع تعديل الشفافية)
-                    const percentage = (avg % 1) * 100;
-                    starsHTML += `<span style="color:#ffc107; opacity:${percentage/100}">★</span>`;
-                } else {
-                    // نجمة فارغة
-                    starsHTML += '<span style="color:#bbb;">★</span>';
-                }
-            }
-            
+            const avg = ratingsArr.length > 0 ? (sum / ratingsArr.length).toFixed(2) : "0.00";
             avgDiv.innerHTML = `
-                متوسط التقييم: <span style="color:#ffc107;">${avgFixed}</span> / 5
-                <div style="font-size:18px; display:inline-block; direction:ltr; unicode-bidi:bidi-override;">
-                    ${starsHTML}
-                </div>
+                متوسط التقييم: <span style="color:#ffc107;">${avg}</span> / 5
+                <span style="font-size:18px;">
+                    ${'★'.repeat(Math.round(avg))}
+                    <span style="color:#bbb;">${'★'.repeat(5 - Math.round(avg))}</span>
+                </span>
                 <span style="font-size:12px; color:#666; margin-right:5px;">(${ratingsArr.length} تقييم)</span>
             `;
         } else {
             avgDiv.innerHTML = `
                 متوسط التقييم: <span style="color:#ffc107;">0.00</span> / 5
-                <div style="font-size:18px; display:inline-block; direction:ltr; unicode-bidi:bidi-override;">
+                <span style="font-size:18px;">
                     <span style="color:#bbb;">★★★★★</span>
-                </div>
+                </span>
                 <span style="font-size:12px; color:#666; margin-right:5px;">(0 تقييم)</span>
             `;
         }
     });
 });
+    
     // عناصر البحث
 const searchInput = document.getElementById('search-input');
 const searchButton = document.getElementById('search-button');
@@ -614,4 +607,5 @@ document.addEventListener('click', (e) => {
         showModal(emergencyInfo);
     });
 });
+
 
