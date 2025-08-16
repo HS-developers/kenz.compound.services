@@ -333,7 +333,6 @@ document.querySelectorAll('#clinics .star-rating-comment, #pharmacies .star-rati
         }
     });
 });
-    
     // عناصر البحث
 const searchInput = document.getElementById('search-input');
 const searchButton = document.getElementById('search-button');
@@ -607,7 +606,3 @@ document.addEventListener('click', (e) => {
         showModal(emergencyInfo);
     });
 });
-
-
-
-
