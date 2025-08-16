@@ -1,16 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="جميع الخدمات الأساسية المتاحة للملاك حول الكمبوند">
-    <meta name="keywords" content="kenz, كنز">
-    <title>Kenzawya gate</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="جميع الخدمات الأساسية المتاحة للملاك حول الكمبوند" name="description"/>
+<meta content="kenz, كنز" name="keywords"/>
+<title>Kenzawya gate</title>
+<link href="styles.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/> <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script>
     function toggleInfo(id) {
         var info = document.getElementById(id);
         if (info.style.display === "none") {
@@ -20,44 +19,46 @@
         }
     }
     </script>
-    <script type="module" src="app.js"></script>
+<script src="app.js" type="module"></script>
 </head>
 <header>
 <h1>بوابة الكنزاوية KENZAWYA GATE</h1>
-    <p>
-    <span class="moving-text">جميع الخدمات الأساسية المتاحة للملاك حول الكمبوند</span>
-    </p>
+<p>
+<span class="moving-text">جميع الخدمات الأساسية المتاحة للملاك حول الكمبوند</span>
+</p>
 </header>
 <div class="header-buttons">
-    <a href="https://www.accuweather.com/ar/eg/nazlat-as-samman/127039/hourly-weather-forecast/127039" target="_blank" class="weather-link" data-tooltip="الطقس الآن">
-      <i class="fas fa-cloud-sun"></i> 
-    </a>
-    <a href="https://www.banquemisr.com/ar-EG/Home/CAPITAL-MARKETS/Exchange-Rates-and-Currencies" target="_blank" class="weather-link" data-tooltip="أسعار العملات">
-      <i class="fas fa-money-bill-wave"></i> 
-    </a>
-    </a>
+    <a class="weather-link" data-tooltip="الطقس الآن" href="https://www.accuweather.com/ar/eg/nazlat-as-samman/127039/hourly-weather-forecast/127039" target="_blank">
+<i class="fas fa-cloud-sun"></i>
+</a>
+<a class="weather-link" data-tooltip="أسعار العملات" href="https://www.banquemisr.com/ar-EG/Home/CAPITAL-MARKETS/Exchange-Rates-and-Currencies" target="_blank">
+<i class="fas fa-money-bill-wave"></i>
+</a>
 <a class="map-link" data-tooltip="خريطة الكمبوند" href="map.html" target="_blank">
         <i class="fas fa-map-marked-alt"></i>
     </a>
-    <button id="traffic-button" data-tooltip="من و إلي الكمبوند">
-      <i class="fas fa-car-side"></i> 
-    </button>
-    <button id="news-button" data-tooltip="أخبار الكمبوند">
-      <i class="fas fa-newspaper"></i> 
-    </button>
-    <button id="emergency-button" data-tooltip="أرقام الطوارئ">
-      <i class="fas fa-ambulance"></i> 
-    </button>
-    <div class="search-container">
-        <input type="text" id="search-input" placeholder="ابحث عن خدمة...">
-        <button id="search-button">بحث</button>
-    </div>
+<button data-tooltip="من و إلي الكمبوند" id="traffic-button">
+<i class="fas fa-car-side"></i>
+</button>
+<button data-tooltip="أخبار الكمبوند" id="news-button">
+<i class="fas fa-newspaper"></i>
+</button>
+<button data-tooltip="أرقام الطوارئ" id="emergency-button">
+<i class="fa-solid fa-user-shield"></i>
+</button>
+<a class="transport-link" data-tooltip="خطوط المواصلات " href="transport.html" target="_blank">
+    <i class="fa-solid fa-bus-simple"></i>
+</a>
+<div class="search-container">
+<input id="search-input" placeholder="ابحث عن خدمة..." type="text"/>
+<button id="search-button">بحث</button>
+</div>
 </div>
 <nav>
-    <ul>
-        <li><a href="https://firstgroup-egypt.com/kenz-compound/" target="_blank">معلومات عن الكمبوند</a></li>
-        <li><a href="mailto:compoundkenz@gmail.com">تواصل معنا</a></li>
-    </ul>
+<ul>
+<li><a href="https://firstgroup-egypt.com/kenz-compound/" target="_blank">معلومات عن الكمبوند</a></li>
+<li><a href="mailto:compoundkenz@gmail.com">تواصل معنا</a></li>
+</ul>
 </nav>
 <style>
     .info {
@@ -76,31 +77,32 @@
     }
 </script>
 <section id="services">
-    <canvas id="bubbleCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></canvas>
-    <h2>المحتوى <span style="font-size: 11px; color: rgb(8, 8, 8);">   "تاريخ آخر تحديث : 16/8/2025"</span></h2>
-    <div class="content-container">
-        <div class="images">
-            <img alt="lake" class="image" src="lake.webp" loading="lazy" decoding="async" />
-            <img alt="gate" class="image" src="gate 2.webp" loading="lazy" decoding="async" />
-            <img alt="Inside" class="image" src="Inside.webp" loading="lazy" decoding="async" />
-            <img alt="Bar" class="image" src="Bar2.webp" loading="lazy" decoding="async" />
-        </div>
-        <ul class="buttons">
-            <li><button onclick="toggleInfo('clinics')">خدمات طبية</button></li>
-            <li><button onclick="toggleInfo('pharmacies')">صيدليات</button></li>
-            <li><button onclick="toggleInfo('supermarket')">سوبر ماركت</button></li>
-            <li><button onclick="toggleInfo('restaurants')">مطاعم-حلويات</button></li>
-            <li><button onclick="toggleInfo('vegetables')">خضروات وفواكه</button></li>
-            <li><button onclick="toggleInfo('meat')">دواجن ولحوم</button></li>
-            <li><button onclick="toggleInfo('Cleaning')">تنظيف ملابس وسجاد</button></li>
-            <li><button onclick="toggleInfo('Milk')">منتجات ألبان</button></li>
-            <li><button onclick="toggleInfo('Grocery')">عطارة وتسالي</button></li>
-            <li><button onclick="toggleInfo('other_services')">إصلاح وخدمات متنوعة</button></li>
-            <li><button onclick="toggleInfo('General_services')">مواقع الخدمات العامة</button></li>
-        </ul>
-    </div>
-</section>
+<canvas id="bubbleCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></canvas>
+<h2>المحتوى <span style="font-size: 11px; color: rgb(8, 8, 8);">   "تاريخ آخر تحديث : 8/8/2025"</span></h2>
+<div class="content-container">
+<div class="images">
+<img alt="lake" class="image" src="lake.webp" loading="lazy" decoding="async" />
+<img alt="gate" class="image" src="gate 2.webp" loading="lazy" decoding="async" />
+<img alt="Inside" class="image" src="Inside.webp" loading="lazy" decoding="async" />
+<img alt="Bar" class="image" src="Bar2.webp" loading="lazy" decoding="async" />
 
+</div>
+<ul class="buttons">
+<li><button onclick="toggleInfo('clinics')">خدمات طبية</button></li>
+<li><button onclick="toggleInfo('pharmacies')">صيدليات</button></li>
+<li><button onclick="toggleInfo('supermarket')">سوبر ماركت</button></li>
+<li><button onclick="toggleInfo('restaurants')">مطاعم-حلويات</button></li>
+<li><button onclick="toggleInfo('vegetables')">خضروات وفواكه</button></li>
+<li><button onclick="toggleInfo('meat')">دواجن ولحوم</button></li>
+<li><button onclick="toggleInfo('Cleaning')">تنظيف ملابس وسجاد</button></li>
+<li><button onclick="toggleInfo('Milk')">منتجات ألبان</button></li>
+<li><button onclick="toggleInfo('Grocery')">عطارة وتسالي</button></li>
+<li><button onclick="toggleInfo('bookstore')">مكتبات</button></li>
+<li><button onclick="toggleInfo('other_services')">إصلاح وخدمات متنوعة</button></li>
+<li><button onclick="toggleInfo('General_services')">مواقع الخدمات العامة</button></li>
+</ul>
+</div>
+</section>
 <div id="clinics" class="info" style="display:none;">
     <ul>
         <li>د. ابتسام عبد العظيم - نساء وتوليد - مول كمبوند باراديس شارع المنتزة - ت: <a href="tel:01022227118">01022227118</a>
@@ -3928,6 +3930,7 @@
         
 </body>
 </html>
+
 
 
 
