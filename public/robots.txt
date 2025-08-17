@@ -1,1 +1,9 @@
+# ملف robots.txt
+# بيسمح لعناكب البحث (زي Googlebot) بفهرسة كل الصفحات
+# وبيعرفهم مكان ملف الـ sitemap
+
+User-agent: *
+Allow: /
+
+Sitemap: https://kenzawyagate.vercel.app/sitemap.xml
 
