@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  ملف Sitemap لموقعك kenzawyagate
+  ملاحظات:
+  - كل <url> بيمثل صفحة مستقلة في الموقع.
+  - lastmod: تاريخ آخر تحديث للصفحة.
+  - priority: مدى أهمية الصفحة (1.0 = الأهم).
+  - لو ضفت صفحة جديدة (مثلاً about.html)، انسخ جزء <url> كامل
+    وعدل الرابط والتاريخ والأولوية.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- الصفحة الرئيسية -->
+  <url>
+    <loc>https://kenzawyagate.vercel.app/</loc>
+    <lastmod>2025-08-17</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- مثال لإضافة صفحة جديدة -->
+  <!--
+  <url>
+    <loc>https://kenzawyagate.vercel.app/about.html</loc>
+    <lastmod>2025-08-17</lastmod>
+    <priority>0.8</priority>
+  </url>
+  -->
+
+</urlset>
