@@ -333,218 +333,199 @@ document.querySelectorAll('#clinics .star-rating-comment, #pharmacies .star-rati
         }
     });
 });
-    // عناصر البحث
-const searchInput = document.getElementById('search-input');
-const searchButton = document.getElementById('search-button');
-const serviceSections = document.querySelectorAll('.info');
-const allListItems = document.querySelectorAll('.info li');
-const allMainButtons = document.querySelectorAll('.buttons li'); // جميع أزرار الأقسام
+// عناصر البحث
+    const searchInput = document.getElementById('search-input');
+    const searchButton = document.getElementById('search-button');
+    const serviceSections = document.querySelectorAll('.info');
+    const allListItems = document.querySelectorAll('.info li');
+    const allMainButtons = document.querySelectorAll('.buttons li');
 
-// إنشاء عنصر رسالة عدم وجود نتائج
-const noResultsMessage = document.createElement('div');
-noResultsMessage.id = 'no-results-message';
-noResultsMessage.textContent = 'لا توجد نتائج مطابقة.';
-noResultsMessage.style.cssText = `
-    display: none;
-    text-align: center;
-    margin-top: 20px;
-    font-size: 1.2em;
-    color: #e74c3c;
-    font-weight: bold;
-`;
-// إضافة العنصر إلى الصفحة بعد حقل البحث
-const searchContainer = document.querySelector('.search-container');
-if (searchContainer) {
-    searchContainer.parentNode.insertBefore(noResultsMessage, searchContainer.nextSibling);
-}
-
-// إنشاء عنصر لقائمة نتائج البحث الفوري
-const autocompleteResults = document.createElement('div');
-autocompleteResults.id = 'autocomplete-results';
-autocompleteResults.style.cssText = `
-    position: absolute;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 0 0 8px 8px;
-    max-height: 200px;
-    overflow-y: auto;
-    width: 100%;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    z-index: 10;
-    display: none;
-    top: 100%;
-    left: 0;
-`;
-// إضافة القائمة بعد حاوية البحث
-if (searchContainer) {
-    searchContainer.style.position = 'relative';
-    searchContainer.appendChild(autocompleteResults);
-}
-
-// دالة لإعادة الصفحة إلى حالتها الافتراضية
-function resetPageDisplay() {
-    serviceSections.forEach(section => {
-        section.style.display = 'none';
-    });
-    noResultsMessage.style.display = 'none';
-    allMainButtons.forEach(button => {
-        button.style.display = 'block';
-    });
-    autocompleteResults.style.display = 'none';
-}
-
-// دالة لتوجيه المستخدم إلى النتيجة المختارة
-function navigateToResult(id) {
-    const section = document.getElementById(id);
-    if (section) {
-        // إخفاء كل الأقسام أولاً
-        serviceSections.forEach(s => s.style.display = 'none');
-        // إظهار القسم المحدد
-        section.style.display = 'block';
-        // إخفاء قائمة الأزرار الرئيسية
-        allMainButtons.forEach(button => button.style.display = 'none');
-        // إخفاء رسالة عدم وجود نتائج
-        noResultsMessage.style.display = 'none';
-        // التمرير إلى القسم
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-}
-
-// دالة لتنقية النص العربي وتجاهل الهمزات وحالة الحروف
-function normalizeArabic(text) {
-    if (!text) return '';
-    let normalizedText = text.replace(/[أإآ]/g, 'ا');
-    normalizedText = normalizedText.replace(/ى/g, 'ي');
-    normalizedText = normalizedText.replace(/ة/g, 'ه');
-    normalizedText = normalizedText.replace(/َ|ً|ُ|ٌ|ِ|ٍ|ْ|ّ/g, '');
-    return normalizedText.trim().toLowerCase();
-}
-
-// دالة البحث الفوري
-function performLiveSearch() {
-    const searchTerm = normalizeArabic(searchInput.value);
-    autocompleteResults.innerHTML = '';
-
-    if (searchTerm.length === 0) {
-        autocompleteResults.style.display = 'none';
-        resetPageDisplay();
-        return;
+    const noResultsMessage = document.createElement('div');
+    noResultsMessage.id = 'no-results-message';
+    noResultsMessage.textContent = 'لا توجد نتائج مطابقة.';
+    noResultsMessage.style.cssText = `
+        display: none;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 1.2em;
+        color: #e74c3c;
+        font-weight: bold;
+    `;
+    const searchContainer = document.querySelector('.search-container');
+    if (searchContainer) {
+        searchContainer.parentNode.insertBefore(noResultsMessage, searchContainer.nextSibling);
     }
 
-    const matches = [];
-    allListItems.forEach(item => {
-        const itemText = normalizeArabic(item.textContent);
-        if (itemText.includes(searchTerm)) {
-            const parentSection = item.closest('.info');
-            if (parentSection) {
-                const sectionId = parentSection.id;
-                
-                let matchText = '';
-                item.childNodes.forEach(node => {
-                    if (node.nodeType === Node.TEXT_NODE || (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'A')) {
-                        matchText += node.textContent.trim() + ' ';
-                    }
-                });
-                matches.push({ text: matchText.trim(), id: sectionId });
-            }
-        }
-    });
+    const autocompleteResults = document.createElement('div');
+    autocompleteResults.id = 'autocomplete-results';
+    autocompleteResults.style.cssText = `
+        position: absolute;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 0 0 8px 8px;
+        max-height: 200px;
+        overflow-y: auto;
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        z-index: 10;
+        display: none;
+        top: 100%;
+        left: 0;
+    `;
+    if (searchContainer) {
+        searchContainer.style.position = 'relative';
+        searchContainer.appendChild(autocompleteResults);
+    }
 
-    if (matches.length > 0) {
-        const uniqueMatches = [...new Map(matches.map(item => [item.text, item])).values()];
-        uniqueMatches.forEach(match => {
-            const p = document.createElement('p');
-            p.textContent = match.text;
-            p.className = 'autocomplete-item';
-            p.style.cssText = `
-                padding: 10px;
-                cursor: pointer;
-                border-bottom: 1px solid #eee;
-            `;
-            p.onmouseover = () => p.style.backgroundColor = '#f0f0f0';
-            p.onmouseout = () => p.style.backgroundColor = '#fff';
-            p.onclick = () => {
-                searchInput.value = match.text;
-                navigateToResult(match.id);
-                autocompleteResults.style.display = 'none';
-            };
-            autocompleteResults.appendChild(p);
+    // ---------------------------
+    // تعديل دالة إعادة الصفحة
+    function resetPageDisplay() {
+        // إظهار كل الأقسام وكل العناصر داخلها
+        serviceSections.forEach(section => {
+            section.style.display = 'block';
+            section.querySelectorAll('li').forEach(li => li.style.display = 'list-item');
         });
-        autocompleteResults.style.display = 'block';
-    } else {
+        // إظهار كل أزرار الأقسام
+        allMainButtons.forEach(button => button.style.display = 'block');
+        // إخفاء الرسائل والقوائم
+        noResultsMessage.style.display = 'none';
         autocompleteResults.style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-}
 
-// دالة البحث الكامل (بالضغط على Enter أو الزر)
-function performFullSearch() {
-    const searchTerm = normalizeArabic(searchInput.value);
-    let foundMatch = false;
-
-    // إخفاء كل شيء أولاً
-    serviceSections.forEach(section => section.style.display = 'none');
-    allMainButtons.forEach(button => button.style.display = 'none');
-    noResultsMessage.style.display = 'none';
-    autocompleteResults.style.display = 'none';
-    
-    // إذا كان الحقل فارغًا، أعد الصفحة
-    if (searchTerm === '') {
-        resetPageDisplay();
-        return;
+    function navigateToResult(id) {
+        const section = document.getElementById(id);
+        if (section) {
+            serviceSections.forEach(s => s.style.display = 'none');
+            section.style.display = 'block';
+            section.querySelectorAll('li').forEach(li => li.style.display = 'list-item');
+            allMainButtons.forEach(button => button.style.display = 'none');
+            noResultsMessage.style.display = 'none';
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     }
-    
-    serviceSections.forEach(section => {
-        let sectionHasMatch = false;
-        const listItems = section.querySelectorAll('li');
-        
-        listItems.forEach(item => {
+
+    function normalizeArabic(text) {
+        if (!text) return '';
+        let normalizedText = text.replace(/[أإآ]/g, 'ا');
+        normalizedText = normalizedText.replace(/ى/g, 'ي');
+        normalizedText = normalizedText.replace(/ة/g, 'ه');
+        normalizedText = normalizedText.replace(/َ|ً|ُ|ٌ|ِ|ٍ|ْ|ّ/g, '');
+        return normalizedText.trim().toLowerCase();
+    }
+
+    function performLiveSearch() {
+        const searchTerm = normalizeArabic(searchInput.value);
+        autocompleteResults.innerHTML = '';
+
+        if (searchTerm.length === 0) {
+            autocompleteResults.style.display = 'none';
+            resetPageDisplay();
+            return;
+        }
+
+        const matches = [];
+        allListItems.forEach(item => {
             const itemText = normalizeArabic(item.textContent);
             if (itemText.includes(searchTerm)) {
-                item.style.display = 'list-item';
-                sectionHasMatch = true;
-            } else {
-                item.style.display = 'none';
+                const parentSection = item.closest('.info');
+                if (parentSection) {
+                    const sectionId = parentSection.id;
+                    let matchText = '';
+                    item.childNodes.forEach(node => {
+                        if (node.nodeType === Node.TEXT_NODE || (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'A')) {
+                            matchText += node.textContent.trim() + ' ';
+                        }
+                    });
+                    matches.push({ text: matchText.trim(), id: sectionId });
+                }
             }
         });
-        
-        if (sectionHasMatch) {
-            section.style.display = 'block';
-            foundMatch = true;
+
+        if (matches.length > 0) {
+            const uniqueMatches = [...new Map(matches.map(item => [item.text, item])).values()];
+            uniqueMatches.forEach(match => {
+                const p = document.createElement('p');
+                p.textContent = match.text;
+                p.className = 'autocomplete-item';
+                p.style.cssText = `
+                    padding: 10px;
+                    cursor: pointer;
+                    border-bottom: 1px solid #eee;
+                `;
+                p.onmouseover = () => p.style.backgroundColor = '#f0f0f0';
+                p.onmouseout = () => p.style.backgroundColor = '#fff';
+                p.onclick = () => {
+                    searchInput.value = match.text;
+                    navigateToResult(match.id);
+                    autocompleteResults.style.display = 'none';
+                };
+                autocompleteResults.appendChild(p);
+            });
+            autocompleteResults.style.display = 'block';
+        } else {
+            autocompleteResults.style.display = 'none';
+        }
+    }
+
+    function performFullSearch() {
+        const searchTerm = normalizeArabic(searchInput.value);
+        let foundMatch = false;
+
+        serviceSections.forEach(section => {
+            section.style.display = 'none';
+            section.querySelectorAll('li').forEach(li => li.style.display = 'none');
+        });
+        allMainButtons.forEach(button => button.style.display = 'none');
+        noResultsMessage.style.display = 'none';
+        autocompleteResults.style.display = 'none';
+
+        if (searchTerm === '') {
+            resetPageDisplay();
+            return;
+        }
+
+        serviceSections.forEach(section => {
+            let sectionHasMatch = false;
+            const listItems = section.querySelectorAll('li');
+            listItems.forEach(item => {
+                const itemText = normalizeArabic(item.textContent);
+                if (itemText.includes(searchTerm)) {
+                    item.style.display = 'list-item';
+                    sectionHasMatch = true;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            if (sectionHasMatch) {
+                section.style.display = 'block';
+                foundMatch = true;
+            }
+        });
+
+        if (!foundMatch) {
+            noResultsMessage.style.display = 'block';
+        } else {
+            const firstResultSection = document.querySelector('.info[style*="block"]');
+            if (firstResultSection) {
+                firstResultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    }
+
+    searchButton.addEventListener('click', performFullSearch);
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            performFullSearch();
         }
     });
-    
-    if (!foundMatch) {
-        noResultsMessage.style.display = 'block';
-    } else {
-        const firstResultSection = document.querySelector('.info[style*="block"]');
-        if (firstResultSection) {
-            firstResultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    searchInput.addEventListener('input', performLiveSearch);
+    document.addEventListener('click', (e) => {
+        if (!searchContainer.contains(e.target)) {
+            autocompleteResults.style.display = 'none';
         }
-    }
-}
-
-// تسجيل أحداث البحث
-searchButton.addEventListener('click', performFullSearch);
-searchInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        e.preventDefault(); // منع الإرسال الافتراضي
-        performFullSearch();
-    }
-});
-
-// الحدث الجديد للبحث الفوري
-searchInput.addEventListener('input', performLiveSearch);
-// إخفاء قائمة الاقتراحات عند الضغط خارجها
-document.addEventListener('click', (e) => {
-    if (!searchContainer.contains(e.target)) {
-        autocompleteResults.style.display = 'none';
-    }
-});
-    
-    // أحداث أزرار الأيقونات
-    const trafficButton = document.getElementById('traffic-button');
-    const newsButton = document.getElementById('news-button');
-    const emergencyButton = document.getElementById('emergency-button');
+    });
 
     // ----------------------------------------------------------------------------------
     // بداية كود النافذة المنبثقة المخصص
@@ -606,4 +587,3 @@ document.addEventListener('click', (e) => {
         showModal(emergencyInfo);
     });
 });
-
