@@ -562,28 +562,19 @@ document.querySelectorAll('#clinics .star-rating-comment, #pharmacies .star-rati
     // نهاية كود النافذة المنبثقة المخصص
     // ----------------------------------------------------------------------------------
 
-    trafficButton.addEventListener('click', () => {
-        const compoundLocation = "كنز كمبوند، السادس من أكتوبر، الجيزة، مصر";
-        const googleMapsLink = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(compoundLocation)}&travelmode=driving`;
-        window.open(googleMapsLink, '_blank');
-    });
+    const trafficButton = document.getElementById('traffic-button');
+    const newsButton = document.getElementById('news-button');
+    const emergencyButton = document.getElementById('emergency-button');
 
-    newsButton.addEventListener('click', () => {
-        const newsInfo = `
-            <h3>أخبار الكمبوند</h3>
-            <p>جاري اطلاق الخدمة قريبا....</p>
-        `;
-        showModal(newsInfo);
-    });
+    trafficButton?.addEventListener('click', ()=>{
+        const link = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent("كنز كمبوند، السادس من أكتوبر، الجيزة، مصر")}&travelmode=driving`;
+        window.open(link,'_blank');
+    });
+    newsButton?.addEventListener('click', ()=>{
+        showModal('<h3>أخبار الكمبوند</h3><p>جاري اطلاق الخدمة قريبا....</p>');
+    });
+    emergencyButton?.addEventListener('click', ()=>{
+        showModal('<h3>أرقام الطوارئ</h3><ul><li>مشرف الأمن الصباحي: 01281099253</li><li>مشرف الأمن المسائي: 01281099273</li></ul>');
+    });
 
-    emergencyButton.addEventListener('click', () => {
-        const emergencyInfo = `
-            <h3>أرقام الطوارئ</h3>
-            <ul>
-                <li>مشرف الأمن الصباحي: 01281099253</li>
-                <li>مشرف الأمن المسائي: 01281099273</li>
-            </ul>
-        `;
-        showModal(emergencyInfo);
-    });
 });
