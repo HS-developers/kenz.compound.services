@@ -456,10 +456,10 @@ document.querySelectorAll('#clinics .star-rating-comment, #pharmacies .star-rati
                 p.onmouseover = () => p.style.backgroundColor = '#f0f0f0';
                 p.onmouseout = () => p.style.backgroundColor = '#fff';
                 p.onclick = () => {
-                    searchInput.value = match.text;
-                    navigateToResult(match.id);
-                    autocompleteResults.style.display = 'none';
-                };
+                searchInput.value = match.text;
+                // استدعاء دالة البحث الكاملة مباشرة
+                performFullSearch(); 
+            };
                 autocompleteResults.appendChild(p);
             });
             autocompleteResults.style.display = 'block';
@@ -578,3 +578,4 @@ document.querySelectorAll('#clinics .star-rating-comment, #pharmacies .star-rati
     });
 
 });
+
