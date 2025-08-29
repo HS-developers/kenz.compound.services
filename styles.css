@@ -388,7 +388,7 @@ main {
     }
     .buttons {
         position: absolute;
-        top: 45%;
+        top: 43%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 100%;
@@ -839,3 +839,4 @@ mark {
 #search-input {
   transition: none !important;
 }
+
