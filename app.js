@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ['426', '427', '428', '429', '430', '431', '432', '433'],
         ['501', '502', '503', '504', '505', '506'],
         ['576', '577', '578', '579', '580', '581'],
-        ['651', '652', '653', '654', '655', '656', '657', '658', '659', '660', '661', '662', '663', '664', '665', '666', '667', '668', '669', '670', '671', '672', '673', '674', '675', '676', '677', '678', '679', '680', '681', '682', '683', '684', '685', '686', '687', '688', '689', '690', '691', '692', '693', '694', '695', '696', '697', '698', '699', '700'],
+        ['651', '652', '653', '654', '655', '656', '657', '658', '659', '660', '661', '662', '663', '664', '665', '666', '667', '668', '669', '670', '671', '672', '673', '674', '675', '676', '677', '678', '679', '680', '681', '682', '683', '684', '685', '686', '687', '688', '689', '690', '691', '692', '695', '696', '697', '698', '699'],
         ['726', '727', '728', '729', '730', '731', '732', '733', '734', '735', '736', '737', '738'],
         ['801', '806']
 
@@ -313,7 +313,37 @@ document.querySelectorAll('#clinics .star-rating-comment, #pharmacies .star-rati
             }
             // حساب المتوسط
             const sum = ratingsArr.reduce((a, b) => a + b.rating, 0);
-            const avg = ratingsArr.length > 0 ? (sum / ratingsArr.length).toFixed(2) : "0.00";
+            const avg = ratingsArr.length > 0 ? (sum / ratingsArr.length).toFixed(1) : "0.0";
+
+// تظليل الكارت وإضافة أيقونة البلاك ليست
+const card = block; // البلوك يمثل الكارت الحالي
+card.style.backgroundColor = '';
+const existingIcon = card.querySelector('.blacklist-icon');
+if (existingIcon) existingIcon.remove();
+
+if (ratingsArr.length >= 1 && avg < 2) {
+    // تظليل ملفت للكارت
+    card.style.backgroundColor = '#ffcccc'; // أحمر فاتح للتنبيه
+    card.style.border = '2px solid #ff0000';
+    card.style.position = 'relative';
+
+    // أيقونة بلاك ليست
+    const blacklistIcon = document.createElement('span');
+    blacklistIcon.textContent = '🚫';
+    blacklistIcon.className = 'blacklist-icon';
+    blacklistIcon.style.position = 'absolute';
+    blacklistIcon.style.top = '10px';
+    blacklistIcon.style.right = '10px';
+    blacklistIcon.style.fontSize = '24px';
+    blacklistIcon.style.cursor = 'pointer';
+    blacklistIcon.title = 'الخدمة مصنفة سيئة من المستخدمين';
+
+    card.appendChild(blacklistIcon);
+} else {
+    // الكارت طبيعي بدون أي تمييز
+    card.style.backgroundColor = '';
+    card.style.border = '';
+}
             avgDiv.innerHTML = `
                 متوسط التقييم: <span style="color:#ffc107;">${avg}</span> / 5
                 <span style="font-size:18px;">
@@ -324,8 +354,8 @@ document.querySelectorAll('#clinics .star-rating-comment, #pharmacies .star-rati
             `;
         } else {
             avgDiv.innerHTML = `
-                متوسط التقييم: <span style="color:#ffc107;">0.00</span> / 5
-                <span style="font-size:18px;">
+                متوسط التقييم: <span style="color:#ffc107;">0.0</span> / 5
+                <span style="font-size:16px;">
                     <span style="color:#bbb;">★★★★★</span>
                 </span>
                 <span style="font-size:12px; color:#666; margin-right:5px;">(0 تقييم)</span>
@@ -456,9 +486,9 @@ document.querySelectorAll('#clinics .star-rating-comment, #pharmacies .star-rati
                 p.onmouseover = () => p.style.backgroundColor = '#f0f0f0';
                 p.onmouseout = () => p.style.backgroundColor = '#fff';
                 p.onclick = () => {
-                searchInput.value = match.text;
-                // استدعاء دالة البحث الكاملة مباشرة
-                performFullSearch(); 
+                    searchInput.value = match.text;
+                    // استدعاء دالة البحث الكاملة مباشرة
+                 performFullSearch(); 
             };
                 autocompleteResults.appendChild(p);
             });
@@ -578,11 +608,3 @@ document.querySelectorAll('#clinics .star-rating-comment, #pharmacies .star-rati
     });
 
 });
-
-
-
-
-
-
-
-
