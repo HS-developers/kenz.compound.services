@@ -37,6 +37,8 @@ p {
         transform: translateY(0);
     }
 }
+
+
 nav {
     background-color: #fff;
     padding: 8px 16px;
@@ -52,7 +54,7 @@ nav {
 /* جزء الأيقونة */
 .contact-section {
     flex: 0 0 10%;
-    background-color: #f2eded; /* خلفية حمراء */
+    background-color: #fff; /* خلفية حمراء */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,8 +92,8 @@ nav {
 /* النصوص المتحركة */
 .marquee {
     display: flex;
-    gap: 50px;
-    animation: moveText 15s linear infinite;
+    gap: 38px;
+    animation: moveText 38s linear infinite;
 }
 
 .marquee span {
@@ -104,10 +106,10 @@ nav {
 /* الأنيميشن */
 @keyframes moveText {
     from {
-        transform: translateX(-100%);
+        transform: translateX(-30%); /* يبدأ مختفي خارج أقصى اليسار */
     }
     to {
-        transform: translateX(100%);
+        transform: translateX(100%); /* يتحرك لحد أقصى اليمين */
     }
 }
 
@@ -121,6 +123,7 @@ nav {
         font-size: 20px;
     }
 }
+
 
 nav ul {
     list-style: none;
