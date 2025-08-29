@@ -37,25 +37,113 @@ p {
         transform: translateY(0);
     }
 }
-nav ul {
-    list-style-type: none;
-    padding: 0;
+nav {
+    background-color: #fff;
+    padding: 8px 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* جزء الأيقونة */
+.contact-section {
+    flex: 0 0 10%;
+    background-color: #f2eded; /* خلفية حمراء */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.contact-icon i {
+    font-size: 22px;
+    color: #720303;
+    transition: transform 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.contact-icon i:hover {
+    color: #0338d7;
+    transform: scale(1.2);
+}
+
+/* شريط المعلومات */
+.info-bar {
+    flex: 0 0 90%;
     overflow: hidden;
-    background-color: #333;
+    position: relative;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding-right: 10px;
 }
-nav ul li {
-    float: right;
+/* عند المرور بالماوس توقف الحركة */
+.info-bar:hover .marquee {
+    animation-play-state: paused;
 }
-nav ul li a {
-    display: block;
-    color: rgb(25, 23, 23);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    animation: pulse 1.5s infinite;
+
+/* النصوص المتحركة */
+.marquee {
+    display: flex;
+    gap: 50px;
+    animation: moveText 15s linear infinite;
 }
-nav ul li a:hover {
-    background-color: #021376;
+
+.marquee span {
+    white-space: nowrap;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* الأنيميشن */
+@keyframes moveText {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+/* تجاوب الشاشات */
+@media (max-width: 600px) {
+    .marquee span {
+        font-size: 14px;
+    }
+
+    .contact-icon i {
+        font-size: 20px;
+    }
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start; /* الأيقونة تروح أقصى اليمين */
+}
+nav ul li.contact-icon {
+    margin-right: 0;       /* نلغي أي فراغ يمين */
+    margin-left: auto;     /* نرمي الأيقونة أقصى اليمين */
+}
+nav ul li a i {
+    font-size: 22px;       
+    color: #0f03ee;        
+    transition: transform 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+/* عند المرور */
+nav ul li a i:hover {
+    color: #0056b3;
+    transform: scale(1.3) rotate(10deg);
 }
 @keyframes pulse {
     0% {
@@ -839,4 +927,107 @@ mark {
 #search-input {
   transition: none !important;
 }
+/* تظليل الكارت ضعيف التقييم */
+.service-card.low-rating {
+  background-color: rgba(255, 0, 0, 0.06);
+  border: 1px solid rgba(255, 0, 0, 0.25);
+  box-shadow: 0 2px 6px rgba(255, 0, 0, 0.15);
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
 
+/* عند تمرير الماوس على الكارت */
+.service-card.low-rating:hover {
+  background-color: rgba(255, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.25);
+}
+
+/* أيقونة البلاك ليست 🚫 */
+.service-card .blacklist-icon {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 22px;
+  color: #e60000;
+  font-weight: bold;
+  cursor: default;
+  user-select: none;
+  z-index: 5;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+/* أنيميشن لطيفة عند ظهور الأيقونة */
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.service-card .blacklist-icon {
+  animation: popIn 0.3s ease-out;
+}
+/* تصميم الـ Tooltip */
+.service-card .blacklist-icon {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 22px;
+  color: #e60000;
+  font-weight: bold;
+  cursor: default;
+  user-select: none;
+  z-index: 5;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2));
+  animation: popIn 0.3s ease-out;
+}
+
+/* استايل الـ Tooltip */
+.service-card .blacklist-icon::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #e60000;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  visibility: hidden;
+}
+
+/* المثلث الصغير تحت الـ Tooltip */
+.service-card .blacklist-icon::before {
+  content: "";
+  position: absolute;
+  bottom: 115%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #e60000 transparent transparent transparent;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* إظهار الـ Tooltip عند الوقوف بالماوس */
+.service-card .blacklist-icon:hover::after,
+.service-card .blacklist-icon:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
