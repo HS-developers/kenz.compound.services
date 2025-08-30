@@ -19,6 +19,7 @@
 
   gtag('config', 'G-FX6BSCQ8KQ');
 </script>
+
 <script>
     function toggleInfo(id) {
         var info = document.getElementById(id);
@@ -34,7 +35,7 @@
 <header>
 <h1>بوابة الكنزاوية KENZAWYA GATE</h1>
 <p>
-<span class="moving-text">جميع الخدمات الأساسية المتاحة للملاك حول الكمبوند</span>
+<span>جميع الخدمات الأساسية المتاحة للملاك حول الكمبوند</span>
 </p>
 </header>
 <div class="header-buttons">
@@ -64,12 +65,28 @@
 <button id="search-button">بحث</button>
 </div>
 </div>
+
 <nav>
-<ul>
-<li><a href="https://firstgroup-egypt.com/kenz-compound/" target="_blank">معلومات عن الكمبوند</a></li>
-<li><a href="mailto:compoundkenz@gmail.com">تواصل معنا</a></li>
-</ul>
+    <div class="nav-container">
+        <!-- جزء الأيقونة -->
+        <div class="contact-section">
+            <a href="mailto:info@kenz.com" class="contact-icon">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+
+        <!-- شريط المعلومات المتحرك -->
+        <div class="info-bar">
+          <div class="marquee">
+                <span>**الكمبوند يتبع 👮‍♂️ قسم شرطة ثالث 6 أكتوبر</span>
+                <span>**دلوقتي لو قيمت اي خدمة اتعاملت معاها تقييم سئ هتتحول فورا الي Black List 🚫</span>
+                <span>**لو عاوز موقع مكتب الصحة علي الخريطة او قسم الشرطة او اي موقع عام هتلاقيه داخل (خدمات عامة) 👇 </span>
+                <span>**علي فكرة الايقونات اللي فوق دي ☝️ فيها حاجات انت محتاجها هتعجبك.. جربها 😉 </span>
+            </div>
+        </div>
+    </div>
 </nav>
+
 <style>
     .info {
         display: none;
@@ -88,7 +105,7 @@
 </script>
 <section id="services">
 <canvas id="bubbleCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></canvas>
-<h2>المحتوى <span style="font-size: 11px; color: rgb(8, 8, 8);">   "تاريخ آخر تحديث : 29/8/2025"</span></h2>
+<h2>المحتوى <span style="font-size: 11px; color: rgb(8, 8, 8);">   "30/8/2025"</span></h2>
 <div class="content-container">
 <div class="images">
 <img alt="lake" class="image" src="lake.webp" loading="lazy" decoding="async" />
@@ -108,7 +125,7 @@
 <li><button onclick="toggleInfo('Milk')">ألبان ومخبوزات</button></li>
 <li><button onclick="toggleInfo('Grocery')">عطارة وتسالي</button></li>
 <li><button onclick="toggleInfo('bookstore')">مكتبات</button></li>
-<li><button onclick="toggleInfo('other_services')"> صنايعية ومتنوعات</button></li>
+<li><button onclick="toggleInfo('other_services')">صنايعية ومتنوعات</button></li>
 <li><button onclick="toggleInfo('General_services')">خدمات عامة</button></li>
 </ul>
 </div>
@@ -3579,6 +3596,7 @@
 <div class="all-comments"></div>
 </div>
 </li>
+
 <li>م. علي هارون - مهندس تشطيبات - ت: <a href="tel:01111455503">01111455503</a> 
 <div class="star-rating-comment" data-service-id="693">
 <div class="star-rating">
@@ -3621,6 +3639,12 @@
 <div class="all-comments"></div>
 </div>
 </li>
+
+
+
+
+
+
 <li>سحر رشاد - خدمة تنظيف منازل - ت: <a href="tel:01127501366">01127501366</a>
 <div class="old-likes-info" id="old-likes-664">
                 👍 <span class="like-count">0</span>
@@ -4225,7 +4249,3 @@
 <p>Copyright © 2024 GENIUS Tech All Rights Reserved</p>
 </footer>
 </html>
-
-
-
-
