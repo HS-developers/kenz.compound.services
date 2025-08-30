@@ -16,30 +16,6 @@ h1 {
     font-size: 28px;
     margin: 0 auto;
 }
-p {
-    animation: none;
-}
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 
 nav {
     background-color: #fff;
@@ -353,7 +329,7 @@ header h1 {
 }
 p {
     text-align: right;
-    margin: 20px;
+    margin: 10px;
 }
 .top-left {
     position: absolute;
@@ -682,15 +658,6 @@ main {
     border-radius: 5px;
     font-family: 'Cairo', sans-serif;
     min-width: 75px;
-}
-
-/* تنسيق الفقرة للحفاظ على الحركة داخل حدودها */
-header p {
-    position: relative;
-    overflow: hidden;
-    white-space: nowrap;
-    text-align: left;
-    height: 30px; /* تحديد ارتفاع مناسب للفقرة */
 }
 
 /* الأنماط الخاصة بالحركة */
