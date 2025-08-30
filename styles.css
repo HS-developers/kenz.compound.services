@@ -1,6 +1,6 @@
 body {
     font-family: 'Cairo', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #e1f2f3;
     margin: 0;
     padding: 0;
 }
@@ -8,14 +8,16 @@ header {
     background: linear-gradient(135deg, #fffffd, #fffffd);
     color: rgb(84, 3, 184);
     padding: 20px;
-    text-align: right;
+    text-align: center;
 }
 h1 {
     animation: fadeInDown 2s ease-in-out;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 28px;
+    margin: 0 auto;
 }
 p {
-    animation: fadeInUp 2s ease-in-out;
+    animation: none;
 }
 @keyframes fadeInDown {
     from {
@@ -93,7 +95,7 @@ nav {
 .marquee {
     display: flex;
     gap: 38px;
-    animation: moveText 38s linear infinite;
+    animation: moveText 35s linear infinite;
 }
 
 .marquee span {
@@ -106,7 +108,7 @@ nav {
 /* الأنيميشن */
 @keyframes moveText {
     from {
-        transform: translateX(-30%); /* يبدأ مختفي خارج أقصى اليسار */
+        transform: translateX(-100%); /* يبدأ مختفي خارج أقصى اليسار */
     }
     to {
         transform: translateX(100%); /* يتحرك لحد أقصى اليمين */
@@ -121,6 +123,7 @@ nav {
 
     .contact-icon i {
         font-size: 20px;
+        
     }
 }
 
@@ -715,22 +718,13 @@ header p {
 /* الأنماط الخاصة بالشاشات الكبيرة (الكمبيوتر) */
 @media (min-width: 768px) {
     header p {
-        /* هنا نلغي الحركة ونجعل النص في المنتصف */
         overflow: visible; /* نجعل المحتوى مرئياً */
-        text-align: center;
+        text-align: right; /* محاذاة النص لليمين */
         height: auto; /* نلغي الارتفاع المحدد */
+        font-size: 20px; /* حجم الخط المناسب للشاشات الكبيرة */
     }
 
-    .moving-text {
-        position: static; /* نلغي الوضع المطلق ليصبح النص عادياً */
-        left: auto; /* نلغي خاصية left */
-        animation: none; /* نلغي الحركة */
-        display: block;
-        margin: 0;
-        color: #004d40; /* لون الخط الجديد */
-        font-size: 24px; /* حجم الخط الجديد */
-        font-weight: bold; /* جعل الخط عريض */
-    }
+    
 }
 #bubbleCanvas {
     position: fixed;
@@ -1034,3 +1028,20 @@ mark {
   opacity: 1;
   visibility: visible;
 }
+
+/* حركة خاصة بالموبايل للإنفو بار */
+@media (max-width: 600px) {
+    .marquee {
+        animation: moveTextMobile 40s linear infinite;
+    }
+
+    @keyframes moveTextMobile {
+        from {
+            transform: translateX(-30%); /* يبدأ مختفي من أقصى اليسار */
+        }
+        to {
+            transform: translateX(100%);  /* يتحرك لحد أقصى اليمين */
+        }
+    }
+}
+
